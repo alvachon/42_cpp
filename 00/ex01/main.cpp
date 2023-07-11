@@ -6,11 +6,12 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/11 11:25:51 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/11 12:42:29 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Class.PhoneBook.h"
+#include <string>
 
 /*
 // namespaces
@@ -26,6 +27,12 @@
 * comparisons
 * non member attributes and non-member functions
 * pointers to members
+
+* Cpp container (intro) https://www.youtube.com/watch?v=6OoSgY6NVVk
+    * standard array (pseudo container)
+    & Container : No data.
+* string class https://www.youtube.com/watch?v=dSfjBoip4c0
+* IO Manipulators
 */
 
 int main(void)

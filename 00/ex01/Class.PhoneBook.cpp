@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:35 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/11 11:25:26 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/11 12:49:22 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ void    PhoneBook::verifyEntry(void) {
     while (1)
     {
         if (strcmp(this->add, this->cmd) == 0)
+        {
+            Contact new(1, "Alex", "Vachon", "Al", "555-5555", "yolo");
             return  ;
+        }
         else if (strcmp(this->search, this->cmd) == 0)
             return  ;
         else if (strcmp(this->exit, this->cmd) == 0)

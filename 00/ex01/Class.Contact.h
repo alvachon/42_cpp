@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Class.PhoneBook.h                                  :+:      :+:    :+:   */
+/*   Class.Contact.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/11 12:42:15 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/11 12:42:34 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLASS_PHONEBOOK_H
-# define CLASS_PHONEBOOK_H
+#ifndef CLASS_CONTACT_H
+# define CLASS_CONTACT_H
 
 #include <iostream>
 #include <string.h>
 
 //Always private by default.
-class PhoneBook {
+class Contact {
 
     public:
-        const char  *add;
-        const char  *search;
-        const char  *exit;
-        char        *cmd;
+        const int   index;
+        char        *firstName;
+        char        *lastName;
+        char        *nickname;
+        char        *phoneNumber;
+        char        *darkestSecret;
 
-        PhoneBook(const char *cmd1, const char *cmd2, const char *cmd3);
-        ~PhoneBook(void);
-
-        void    enterProgram(void);
-        void    verifyEntry();
+        Contact(const int i, char *e1, char *e2, char *e3, char *e4, char *e5);
+        ~Contact(void);
 };
 
-#endif/* ************************************************** CLASS_PHONEBOOK_H */
+#endif/* ************************************************** CLASS_CONTACT_H */
