@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/10 14:57:04 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/11 11:14:31 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,22 @@
 # define CLASS_PHONEBOOK_H
 
 #include <iostream>
+#include <string.h>
 
 //Always private by default.
 class PhoneBook {
 
     public:
-        PhoneBook(void);
+        const char  *add;
+        const char  *search;
+        const char  *exit;
+        char        *cmd;
+
+        PhoneBook(const char *cmd1, const char *cmd2, const char *cmd3);
         ~PhoneBook(void);
 
-        std::string cmd;
-
         void    enterProgram(void);
-        void    verifyEntry(std::string input);
-    
+        void    verifyEntry();   
 };
 
 #endif/* ************************************************** CLASS_PHONEBOOK_H */
