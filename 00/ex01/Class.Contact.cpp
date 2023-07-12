@@ -6,13 +6,12 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:35 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/12 13:40:17 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/12 14:41:42 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Class.Contact.h"
 
-//Constructeur par defaut
 Contact::Contact(void)  {
 
     std::string clear = "CLEAR";
@@ -23,9 +22,7 @@ Contact::Contact(void)  {
     this->nickname = clear;
     this->phoneNumber = clear;
     this->darkestSecret = clear;
-    this->errEof = EOF;
 }
-
 
 Contact::~Contact(void) {
     std::cout << "Object Destructor \tCONTACT\n";
@@ -59,7 +56,10 @@ void    Contact::addInfo(std::string message) {
         else if ((message.compare("Darkest Secret") == 0))
             this->darkestSecret = keyWord;            
         if (!keyWord.empty())
+        {
+            std::cout << keyWord << " added as " << message << ".\n\n";
             break ;
+        }
         std::cout << "Wrong input." << "\n\n";
      }
 }
@@ -84,7 +84,7 @@ void    Contact::addContact(int index) {
                 return ;
             else
             {
-                std::cout << "Wrong input in add contact" << "\n\n";
+                std::cout << "Wrong input. Please write y or n." << "\n\n";
                 continue ;
             }
         }
@@ -95,13 +95,24 @@ void    Contact::addContact(int index) {
         std::cout << "at Index : " << this->index << "\n\n";
     }
     addInfo("First Name");
-    std::cout << this->firstName << " added as First Name.\n\n";
     addInfo("Last Name");
-    std::cout << this->lastName << " added as Last Name.\n\n";
     addInfo("Nickname");  
-    std::cout << this->nickname << " added as Nickame.\n\n";
     addInfo("Phone Number"); 
-    std::cout << this->phoneNumber << " added as Phone Number.\n\n";
     addInfo("Darkest Secret"); 
-    std::cout << this->darkestSecret << " added as Darknest Secret.\n\n";
+}
+
+void    Contact::printContact(void)
+{
+    std::cout << "\n+ - +";//index
+    std::cout << " - - - - - ";//firstName
+    std::cout << "+ - - - - +";//lastName
+    std::cout << " - - - - - ";//nickname
+    std::cout << "+ - - - - +";//phone
+    std::cout << " - - - - - +";//darkest
+
+    std::cout << "\n+ " << this->index << " |";//index
+    std::cout << " " << this->firstName << "\t|";//first name
+    std::cout << " " << this->lastName << "\t|";//last name
+    std::cout << " " << this->nickname << "\t|";//nickname
+    std::cout << " " << this->phoneNumber << "\t|";//nickname
 }

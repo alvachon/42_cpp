@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:35 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/12 13:42:09 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/12 14:43:28 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,28 @@ PhoneBook::~PhoneBook(void) {
     return ;
 }
 
+void    PhoneBook::listContact(void)    {
+
+    int i = 0;
+    std::cout << "+ - +";//index
+    std::cout << " - - - - - ";//firstName
+    std::cout << "+ - - - - +";//lastName
+    std::cout << " - - - - - ";//nickname
+    std::cout << "+ - - - - +";//lastName
+    std::cout << " - - - - - +";//darkest
+
+    std::cout << "\n| " << "n" << " |";//index
+    std::cout << " " <<  "firstname" << "\t|";//first name
+    std::cout << " " <<  "firstname" << "\t|";//first namee
+    std::cout << " " <<  "firstname" << "\t|";//first name
+    std::cout << " " <<  "firstname" << "\t|";//first name
+    while (i != 8)
+    {
+        PhoneBook::contact[i].printContact();
+        i++;
+    }
+}
+
 void    PhoneBook::verifyEntry(void) {
 
     int i = 0;
@@ -46,15 +68,15 @@ void    PhoneBook::verifyEntry(void) {
         }
         else if (this->cmd.compare(this->search) == 0)
         {
-            //list_contact (ls)
+            PhoneBook::listContact();
             //select_contact()
-            return  ;
         }
         else if (this->cmd.compare(this->exitCmd) == 0)
             return  ;
         else
             std::cout << "Wrong input." << "\n\n";
         std::cout << "\nEnter Program: " << '\n';
-         std::getline(std::cin, this->cmd);
+        std::getline(std::cin, this->cmd);
     }
 }
+
