@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/11 12:42:29 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/12 10:02:03 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <string>
 
 /*
+Comment on fait pour aller chercher le bon Contact ?
 // namespaces
 // stdio streams
 // class and instance
@@ -37,13 +38,14 @@
 
 int main(void)
 {
-    char        *input;
-    PhoneBook   user("ADD", "SEARCH", "EXIT");
+    std::string input;
+    PhoneBook   user;
 
+    user.add = "ADD";
+    user.search = "SEARCH";
+    user.exitCmd = "EXIT";
     std::cout << "|MAIN\n";
     std::cout << "|--------------------------------\n";
-    std::cout << "|(member attributes, stdio streams)" \
-     << "\n\n";
     std::cout << "Enter Program: " << '\n';
     std::cin >> input;
     user.cmd = input;

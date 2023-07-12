@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/11 12:42:15 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/12 10:02:30 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,22 @@
 
 #include <iostream>
 #include <string.h>
+#include "Class.Contact.h"
 
 //Always private by default.
 class PhoneBook {
 
     public:
-        const char  *add;
-        const char  *search;
-        const char  *exit;
-        char        *cmd;
+        std::string cmd;
+        std::string add;
+        std::string search;
+        std::string exitCmd;
+        Contact     contact[8];
 
-        PhoneBook(const char *cmd1, const char *cmd2, const char *cmd3);
+        PhoneBook(void);
         ~PhoneBook(void);
 
-        void    enterProgram(void);
+        void    setBasic();
         void    verifyEntry();
 };
 

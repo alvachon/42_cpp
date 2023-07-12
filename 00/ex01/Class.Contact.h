@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/11 12:42:34 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/12 09:51:25 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,17 @@
 class Contact {
 
     public:
-        const int   index;
-        char        *firstName;
-        char        *lastName;
-        char        *nickname;
-        char        *phoneNumber;
-        char        *darkestSecret;
+        int         index;
+        std::string firstName;
+        std::string lastName;
+        std::string nickname;
+        std::string phoneNumber;
+        std::string darkestSecret;
 
-        Contact(const int i, char *e1, char *e2, char *e3, char *e4, char *e5);
+        Contact(void);
         ~Contact(void);
+
+        void    addContact(int index);
 };
 
 #endif/* ************************************************** CLASS_CONTACT_H */
