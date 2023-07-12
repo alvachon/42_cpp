@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/12 10:02:03 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/12 12:06:19 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ Comment on fait pour aller chercher le bon Contact ?
 
 int main(void)
 {
-    std::string input;
     PhoneBook   user;
 
     user.add = "ADD";
@@ -47,8 +46,7 @@ int main(void)
     std::cout << "|MAIN\n";
     std::cout << "|--------------------------------\n";
     std::cout << "Enter Program: " << '\n';
-    std::cin >> input;
-    user.cmd = input;
+    std::getline(std::cin, user.cmd);
     std::cout << "\n\n";
     user.verifyEntry();
     std::cout << "\nGood entry " << '\n';

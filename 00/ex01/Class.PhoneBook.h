@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/12 10:02:30 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/12 12:06:18 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class PhoneBook {
 
         void    setBasic();
         void    verifyEntry();
+    
 };
 
 #endif/* ************************************************** CLASS_PHONEBOOK_H */

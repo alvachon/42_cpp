@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/12 09:51:25 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/12 12:53:59 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Contact {
 
     public:
         int         index;
+        std::string errEof;
         std::string firstName;
         std::string lastName;
         std::string nickname;
@@ -31,6 +32,7 @@ class Contact {
         ~Contact(void);
 
         void    addContact(int index);
+        void    addInfo(std::string message);
 };
 
 #endif/* ************************************************** CLASS_CONTACT_H */

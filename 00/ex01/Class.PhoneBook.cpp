@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:35 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/12 10:06:21 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/12 12:27:32 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ PhoneBook::~PhoneBook(void) {
 
 void    PhoneBook::verifyEntry(void) {
 
+    int i = 0;
     std::cout << "|Member function (2) \tPHONEBOOK\n";
     std::cout << "|--------------------------------\n";
     
@@ -38,8 +39,10 @@ void    PhoneBook::verifyEntry(void) {
     {
         if (this->cmd.compare(this->add) == 0)
         {
-            PhoneBook::contact[0].addContact(0);
-            return  ;
+            if (i == 8)
+                i = 0;
+            PhoneBook::contact[i].addContact(i + 1);
+            i++;
         }
         else if (this->cmd.compare(this->search) == 0)
         {
@@ -50,10 +53,8 @@ void    PhoneBook::verifyEntry(void) {
         else if (this->cmd.compare(this->exitCmd) == 0)
             return  ;
         else
-        {
             std::cout << "Wrong input." << "\n\n";
-            std::cout << "Enter Program: " << '\n';
-            std::cin >> this->cmd;
-        }
+        std::cout << "\nEnter Program: " << '\n';
+         std::getline(std::cin, this->cmd);
     }
 }
