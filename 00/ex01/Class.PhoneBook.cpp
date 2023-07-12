@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:35 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/12 14:43:28 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/12 15:40:01 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,28 @@ void    PhoneBook::listContact(void)    {
     int i = 0;
     std::cout << "+ - +";//index
     std::cout << " - - - - - ";//firstName
-    std::cout << "+ - - - - +";//lastName
-    std::cout << " - - - - - ";//nickname
-    std::cout << "+ - - - - +";//lastName
-    std::cout << " - - - - - +";//darkest
+    std::cout << "+ - - - - - - - +";//lastName
+    std::cout << " - - - - - - - ";//nickname
+    std::cout << "+ - - - - - - - +";//phone
+    std::cout << " - - - - - - - +";//darkest
 
-    std::cout << "\n| " << "n" << " |";//index
-    std::cout << " " <<  "firstname" << "\t|";//first name
-    std::cout << " " <<  "firstname" << "\t|";//first namee
-    std::cout << " " <<  "firstname" << "\t|";//first name
-    std::cout << " " <<  "firstname" << "\t|";//first name
+    std::cout << "\n| " << "n" << " |";
+    std::cout << " firstname" << "\t|";
+    std::cout << " lastname" << "\t|";
+    std::cout << " nickname" << "\t|";
+    std::cout << " phonenumber" << "\t|";
+    std::cout << " dark secret" << "\t|";
     while (i != 8)
     {
         PhoneBook::contact[i].printContact();
         i++;
     }
+    std::cout << "\n+ - +";//index
+    std::cout << " - - - - - ";//firstName
+    std::cout << "+ - - - - - - - +";//lastName
+    std::cout << " - - - - - - - +";//nickname
+    std::cout << " - - - - - - - +";//phone
+    std::cout << " - - - - - - - +";//darkest
 }
 
 void    PhoneBook::verifyEntry(void) {

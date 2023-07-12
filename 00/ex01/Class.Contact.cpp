@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:35 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/12 14:41:42 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/12 15:40:54 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,14 +105,16 @@ void    Contact::printContact(void)
 {
     std::cout << "\n+ - +";//index
     std::cout << " - - - - - ";//firstName
-    std::cout << "+ - - - - +";//lastName
-    std::cout << " - - - - - ";//nickname
-    std::cout << "+ - - - - +";//phone
-    std::cout << " - - - - - +";//darkest
+    std::cout << "+ - - - - - - - +";//lastName
+    std::cout << " - - - - - - - +";//nickname
+    std::cout << " - - - - - - - +";//phone
+    std::cout << " - - - - - - - +";//darkest
 
-    std::cout << "\n+ " << this->index << " |";//index
+    std::cout << "\n| " << this->index << " |";//index
     std::cout << " " << this->firstName << "\t|";//first name
     std::cout << " " << this->lastName << "\t|";//last name
     std::cout << " " << this->nickname << "\t|";//nickname
-    std::cout << " " << this->phoneNumber << "\t|";//nickname
+    std::cout << " " << this->phoneNumber << "\t|";
+    std::cout << " " << this->darkestSecret << "\t|";
+
 }
