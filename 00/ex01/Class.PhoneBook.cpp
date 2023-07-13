@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:35 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/13 11:43:15 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/13 13:12:22 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,26 @@ void    PhoneBook::listContact(void)    {
 
 void    PhoneBook::selectContact(void)    {
 
-    std::cout << "\nEnter Program: " << '\n';
+    std::string keyWord;
+    int i;
+
+    std::cout << "\nEnter Contact Member: " << '\n';
+    std::getline(std::cin, keyWord);
+    while (1)
+    {
+        if (keyWord.find_first_not_of("12345678") != 0 && keyWord.size() == 1)
+        {
+            i = std::stoi(keyWord, nullptr, 10) - 1;
+            PhoneBook::contact[i].printContact(contact[i].firstName, contact[i].lastName, contact[i].nickname);
+            return ;
+        }
+        else
+        {
+            std::cout << "Wrong input." << "\n\n";
+            std::cout << "\nEnter Contact Member: " << '\n';
+            std::getline(std::cin, keyWord);
+        }
+    }
 }
 
 void    PhoneBook::verifyEntry(void) {
