@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:35 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/12 15:40:01 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/13 09:44:57 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void    PhoneBook::listContact(void)    {
     std::cout << " nickname" << "\t|";
     std::cout << " phonenumber" << "\t|";
     std::cout << " dark secret" << "\t|";
+    
     while (i != 8)
     {
         PhoneBook::contact[i].printContact();

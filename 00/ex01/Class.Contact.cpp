@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:35 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/12 15:40:54 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/13 09:44:30 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,18 @@ void    Contact::addContact(int index) {
 
 void    Contact::printContact(void)
 {
+    std::string firstname = this->firstName;
+    std::string lastname = this->lastName;
+    std::string nickname = this->nickname;
+    std::string phone = this->phoneNumber;
+    std::string dark = this->darkestSecret;
+
+    firstname.resize(10, ' ');
+    lastname.resize(10, ' ');
+    nickname.resize(10, ' ');
+    phone.resize(10, ' ');
+    dark.resize(10, ' ');
+
     std::cout << "\n+ - +";//index
     std::cout << " - - - - - ";//firstName
     std::cout << "+ - - - - - - - +";//lastName
@@ -110,11 +122,11 @@ void    Contact::printContact(void)
     std::cout << " - - - - - - - +";//phone
     std::cout << " - - - - - - - +";//darkest
 
-    std::cout << "\n| " << this->index << " |";//index
-    std::cout << " " << this->firstName << "\t|";//first name
-    std::cout << " " << this->lastName << "\t|";//last name
-    std::cout << " " << this->nickname << "\t|";//nickname
-    std::cout << " " << this->phoneNumber << "\t|";
-    std::cout << " " << this->darkestSecret << "\t|";
+    std::cout << "\n| " << this->index << " |";
+    std::cout << " " << firstname << "|";
+    std::cout << " " << lastname << "\t|";
+    std::cout << " " << nickname << "\t|";
+    std::cout << " " << phone << "\t|";
+    std::cout << " " << dark << "\t|";
 
 }

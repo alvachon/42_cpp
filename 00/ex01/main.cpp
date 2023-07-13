@@ -15,6 +15,7 @@
 
 /*
 Comment on fait pour aller chercher le bon Contact ?
+* Cl
 // namespaces
 // stdio streams
 // class and instance
