@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:35 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/13 11:49:05 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/13 15:11:32 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Contact::Contact(void)  {
 
     std::string clear = "CLEAR";
-    std::cout << "|Object Constructor \tCONTACT\n";
+    // std::cout << "|Object Constructor \tCONTACT\n";
     this->index = 0;
     this->firstName = clear;
     this->lastName = clear;
@@ -25,17 +25,22 @@ Contact::Contact(void)  {
 }
 
 Contact::~Contact(void) {
-    std::cout << "Object Destructor \tCONTACT\n";
+ //   std::cout << "Object Destructor \tCONTACT\n";
     return ;
 }
 
 void    Contact::addInfo(std::string message) {
 
     std::string keyWord;
-    while (1)
+
+    while (!std::cin.eof())
     {
-        std::cout << "Enter " << message << ":\n\n";
+        std::cout << "+ ----------------------------------- +\n";
+        std::cout << "|Enter " << message << ":\n\n";
         std::getline(std::cin, keyWord);
+        if (std::cin.eof())
+            return ;
+        std::cout << "+ ----------------------------------- +\n";
         if ((message.compare("First Name") == 0))
             this->firstName = keyWord;
         else if ((message.compare("Last Name") == 0))
@@ -57,7 +62,7 @@ void    Contact::addInfo(std::string message) {
             this->darkestSecret = keyWord;            
         if (!keyWord.empty())
         {
-            std::cout << keyWord << " added as " << message << ".\n\n";
+            std::cout << "-> " << keyWord << " added as " << message << ".\n\n";
             break ;
         }
         std::cout << "Wrong input." << "\n\n";
@@ -73,6 +78,8 @@ void    Contact::addContact(int index) {
         std::cout << "Index " << this->index << " is already in use.\n";
         std::cout << "Clear it aniway ? y/n \n\n";
         std::getline(std::cin, answer);
+        if (std::cin.eof())
+            return ;
         while (1)
         {
             if ((answer.compare("y") == 0))
@@ -92,7 +99,7 @@ void    Contact::addContact(int index) {
     else
     {
         this->index = index;
-        std::cout << "at Index : " << this->index << "\n\n";
+        std::cout << "|AT INDEX " << this->index << "\n";
     }
     addInfo("First Name");
     addInfo("Last Name");
@@ -121,15 +128,16 @@ void    Contact::printContact(std::string f, std::string l, std::string n)  {
 
     std::string index = std::to_string(this->index);
 
-    std::cout << "\n+ -------- +";//index
-    std::cout << " --------- +";//firstName
-    std::cout << " --------- +";//lastName
-    std::cout << " --------- +";//nickname
+    std::cout << "\n+ -------- +";
+    std::cout << " --------- +";
+    std::cout << " --------- +";
+    std::cout << " --------- +";
 
     std::cout << "\n|";
     std::cout.width(9); std::cout << std::right << index << " |";
     printer(f);
     printer(l);
     printer(n);
+   // std::cout << "\n|";
 
 }

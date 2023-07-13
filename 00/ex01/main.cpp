@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/12 12:06:19 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/13 13:28:59 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,10 @@ int main(void)
     user.add = "ADD";
     user.search = "SEARCH";
     user.exitCmd = "EXIT";
-    std::cout << "|MAIN\n";
-    std::cout << "|--------------------------------\n";
-    std::cout << "Enter Program: " << '\n';
-    std::getline(std::cin, user.cmd);
-    std::cout << "\n\n";
+
+    std::cout << "+ ----------------------------------- +\n";
+    std::cout << "|   WELCOME TO REPERTORY PHONEBOOK !  |\n";
+    std::cout << "+ ----------------------------------- +\n";
     user.verifyEntry();
     std::cout << "\nGood entry " << '\n';
     std::cout << '\n';

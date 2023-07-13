@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/13 10:31:04 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/13 15:08:10 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class PhoneBook {
         ~PhoneBook(void);
 
         void    verifyEntry();
+        void    headerContact();
         void    listContact();
         void    selectContact();
     

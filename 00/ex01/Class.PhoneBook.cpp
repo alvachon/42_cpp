@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:35 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/13 13:12:22 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/13 15:16:48 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,7 @@ PhoneBook::~PhoneBook(void) {
     return ;
 }
 
-void    PhoneBook::listContact(void)    {
-
-    int i = 0;
+void    PhoneBook::headerContact(void)  {
 
     std::string tIndex = "INDEX";
     std::string tFirst = "FIRST NAME";
@@ -47,7 +45,14 @@ void    PhoneBook::listContact(void)    {
     std::cout.width(9); std::cout << std::right << tFirst << " |";
     std::cout.width(9); std::cout << std::right << tLast << " |";
     std::cout.width(9); std::cout << std::right << tNick << " |";
-    
+
+}
+
+void    PhoneBook::listContact(void)    {
+
+    int i = 0;
+
+    PhoneBook::headerContact();
     while (i != 8)
     {
         PhoneBook::contact[i].printContact(contact[i].firstName, contact[i].lastName, contact[i].nickname);
@@ -64,21 +69,24 @@ void    PhoneBook::selectContact(void)    {
     std::string keyWord;
     int i;
 
-    std::cout << "\nEnter Contact Member: " << '\n';
+    std::cout << "\n|Enter Contact Member: " << '\n';
     std::getline(std::cin, keyWord);
+    if (std::cin.eof())
+        return ;
     while (1)
     {
         if (keyWord.find_first_not_of("12345678") != 0 && keyWord.size() == 1)
         {
             i = std::stoi(keyWord, nullptr, 10) - 1;
+            PhoneBook::headerContact();
             PhoneBook::contact[i].printContact(contact[i].firstName, contact[i].lastName, contact[i].nickname);
+            std::cout << "\n+ -------- + --------- + --------- + --------- +\n\n";
             return ;
         }
         else
         {
             std::cout << "Wrong input." << "\n\n";
-            std::cout << "\nEnter Contact Member: " << '\n';
-            std::getline(std::cin, keyWord);
+            return ;
         }
     }
 }
@@ -86,11 +94,15 @@ void    PhoneBook::selectContact(void)    {
 void    PhoneBook::verifyEntry(void) {
 
     int i = 0;
-    std::cout << "|Member function (2) \tPHONEBOOK\n";
-    std::cout << "|--------------------------------\n";
-    
+
     while (1)
     {
+        std::cout << "+ ------------- + --- + ------ + ---- +\n";
+        std::cout << "|ENTER COMMAND:  [ADD] [SEARCH] [EXIT]|\n";
+        std::cout << "+ ------------- + --- + ------ + ---- +\n";
+        std::getline(std::cin, this->cmd);
+        if (std::cin.eof())
+            return ;
         if (this->cmd.compare(this->add) == 0)
         {
             if (i == 8)
@@ -104,11 +116,13 @@ void    PhoneBook::verifyEntry(void) {
             PhoneBook::selectContact();
         }
         else if (this->cmd.compare(this->exitCmd) == 0)
-            return  ;
+           return  ;
         else
-            std::cout << "Wrong input." << "\n\n";
-        std::cout << "\nEnter Program: " << '\n';
-        std::getline(std::cin, this->cmd);
+        {
+           std::cout << "+ ----------- +\n";
+           std::cout << "|WRONG INPUT. |\n";
+           std::cout << "+ ----------- +\n";
+        }
     }
 }
 
