@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:35 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/13 09:44:30 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/13 11:49:05 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,32 +101,35 @@ void    Contact::addContact(int index) {
     addInfo("Darkest Secret"); 
 }
 
-void    Contact::printContact(void)
-{
-    std::string firstname = this->firstName;
-    std::string lastname = this->lastName;
-    std::string nickname = this->nickname;
-    std::string phone = this->phoneNumber;
-    std::string dark = this->darkestSecret;
+void    Contact::printer(std::string print) {
 
-    firstname.resize(10, ' ');
-    lastname.resize(10, ' ');
-    nickname.resize(10, ' ');
-    phone.resize(10, ' ');
-    dark.resize(10, ' ');
+    int pSize = print.size();
+    if (pSize < 10)
+    {
+        std::cout.width(10); std::cout << std::right << print << " |";
+        return ;
+    }
+    if (pSize > 10)
+    {
+        print.resize(10);
+        std::cout << print << " |";
+        return ;
+    }
+}
 
-    std::cout << "\n+ - +";//index
-    std::cout << " - - - - - ";//firstName
-    std::cout << "+ - - - - - - - +";//lastName
-    std::cout << " - - - - - - - +";//nickname
-    std::cout << " - - - - - - - +";//phone
-    std::cout << " - - - - - - - +";//darkest
+void    Contact::printContact(std::string f, std::string l, std::string n)  {
 
-    std::cout << "\n| " << this->index << " |";
-    std::cout << " " << firstname << "|";
-    std::cout << " " << lastname << "\t|";
-    std::cout << " " << nickname << "\t|";
-    std::cout << " " << phone << "\t|";
-    std::cout << " " << dark << "\t|";
+    std::string index = std::to_string(this->index);
+
+    std::cout << "\n+ -------- +";//index
+    std::cout << " --------- +";//firstName
+    std::cout << " --------- +";//lastName
+    std::cout << " --------- +";//nickname
+
+    std::cout << "\n|";
+    std::cout.width(9); std::cout << std::right << index << " |";
+    printer(f);
+    printer(l);
+    printer(n);
 
 }

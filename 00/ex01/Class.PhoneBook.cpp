@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:35 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/13 09:44:57 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/13 11:43:15 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,31 +32,36 @@ PhoneBook::~PhoneBook(void) {
 void    PhoneBook::listContact(void)    {
 
     int i = 0;
-    std::cout << "+ - +";//index
-    std::cout << " - - - - - ";//firstName
-    std::cout << "+ - - - - - - - +";//lastName
-    std::cout << " - - - - - - - ";//nickname
-    std::cout << "+ - - - - - - - +";//phone
-    std::cout << " - - - - - - - +";//darkest
 
-    std::cout << "\n| " << "n" << " |";
-    std::cout << " firstname" << "\t|";
-    std::cout << " lastname" << "\t|";
-    std::cout << " nickname" << "\t|";
-    std::cout << " phonenumber" << "\t|";
-    std::cout << " dark secret" << "\t|";
+    std::string tIndex = "INDEX";
+    std::string tFirst = "FIRST NAME";
+    std::string tLast = " LAST NAME";
+    std::string tNick = "  NICKNAME";
+
+    std::cout << "+ -------- +";//index
+    std::cout << " --------- +";//firstName
+    std::cout << "---------- +";//lastName
+    std::cout << " --------- +\n|";//nickname
+
+    std::cout.width(9); std::cout << std::right << tIndex << " |";
+    std::cout.width(9); std::cout << std::right << tFirst << " |";
+    std::cout.width(9); std::cout << std::right << tLast << " |";
+    std::cout.width(9); std::cout << std::right << tNick << " |";
     
     while (i != 8)
     {
-        PhoneBook::contact[i].printContact();
+        PhoneBook::contact[i].printContact(contact[i].firstName, contact[i].lastName, contact[i].nickname);
         i++;
     }
-    std::cout << "\n+ - +";//index
-    std::cout << " - - - - - ";//firstName
-    std::cout << "+ - - - - - - - +";//lastName
-    std::cout << " - - - - - - - +";//nickname
-    std::cout << " - - - - - - - +";//phone
-    std::cout << " - - - - - - - +";//darkest
+    std::cout << "\n+ -------- +";//index
+    std::cout << " --------- +";//firstName
+    std::cout << " ---------- +";//lastName
+    std::cout << " -------- +";//nickname
+}
+
+void    PhoneBook::selectContact(void)    {
+
+    std::cout << "\nEnter Program: " << '\n';
 }
 
 void    PhoneBook::verifyEntry(void) {
@@ -77,7 +82,7 @@ void    PhoneBook::verifyEntry(void) {
         else if (this->cmd.compare(this->search) == 0)
         {
             PhoneBook::listContact();
-            //select_contact()
+            PhoneBook::selectContact();
         }
         else if (this->cmd.compare(this->exitCmd) == 0)
             return  ;

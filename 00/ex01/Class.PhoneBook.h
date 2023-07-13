@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/12 13:54:50 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/13 10:31:04 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string.h>
+#include <iomanip>
 #include "Class.Contact.h"
 
 //Always private by default.
@@ -32,6 +33,7 @@ class PhoneBook {
 
         void    verifyEntry();
         void    listContact();
+        void    selectContact();
     
 };
 

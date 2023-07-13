@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/12 14:39:14 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/13 11:16:11 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string.h>
+#include <iomanip>
 
 //Always private by default.
 class Contact {
@@ -32,7 +33,8 @@ class Contact {
 
         void    addContact(int index);
         void    addInfo(std::string message);
-        void    printContact(void);
+        void    printContact(std::string f, std::string l, std::string n);
+        void    printer(std::string print);
 };
 
 #endif/* ************************************************** CLASS_CONTACT_H */
