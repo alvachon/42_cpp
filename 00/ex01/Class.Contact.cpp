@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:35 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/17 10:21:06 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/17 15:09:20 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void    Contact::addInfo(std::string message) {
     while (!std::cin.eof())
     {
         std::cout << "+ ----------------------------------- +\n";
-        std::cout << "|Enter " << message << ":\n\n";
+        std::cout << "| Enter " << message << ":\n\n";
         std::getline(std::cin, keyWord);
         if (std::cin.eof())
             return ;
@@ -62,7 +62,7 @@ void    Contact::addInfo(std::string message) {
             this->darkestSecret = keyWord;            
         if (!keyWord.empty())
         {
-            std::cout << "-> " << keyWord << " added as " << message << ".\n\n";
+            std::cout << "\n-> " << keyWord << " added as " << message << ".\n\n";
             break ;
         }
         std::cout << "Wrong input." << "\n\n";
@@ -99,8 +99,11 @@ void    Contact::addContact(int index) {
     else
     {
         this->index = index;
-        std::cout << "|AT INDEX " << this->index << "\n";
+        std::cout << "\n| AT INDEX " << this->index << "\n\n";
     }
+    std::cout << "+ ----------------------------------- +\n";
+    std::cout << "|   WARNING : Maximum 26 characters   | \n";
+    std::cout << "+ ----------------------------------- +\n";
     addInfo("First Name");
     addInfo("Last Name");
     addInfo("Nickname");  
@@ -108,26 +111,48 @@ void    Contact::addContact(int index) {
     addInfo("Darkest Secret"); 
 }
 
-void    Contact::printer(std::string print) {
+void    Contact::printer(std::string print, int limit) {
 
     int pSize = print.size();
-    if (pSize < 10)
+    if (pSize < limit)
     {
-        std::cout.width(10); std::cout << std::right << print << " |";
+        std::cout.width(limit); std::cout << std::right << print << " |";
         return ;
     }
-    if (pSize > 10)
+    if (pSize > limit)
     {
-        print.resize(9);
+        print.resize(limit - 1);
         std::cout << print << ". |";
         return ;
     }
 }
 
-//void    Contact::printContact(std::string f, std::string l, std::string n)  {
 void    Contact::infoContact()    {
 
-    std::cout << std::right << " INDEX " << " | " << this->index << " |\n";
+    std::cout << "\n+ --------------- + -------------------------- +\n";
+    std::cout << "|           INDEX | ";
+    std::cout.width(26); std::cout << std::right << index << " |\n";
+    std::cout << "+ --------------- + -------------------------- +\n";
+    std::cout << "|      FIRST NAME | ";
+    Contact::printer(this->firstName, 26);
+    std::cout << "\n";
+    std::cout << "+ --------------- + -------------------------- +\n";
+    std::cout << "|       LAST NAME | ";
+    Contact::printer(this->lastName, 26);
+    std::cout << "\n";
+    std::cout << "+ --------------- + -------------------------- +\n";
+    std::cout << "|        NICKNAME | ";
+    Contact::printer(this->nickname, 26);
+    std::cout << "\n";
+    std::cout << "+ --------------- + -------------------------- +\n";
+    std::cout << "|    PHONE NUMBER | ";
+    Contact::printer(this->phoneNumber, 26);
+    std::cout << "\n";   
+    std::cout << "+ --------------- + --------------------------- \n";
+    std::cout << "|  DARKEST SECRET | ";
+    Contact::printer(this->darkestSecret, 26);
+    std::cout << "\n";   
+    std::cout << "+ --------------- + -------------------------- +\n";
 }
 
 void    Contact::printContact(std::string f, std::string l, std::string n)  {
@@ -137,11 +162,22 @@ void    Contact::printContact(std::string f, std::string l, std::string n)  {
     std::cout << "\n+ -------- +";
     std::cout << " --------- +";
     std::cout << " --------- +";
-    std::cout << " --------- +";
+    std::cout << " --------- +\n|";
 
-    std::cout << "\n|";
     std::cout.width(9); std::cout << std::right << index << " |";
-    printer(f);
-    printer(l);
-    printer(n);
+    printer(f, 10);
+    printer(l, 10);
+    printer(n, 10);
+}
+
+const std::string   Contact::getFirstName(void) {
+    return (this->firstName);
+}
+
+const std::string   Contact::getLastName(void) {
+    return (this->lastName);
+}
+
+const std::string   Contact::getNickname(void) {
+    return (this->nickname);
 }

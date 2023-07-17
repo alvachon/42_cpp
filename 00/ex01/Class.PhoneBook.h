@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/17 10:18:27 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/17 14:47:44 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,21 @@
 class PhoneBook {
 
     public:
-        std::string cmd;
-        std::string add;
-        std::string search;
-        std::string exitCmd;
-        Contact     contact[8];
-
         PhoneBook(void);
         ~PhoneBook(void);
 
         void    verifyEntry();
-        void    headerContact();
         void    listContact();
+        void    headerContact();
         void    selectContact();
     
+    private:
+        Contact     contact[8];
+        std::string add;
+        std::string search;
+        std::string exitCmd;
+
+        std::string cmd;
 };
 
 #endif/* ************************************************** CLASS_PHONEBOOK_H */
