@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/13 14:13:35 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/17 10:20:22 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class Contact {
 
         void    addContact(int index);
         void    addInfo(std::string message);
+        void    infoContact();
         void    printContact(std::string f, std::string l, std::string n);
         void    printer(std::string print);
 };

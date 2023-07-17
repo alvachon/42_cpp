@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:35 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/13 15:16:48 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/17 10:20:13 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void    PhoneBook::headerContact(void)  {
 
     std::cout << "+ -------- +";//index
     std::cout << " --------- +";//firstName
-    std::cout << "---------- +";//lastName
+    std::cout << " --------- +";//lastName
     std::cout << " --------- +\n|";//nickname
 
     std::cout.width(9); std::cout << std::right << tIndex << " |";
@@ -59,10 +59,12 @@ void    PhoneBook::listContact(void)    {
         i++;
     }
     std::cout << "\n+ -------- +";//index
-    std::cout << " --------- +";//firstName
-    std::cout << " ---------- +";//lastName
-    std::cout << " -------- +";//nickname
+    std::cout << "1 --------- +";//firstName
+    std::cout << " --------- +";//lastName
+    std::cout << " --------- +";//nickname
 }
+
+
 
 void    PhoneBook::selectContact(void)    {
 
@@ -78,8 +80,9 @@ void    PhoneBook::selectContact(void)    {
         if (keyWord.find_first_not_of("12345678") != 0 && keyWord.size() == 1)
         {
             i = std::stoi(keyWord, nullptr, 10) - 1;
-            PhoneBook::headerContact();
-            PhoneBook::contact[i].printContact(contact[i].firstName, contact[i].lastName, contact[i].nickname);
+            // PhoneBook::headerContact();
+            // PhoneBook::contact[i].printContact(contact[i].firstName, contact[i].lastName, contact[i].nickname);
+                PhoneBook::contact[i].infoContact();
             std::cout << "\n+ -------- + --------- + --------- + --------- +\n\n";
             return ;
         }

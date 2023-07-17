@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:35 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/13 15:11:32 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/17 10:21:06 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,10 +118,16 @@ void    Contact::printer(std::string print) {
     }
     if (pSize > 10)
     {
-        print.resize(10);
-        std::cout << print << " |";
+        print.resize(9);
+        std::cout << print << ". |";
         return ;
     }
+}
+
+//void    Contact::printContact(std::string f, std::string l, std::string n)  {
+void    Contact::infoContact()    {
+
+    std::cout << std::right << " INDEX " << " | " << this->index << " |\n";
 }
 
 void    Contact::printContact(std::string f, std::string l, std::string n)  {
@@ -138,6 +144,4 @@ void    Contact::printContact(std::string f, std::string l, std::string n)  {
     printer(f);
     printer(l);
     printer(n);
-   // std::cout << "\n|";
-
 }
