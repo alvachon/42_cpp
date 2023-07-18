@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/18 11:56:51 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/18 12:15:27 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Zombie {
         ~Zombie(void);//zombie.cpp
 
         void    announce(void); //zombie.cpp
-        // Zombie*  newZombie(std::string name);//newZombie.cpp
+        //Zombie*  newZombie(std::string name);//newZombie.cpp
 
     private:
          std::string name_; //zombie.cpp

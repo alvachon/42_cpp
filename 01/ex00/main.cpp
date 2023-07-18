@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/18 11:56:42 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/18 12:23:53 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,16 @@ int main(void)
 {
     Zombie  objDefault;
     Zombie  objSpecific("Specific Stack (Pile)");
-    // Zombie*  objHeap = newZombie("Specific Heap (Tas)");
+    // Zombie  *objHeap = new Zombie("Specific Heap  (Tas)");
+    // Zombie  *arrDefault = new Zombie[3];
 
     objDefault.announce();
     objSpecific.announce();
-    // objHeap.announce();
-    // delete.objHeap;
+    // objHeap->announce();
+    // arrDefault[0].announce();
+    // arrDefault[1].announce();
+    // arrDefault[2].announce();
+    // delete      objHeap;
+    // delete []   arrDefault;
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/18 11:47:48 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/18 12:22:23 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Zombie::Zombie(void)  {
     this->name_ = "Default  Stack (Pile)";
 }
 
-Zombie::Zombie(std::string name)  {
+Zombie::Zombie(std::string name) :name_(name) {
 
     std::cout << "Object Constructor (Specific) \tZOMBIE\n";
     this->name_ = name;
