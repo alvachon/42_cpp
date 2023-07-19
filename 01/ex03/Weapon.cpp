@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/19 12:47:35 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/19 14:12:04 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,11 @@ Weapon::~Weapon(void) {
     return ;
 }
 
-//const std::string   Contact::getNickname(void)
 const std::string& Weapon::getType(void)    {
     return (this->type_);
+}
+
+const void Weapon::setType(std::string type) {
+    this->type_ = type;
+    return ;
 }

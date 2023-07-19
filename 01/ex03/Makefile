@@ -28,4 +28,7 @@ fclean:clean
 
 re:fclean all
 
+leaks: 
+	leaks --atExit -- ./ex03
+
 .PHONY: all clean re

@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/19 12:47:35 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/19 14:13:29 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <iostream>
 #include <string.h>
-// #include <iomanip>
 
 class Weapon {
 
@@ -25,7 +24,7 @@ class Weapon {
         ~Weapon(void);
 
         const std::string& getType(void);
-        // const std::string   setType(std::string newType);
+        const void         setType(std::string type);
 
     private:
         std::string type_;
