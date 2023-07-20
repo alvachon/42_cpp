@@ -1,6 +1,7 @@
 NAME =		ex04
 
-SRC =		main.cpp
+SRC =		main.cpp \
+			Sed.cpp
 
 OBJ =		$(SRC:.cpp=.o)
 
