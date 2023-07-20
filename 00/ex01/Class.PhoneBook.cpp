@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:35 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/17 15:05:50 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/17 15:13:10 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ void    PhoneBook::listContact(void)    {
     int i = 0;
 
     PhoneBook::headerContact();
-    //getter
     while (i != 8)
     {
         PhoneBook::contact[i].printContact
