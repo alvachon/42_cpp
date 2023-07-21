@@ -1,7 +1,7 @@
-NAME =		ex01
+NAME =		ex00
 
 SRC =		main.cpp \
-			Fixed.cpp
+			ClapTrap.cpp
 
 OBJ =		$(SRC:.cpp=.o)
 
@@ -27,6 +27,6 @@ fclean:clean
 re:fclean all
 
 leaks: 
-	leaks --atExit -- ./ex01
+	leaks --atExit -- ./ex00
 
 .PHONY: all clean re
