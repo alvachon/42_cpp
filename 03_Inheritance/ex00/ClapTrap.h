@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/21 14:35:27 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/24 15:58:14 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,10 @@
 class ClapTrap {
 
     public:
-        ClapTrap(std::string name);//Default Constructor
-        ClapTrap(ClapTrap const & src);//Copy Constructor
-        ~ClapTrap(void);//Destructor
-        ClapTrap& operator=(const ClapTrap& rhs);//Assignation Constructor
-
-        // const int& getSome(void) const;
-        // void       setSome(const int raw);
+        ClapTrap(std::string name);
+        ClapTrap(const ClapTrap& src, std::string name);
+        ClapTrap& operator=(const ClapTrap& rhs);
+        ~ClapTrap(void);
 
         void    attack(const std::string& target);
         void    takeDamage(unsigned int amount);
