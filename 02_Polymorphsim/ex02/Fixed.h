@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/25 13:44:46 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/25 15:38:26 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 #include <string.h>
 #include <math.h>
 
-//https://spin.atomicobject.com/2012/03/15/simple-fixed-point-math/
-
 class Fixed {
 
     public:
@@ -28,26 +26,39 @@ class Fixed {
         Fixed(Fixed const & src);//Copy Constructor
         ~Fixed(void);//Destructor
 
-        const int& getValue(void) const;
-        void       setValue(const int value);
-
         Fixed& operator=(const Fixed& rhs);//Assignation Constructor
-        Fixed  operator+(const Fixed& rhs) const;
-        Fixed  operator-(const Fixed& rhs) const;
-        Fixed  operator*(const Fixed& rhs) const;
-        Fixed  operator/(const Fixed& rhs) const;
-        bool   operator>(const Fixed& rhs) const;
-        bool   operator<(const Fixed& rhs) const;
-        bool   operator!=(const Fixed& rhs) const;
+
+        Fixed  operator+(Fixed rhs) const;
+        Fixed  operator-(Fixed rhs) const;
+        Fixed  operator*(Fixed rhs) const;
+        Fixed  operator/(Fixed rhs) const;
+        bool   operator>(Fixed rhs) const;
+        bool   operator<(Fixed rhs) const;
+        bool   operator!=(Fixed rhs) const;
+        bool   operator==(Fixed rhs) const;
+        bool   operator>=(Fixed rhs) const;
+        bool   operator<=(Fixed rhs) const;
+
+        /*The compiler uses the int argument to distinguish between
+        the prefix and postfix increment operators.
+        For implicit calls, the default value is zero. */
+        Fixed  operator++(void);
+        Fixed  operator--(void);
+        Fixed  operator++(int);
+        Fixed  operator--(int);
 
         int           toInt(void)   const;
         float         toFloat(void)   const;
 
-        Fixed &max(Fixed &ref1, Fixed &ref2);
+        //static member function
+        static Fixed& max(Fixed& ref1, Fixed& ref2);
+        static Fixed& min(Fixed& ref1, Fixed& ref2);
+        static const Fixed& max(const Fixed& ref1, const Fixed& ref2);
+        static const Fixed& min(const Fixed& ref1, const Fixed& ref2);
 
     private:
     int                 fixedPointValue_;
-    static const int    scaling_ = 8;//fracBits
+    static const int    scaling_ = 8;
 
 };
 
