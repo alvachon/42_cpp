@@ -6,27 +6,23 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/24 16:14:44 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/25 09:12:41 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.h"
+#include "Fixed.h"
 
 int main(void)
 {
-    {
-       ClapTrap Pikachu("Pikachu");
-       Pikachu.takeDamage(2);
-       ClapTrap Ditto(Pikachu, "Ditto");
-       Ditto.takeDamage(2);
-       ClapTrap Pigeotto("Pigeotto");
+    Fixed a;
+    Fixed b(a);
+    Fixed c;
 
-       Pigeotto = Pikachu;
-       Pigeotto.takeDamage(2);
+    c = b;
 
-        // for (int i = 0; i < 2; i++)
-        //     Ditto.attack("Raichu");
-    }
+    std::cout << a.getRawBits() << std::endl;
+    std::cout << b.getRawBits() << std::endl;
+    std::cout << c.getRawBits() << std::endl;
 
     return (0);
 }   
