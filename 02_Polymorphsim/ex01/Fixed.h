@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/25 11:36:30 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/25 15:39:43 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class Fixed {
 
     private:
     int                 fixedPointValue_;
-    static const int    scaling_ = 8;//fracBits
+    static const int    scaling_ = 8;
 
 };
 

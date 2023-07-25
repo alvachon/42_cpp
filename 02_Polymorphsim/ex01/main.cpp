@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/25 11:21:36 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/25 15:40:00 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int main(void)
     std::cout << "b is " << b.toInt() << " as integer \n";
     std::cout << "c is " << c.toInt() << " as integer \n";
     std::cout << "d is " << d.toInt() << " as integer \n";
-    
-    // std::cout << "d is " << a << std::endl;
 
     return (0);
 }   
