@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/24 16:04:55 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/26 09:14:43 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ ClapTrap::~ClapTrap(void) {
 ClapTrap::ClapTrap(const ClapTrap& src, std::string name) :
      name_(name), hitPts_(src.hitPts_), enerPts_(src.enerPts_), damage_(src.damage_) {
     std::cout << "Copy Constructor called\n";
-    //this.hp_ = rhs._hp;
     //*this = src;
     return ;
 }
@@ -41,28 +40,22 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& rhs)   {
 }
 
 void    ClapTrap::attack(const std::string& target) {
-    std::cout << enerPts_ << '\n';
+
+    //std::cout << "Calling Attack.\n";
     if (this->enerPts_ > 0 && this->hitPts_ > 0)
     {
         this->enerPts_ -= 1;
         std::cout << "ClapTrap " << this->name_ << " attack " <<
         target << " of " << this->damage_ << '\n';
-        return ;
+        if (this->enerPts_ <= 0)
+            std::cout << "ClapTrap " << this->name_ << " is tired.\n";
     }
-    if (this->hitPts_ <= 0)
-    {
-        std::cout << "ClapTrap " << this->name_ << " is dead.\n";
         return ;
-    }
-    if (this->enerPts_ <= 0)
-    {
-        std::cout << "ClapTrap " << this->name_ << " is tired.\n";
-        return ;
-    }
 }
 
 void    ClapTrap::takeDamage(unsigned int amount) {
 
+    //std::cout << "Calling Damage.\n";
     if (this->hitPts_ > 0)
     {
         this->hitPts_ -= amount;
@@ -78,22 +71,23 @@ void    ClapTrap::takeDamage(unsigned int amount) {
 
 void    ClapTrap::beRepaired(unsigned int amount) {//point de vie affectés ++, pts energy -= 1
 
+    //std::cout << "Calling repaired.\n";
     if (this->enerPts_ > 0 && this->hitPts_ > 0)
     {
         enerPts_ -= 1;
         hitPts_ += amount;
         std::cout << "ClapTrap " << this->name_ << " restore " <<
-        amount << " of life points. Now at " << this->hitPts_ << " life points !!\n";
+        amount << " of life points. Now at " << this->hitPts_ << " life points !\n";
         return ;
     }
     if (this->hitPts_ <= 0)
     {
-         std::cout << "ClapTrap " << this->name_ << " is dead. Please forfeit.\n";
+        std::cout << "ClapTrap " << this->name_ << " is dead.\n";
         return ;
     }
     if (this->enerPts_ <= 0)
     {
-        std::cout << "ClapTrap " << this->name_ << " have not enough Energy to do this action.\n";
+        std::cout << "ClapTrap " << this->name_ << " is tired.\n";
         return ;
     }
 

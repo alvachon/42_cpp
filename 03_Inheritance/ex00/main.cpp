@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/25 16:27:39 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/26 09:14:23 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,18 @@ int main(void)
             Pikachu.takeDamage(2);
     }
     {
-        //Verif if cant do something after 10 energy loss
-        /*
-        0. Rm nb print
-        1. print only one time "" is tired.
-        */
         ClapTrap Pikachu("Pikachu");
         for (int i = 0; i < 20; i++)
             Pikachu.attack("Raichu");
+        Pikachu.beRepaired(5);
     }
-        //Verif if he can retrieve with 1 pts energy
+    {
+        //Verif if retrieve energy with 1 pts.
+        ClapTrap Pikachu("Pikachu");
+        for (int i = 0; i < 9; i++)
+            Pikachu.takeDamage(1);
+        Pikachu.beRepaired(5);
+    }
 
     return (0);
 }   
