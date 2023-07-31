@@ -6,32 +6,43 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/26 15:10:57 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/31 12:03:53 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.h"
 
-Animal::Animal(void) : class_("Animal") {
+//Private
+   Ianimal::Ianimal(void)  {
+   
+   std::cout << " Instance Animal Default Object created.\n";
+       return ;
+   }
 
-    std::cout << "Default constructor " << this->class_ << " called\n";
-    return ;
-}
+//Public
 
-Animal::~Animal(void) {
+    Ianimal *Ianimal::getInterface(void)    {
 
-    std::cout << "Destructor " << this->class_ << " called\n";
-    return ;
-}
+        if (interfaceCount == 0)   {
+            
+            Ianimal *ptr;
 
-Animal::Animal(const Animal& src) : class_("Animal") {
+            ptr = new Ianimal;
+            interfaceCount++;
+            return (ptr);
+        }
+        else
+            return (NULL);
+    }
 
-    std::cout << "Copy Constructor " << this->class_ << " called\n";
-    return ;
-}
+    Ianimal::~Ianimal(void)  {
 
-Animal& Animal::operator=(const Animal& rhs) {
-    
-    std::cout << "Copy assignement operator " << this->class_ << " called\n";
-    return (*this);
-}
+    std::cout << " Instance Animal Default Object destructed.\n";
+        return ;
+    }
+
+    void    Ianimal::hello(void)    {
+
+        std::cout << " Hello from Interface Animal !\n";
+        return ;
+    }
