@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/26 12:34:19 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/26 13:22:18 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,10 @@ ClapTrap::~ClapTrap(void) {
     return ;
 }
 
-//Le copy constructor permet d'avoir une "initializer list"
-ClapTrap::ClapTrap(const ClapTrap& src, std::string name) :
-    class_("ClapTrap"), name_(name), hitPts_(src.hitPts_), enerPts_(src.enerPts_), damage_(src.damage_) {
+ClapTrap::ClapTrap(const ClapTrap& src, std::string name) : class_("ClapTrap"),\
+    name_(name), hitPts_(src.hitPts_), enerPts_(src.enerPts_), damage_(src.damage_) {
+
     std::cout << "Copy Constructor " << this->class_ << " called\n";
-    //*this = src;
     return ;
 }
 
@@ -41,7 +40,6 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& rhs)   {
 
 void    ClapTrap::attack(const std::string& target) {
 
-    //std::cout << "Calling Attack.\n";
     if (this->enerPts_ > 0 && this->hitPts_ > 0)
     {
         this->enerPts_ -= 1;
@@ -55,10 +53,12 @@ void    ClapTrap::attack(const std::string& target) {
 
 void    ClapTrap::takeDamage(unsigned int amount) {
 
-    //std::cout << "Calling Damage.\n";
     if (this->hitPts_ > 0)
     {
-        this->hitPts_ -= amount;
+        if (amount >= this->hitPts_)
+            this->hitPts_ = 0;
+        else
+            this->hitPts_ -= amount;
         std::cout << this->class_ << " " << this->name_ << " take " <<
         amount << " of damage. Now at " << this->hitPts_ << " life points !!\n";
         if (this->hitPts_ <= 0)
@@ -71,7 +71,6 @@ void    ClapTrap::takeDamage(unsigned int amount) {
 
 void    ClapTrap::beRepaired(unsigned int amount) {
 
-    //std::cout << "Calling repaired.\n";
     if (this->enerPts_ > 0 && this->hitPts_ > 0)
     {
         enerPts_ -= 1;

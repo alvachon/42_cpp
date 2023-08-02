@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/31 12:03:52 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/02 10:49:16 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,7 @@
 #include <string.h>
 #include <stdio.h> //NULL
 
-/*
-Package Build : 
-    1. get(); (public, static)
-    2. count; (protected, static)
-
-
-*/
+//abstract
 
 class Ianimal    {
 
@@ -35,9 +29,8 @@ class Ianimal    {
 
     public:
         static Ianimal *getInterface(void);
-        ~Ianimal(void);
+        virtual ~Ianimal(void);
         void           hello(void);
-
 };
 
 #endif/* ************************************************** ANIMAL_H */

@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/26 12:31:28 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/26 13:24:08 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ ScavTrap::~ScavTrap(void) {
     return ;
 }
 
-//Le copy constructor permet d'avoir une "initializer list"
 ScavTrap::ScavTrap(const ScavTrap& src, std::string name) : ClapTrap(src, name) {
 
     this->class_ = "ScavTrap";
@@ -38,7 +37,6 @@ ScavTrap::ScavTrap(const ScavTrap& src, std::string name) : ClapTrap(src, name) 
     this->enerPts_ = src.enerPts_;
     this->damage_ = src.damage_;
     std::cout << "Copy Constructor " << this->class_ << " called\n";
-    //*this = src;
     return ;
 }
 
@@ -50,7 +48,6 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& rhs)   {
 
 void    ScavTrap::attack(const std::string& target) {
 
-    //std::cout << "Calling Attack.\n";
     if (this->enerPts_ > 0 && this->hitPts_ > 0)
     {
         this->enerPts_ -= 1;
@@ -64,10 +61,12 @@ void    ScavTrap::attack(const std::string& target) {
 
 void    ScavTrap::takeDamage(unsigned int amount) {
 
-    //std::cout << "Calling Damage.\n";
     if (this->hitPts_ > 0)
     {
-        this->hitPts_ -= amount;
+        if (amount >= this->hitPts_)
+            this->hitPts_ = 0;
+        else
+            this->hitPts_ -= amount;
         std::cout << this->class_ << " " << this->name_ << " take " <<
         amount << " of damage. Now at " << this->hitPts_ << " life points !!\n";
         if (this->hitPts_ <= 0)
@@ -77,10 +76,8 @@ void    ScavTrap::takeDamage(unsigned int amount) {
 
 }
 
-
 void    ScavTrap::beRepaired(unsigned int amount) {
 
-    //std::cout << "Calling repaired.\n";
     if (this->enerPts_ > 0 && this->hitPts_ > 0)
     {
         enerPts_ -= 1;

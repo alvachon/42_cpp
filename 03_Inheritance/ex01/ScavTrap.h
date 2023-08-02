@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/26 12:30:40 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/26 13:10:38 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include <string.h>
 #include "ClapTrap.h"
 
-//rhs : Right Hand Sign
 
 class ScavTrap : public ClapTrap {
 

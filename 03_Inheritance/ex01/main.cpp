@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/26 12:32:13 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/26 13:14:56 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ int main(void)
         //Verif if dying after 10 loss points
         ScavTrap Pikachu("Pikachu");
         for (int i = 0; i < 10; i++)
-            Pikachu.takeDamage(2);
+            Pikachu.takeDamage(20);
     }
     {
         //guardGate
         ScavTrap Pikachu("Pikachu");
         for (int i = 0; i < 20; i++)
             Pikachu.attack("Raichu");
-        Pikachu.beRepaired(5);
+        Pikachu.beRepaired(20);
         Pikachu.guardGate();
     }
     {
