@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.h                                           :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/03 14:21:22 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/03 14:21:21 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#include "Animal.h"
+#include "Dog.h"
 
-#include <iostream>
-#include <string.h>
+Dog::Dog() : Animal("Dog") { return ; }
 
-class Animal {
+Dog::~Dog() { return ; }
 
-    public:
-        Animal();
-        Animal(std::string type);
-        virtual ~Animal();
-        Animal(Animal & src);
-        Animal& operator=(Animal const & rhs);
+Dog::Dog(Dog & ref) : Animal("Dog") { *this = ref; return ; }
 
-        virtual void       makeSound(void) const;
-        const std::string& getType(void) const;
+Dog & Dog::operator=(Dog const & rhs) { this->type_ = rhs.type_ ; return (*this); }
 
-    protected:
-        std::string         type_;
+void    Dog::makeSound(void) const {
 
-    private:
-
-};
-
-#endif/* ************************************************** ANIMAL_H */
+    std::cout << "Woof Woof !\n";
+}

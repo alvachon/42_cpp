@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.h                                           :+:      :+:    :+:   */
+/*   Dog.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/03 14:21:22 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/03 13:03:17 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#ifndef DOG_H
+# define DOG_H
 
 #include <iostream>
 #include <string.h>
+#include "Animal.h"
 
-class Animal {
+class Dog: public Animal {
 
     public:
-        Animal();
-        Animal(std::string type);
-        virtual ~Animal();
-        Animal(Animal & src);
-        Animal& operator=(Animal const & rhs);
-
+        Dog();
+        ~Dog();
+        Dog(Dog & src);
+        Dog & operator=(Dog const & rhs);
+        
         virtual void       makeSound(void) const;
-        const std::string& getType(void) const;
-
+    
     protected:
         std::string         type_;
 
     private:
-
 };
 
-#endif/* ************************************************** ANIMAL_H */
+#endif/* ************************************************** DOG_H */

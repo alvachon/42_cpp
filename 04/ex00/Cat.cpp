@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.h                                           :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/03 14:21:22 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/03 14:21:57 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#include "Animal.h"
+#include "Cat.h"
 
-#include <iostream>
-#include <string.h>
+Cat::Cat() : Animal("Cat") { return ; }
 
-class Animal {
+Cat::~Cat() { return ; }
 
-    public:
-        Animal();
-        Animal(std::string type);
-        virtual ~Animal();
-        Animal(Animal & src);
-        Animal& operator=(Animal const & rhs);
+Cat::Cat(Cat & ref) : Animal("Cat") { *this = ref; return ; }
 
-        virtual void       makeSound(void) const;
-        const std::string& getType(void) const;
+Cat & Cat::operator=(Cat const & rhs) { this->type_ = rhs.type_ ; return (*this); }
 
-    protected:
-        std::string         type_;
+void    Cat::makeSound(void) const {
 
-    private:
-
-};
-
-#endif/* ************************************************** ANIMAL_H */
+    std::cout << "Meow !\n";
+}

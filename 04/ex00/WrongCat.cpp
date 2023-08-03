@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.h                                           :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/03 14:21:22 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/03 14:22:16 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#include "WrongAnimal.h"
+#include "WrongCat.h"
 
-#include <iostream>
-#include <string.h>
+WrongCat::WrongCat() : WrongAnimal("WrongCat") { return ; }
 
-class Animal {
+WrongCat::~WrongCat() { return ; }
 
-    public:
-        Animal();
-        Animal(std::string type);
-        virtual ~Animal();
-        Animal(Animal & src);
-        Animal& operator=(Animal const & rhs);
+WrongCat::WrongCat(WrongCat & ref) : WrongAnimal("WrongCat") { *this = ref; return ; }
 
-        virtual void       makeSound(void) const;
-        const std::string& getType(void) const;
+WrongCat & WrongCat::operator=(WrongCat const & rhs) { this->type_ = rhs.type_ ; return (*this); }
 
-    protected:
-        std::string         type_;
+void    WrongCat::makeSound(void) const {
 
-    private:
-
-};
-
-#endif/* ************************************************** ANIMAL_H */
+    WrongAnimal::makeSound();
+}

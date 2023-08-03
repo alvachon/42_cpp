@@ -1,7 +1,12 @@
 NAME =		ex00
 
 SRC =		main.cpp \
-			Animal.cpp
+			Dog.cpp \
+			Cat.cpp \
+			Animal.cpp \
+			WrongAnimal.cpp \
+			WrongCat.cpp
+
 
 OBJ =		$(SRC:.cpp=.o)
 
