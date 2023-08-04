@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/04 11:00:43 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/04 12:39:59 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,19 @@ Dog::~Dog() {
     return ;
 }
 
-Dog::Dog(Dog & ref) : Animal("Dog") {
+Dog::Dog(Dog & src) : Animal(src) {
 
-    *this = ref; 
+    this->type_ = src.type_; 
     setBrain();
     return ;
 }
 
-Dog & Dog::operator=(Dog const & rhs) { this->type_ = rhs.type_ ; return (*this); }
+Dog & Dog::operator=(Dog const & rhs) {
+
+    if (this != &rhs)
+        *this = rhs;
+     return (*this); 
+}
 
 void    Dog::makeSound(void) const {
 

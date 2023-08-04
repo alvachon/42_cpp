@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/04 11:00:43 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/04 12:32:38 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,17 @@ Cat::~Cat() {
     return ;
 }
 
-Cat::Cat(Cat & ref) : Animal("Cat") {
+Cat::Cat(Cat & ref) : Animal(ref) {
     *this = ref;
     setBrain();
     return ;
 }
 
-Cat & Cat::operator=(Cat const & rhs) { this->type_ = rhs.type_ ; return (*this); }
+Cat & Cat::operator=(Cat const & rhs) {
+    this->type_ = rhs.type_ ;
+    this->brain_ = rhs.brain_;
+    return (*this);
+}
 
 void    Cat::makeSound(void) const {
 

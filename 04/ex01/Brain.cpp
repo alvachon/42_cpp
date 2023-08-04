@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/03 15:48:08 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/04 12:15:24 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,12 @@ Brain::~Brain() { return ; }
 
 Brain::Brain(Brain & ref) { *this = ref; return ; }
 
-Brain & Brain::operator=(Brain const & rhs) { return (*this); }
+Brain & Brain::operator=(Brain const & rhs) {
+
+    if (this != &rhs) {
+
+        for (int i = 0; i< 100; i++)
+            this->ideas_[i] = rhs.ideas_[i];
+    }
+    return (*this);
+}

@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/04 11:34:15 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/04 12:40:52 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,18 @@ int main(void)
     //     mamaDog.makeSound();
     //     std::cout << babyDog.getType() << " baby" << std::endl;
     //     babyDog.makeSound();
+    // }
+    // {
+    //     //need halp
+    //     std::cout << "\n";
+    //     const Animal* mamaDog = new Dog();
+    //     const Animal* babyDog = new Dog(mamaDog);
+    //     std::cout << mamaDog->getType() << " mama" << std::endl;
+    //     mamaDog->makeSound();
+    //     std::cout << babyDog->getType() << " baby" << std::endl;
+    //     babyDog->makeSound();
+    //     delete mamaDog;
+    //     delete babyDog;
     // }
     {
         const Animal *zoo[20];
