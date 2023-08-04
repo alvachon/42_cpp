@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/03 15:43:29 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/04 10:57:56 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ class Cat: public Animal {
         Cat(Cat & src);
         Cat & operator=(Cat const & rhs);
         
-        virtual void       makeSound(void) const;
+        virtual void      makeSound(void) const;
+        void              setBrain(void);
     
     protected:
-        std::string         type_;
 
     private:
         Brain              *brain_;

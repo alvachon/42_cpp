@@ -14,27 +14,19 @@
 
 Animal::Animal() : type_("Animal") {
 
-    Brain *newBrain = new Brain();
     std::cout << " Constructor from " << type_ << " \n";
-    this->brain_ = newBrain;
-    std::cout << " Brain Made for " << type_ << " \n";
     return ;
 }
 
 Animal::Animal(std::string type) : type_(type) {
 
-    Brain *newBrain = new Brain();
     std::cout << " Constructor from " << type_ << " \n";
-    this->brain_ = newBrain;
-    std::cout << " Brain Made for " << type_ << " \n";
     return ;
 }
 
 Animal::~Animal() {
 
     std::cout << " Destructor from " << type_ << " \n";
-    delete brain_;
-    std::cout << " Brain deleted \n";
     return ;
 }
 
@@ -57,7 +49,13 @@ void    Animal::makeSound(void) const {
     return ;
 }
 
-const std::string& Animal::getType(void) const {
+std::string Animal::getType(void) const {
 
     return (this->type_);
 }
+
+ void   Animal::setType(std::string type) {
+
+    this->type_ = type;
+    return ;
+ }

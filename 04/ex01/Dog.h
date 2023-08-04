@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/03 15:31:25 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/04 10:56:42 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ class Dog: public Animal {
         Dog(Dog & src);
         Dog & operator=(Dog const & rhs);
         
-        virtual void       makeSound(void) const;
+        virtual void      makeSound(void) const;
+        void              setBrain(void) ;
     
     protected:
-        std::string         type_;
 
     private:
+        Brain              *brain_;
 };
 
 #endif/* ************************************************** DOG_H */

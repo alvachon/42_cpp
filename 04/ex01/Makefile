@@ -33,6 +33,6 @@ fclean:clean
 re:fclean all
 
 leaks: 
-	leaks --atExit -- ./ex00
+	leaks --atExit -- ./ex01
 
 .PHONY: all clean re
