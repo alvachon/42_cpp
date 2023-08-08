@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.h                                              :+:      :+:    :+:   */
+/*   Cat.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/08 11:27:14 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/04 10:57:56 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_H
-# define DOG_H
+#ifndef CAT_H
+# define CAT_H
 
 #include <iostream>
 #include <string.h>
 #include "Animal.h"
 
-class Dog: public Animal {
+class Cat: public Animal {
 
     public:
-        Dog();
-        ~Dog();
-        Dog(Dog & src);
-        Dog & operator=(Dog const & rhs);
+        Cat();
+        ~Cat();
+        Cat(Cat & src);
+        Cat & operator=(Cat const & rhs);
         
         virtual void      makeSound(void) const;
-        void              setBrain(void) ;
+        void              setBrain(void);
     
     protected:
 
@@ -34,4 +34,4 @@ class Dog: public Animal {
         Brain              *brain_;
 };
 
-#endif/* ************************************************** DOG_H */
+#endif/* ************************************************** CAT_H */

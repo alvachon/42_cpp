@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.h                                              :+:      :+:    :+:   */
+/*   Brain.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/08 11:27:14 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/04 12:08:29 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_H
-# define DOG_H
+#ifndef BRAIN_H
+# define BRAIN_H
 
 #include <iostream>
 #include <string.h>
 #include "Animal.h"
 
-class Dog: public Animal {
+class Brain {
 
     public:
-        Dog();
-        ~Dog();
-        Dog(Dog & src);
-        Dog & operator=(Dog const & rhs);
-        
-        virtual void      makeSound(void) const;
-        void              setBrain(void) ;
+        Brain();
+        ~Brain();
+        Brain(Brain & src);
+        Brain & operator=(Brain const & rhs);
     
     protected:
 
     private:
-        Brain              *brain_;
+        std::string         ideas_[100];
 };
 
-#endif/* ************************************************** DOG_H */
+#endif/* ************************************************** BRAIN_H */

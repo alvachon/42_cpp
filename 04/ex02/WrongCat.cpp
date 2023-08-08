@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.h                                              :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/08 11:27:14 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/03 14:22:16 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_H
-# define DOG_H
+#include "WrongAnimal.h"
+#include "WrongCat.h"
 
-#include <iostream>
-#include <string.h>
-#include "Animal.h"
+WrongCat::WrongCat() : WrongAnimal("WrongCat") { return ; }
 
-class Dog: public Animal {
+WrongCat::~WrongCat() { return ; }
 
-    public:
-        Dog();
-        ~Dog();
-        Dog(Dog & src);
-        Dog & operator=(Dog const & rhs);
-        
-        virtual void      makeSound(void) const;
-        void              setBrain(void) ;
-    
-    protected:
+WrongCat::WrongCat(WrongCat & ref) : WrongAnimal("WrongCat") { *this = ref; return ; }
 
-    private:
-        Brain              *brain_;
-};
+WrongCat & WrongCat::operator=(WrongCat const & rhs) { this->type_ = rhs.type_ ; return (*this); }
 
-#endif/* ************************************************** DOG_H */
+void    WrongCat::makeSound(void) const {
+
+    WrongAnimal::makeSound();
+}

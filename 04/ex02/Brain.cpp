@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.h                                              :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/08 11:27:14 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/04 12:15:24 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_H
-# define DOG_H
-
-#include <iostream>
-#include <string.h>
 #include "Animal.h"
+#include "Brain.h"
 
-class Dog: public Animal {
+Brain::Brain() { return ; }
 
-    public:
-        Dog();
-        ~Dog();
-        Dog(Dog & src);
-        Dog & operator=(Dog const & rhs);
-        
-        virtual void      makeSound(void) const;
-        void              setBrain(void) ;
-    
-    protected:
+Brain::~Brain() { return ; }
 
-    private:
-        Brain              *brain_;
-};
+Brain::Brain(Brain & ref) { *this = ref; return ; }
 
-#endif/* ************************************************** DOG_H */
+Brain & Brain::operator=(Brain const & rhs) {
+
+    if (this != &rhs) {
+
+        for (int i = 0; i< 100; i++)
+            this->ideas_[i] = rhs.ideas_[i];
+    }
+    return (*this);
+}
