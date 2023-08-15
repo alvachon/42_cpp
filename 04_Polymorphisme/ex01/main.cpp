@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/04 12:40:52 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/10 12:47:53 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ int main(void)
     //    const Animal* meta = new Animal();
     //    const Animal* j = new Dog();
     //    const Animal* i = new Cat();
-   
+
     //    std::cout << j->getType() << " " << std::endl;
     //    std::cout << i->getType() << " " << std::endl;
     //    i->makeSound();
     //    j->makeSound();
     //    meta->makeSound();
-   
+
     //    delete meta;
     //    delete j;
     //    delete i;
@@ -38,12 +38,12 @@ int main(void)
     // {
     //    const WrongAnimal* meta = new WrongAnimal();
     //    const WrongAnimal* j = new WrongCat();
-   
+
     //    std::cout << meta->getType() << " " << std::endl;
     //    std::cout << j->getType() << " " << std::endl;
     //    meta->makeSound();
     //    j->makeSound();
-   
+
     //    delete meta;
     //    delete j;
     //    std::cout << "\n";
@@ -87,4 +87,4 @@ int main(void)
             delete zoo[i];
     }
     return (0);
-}   
+}

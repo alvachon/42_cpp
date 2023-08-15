@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.h                                              :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/04 10:57:56 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/18 13:45:45 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_H
-# define CAT_H
+#include "Zombie.h"
 
-#include <iostream>
-#include <string.h>
-#include "Animal.h"
+Zombie::Zombie(void)  {
 
-class Cat: public Animal {
+    std::cout << "Object Constructor (Default) \tZOMBIE\n";
+    this->name_ = "Default  Stack (Pile)";
+}
 
-    public:
-        Cat();
-        ~Cat();
-        Cat(Cat & src);
-        Cat & operator=(Cat const & rhs);
-        
-        virtual void      makeSound(void) const;
-        void              setBrain(void);
-    
-    protected:
+Zombie::Zombie(std::string name) :name_(name) {
 
-    private:
-        Brain              *brain_;
-};
+    std::cout << "Object Constructor (Specific) \tZOMBIE\n";
+}
 
-#endif/* ************************************************** CAT_H */
+Zombie::~Zombie(void) {
+    std::cout << "Object Destructor \t" << this->name_ << " deleted\n";
+    return ;
+}
+
+void Zombie::announce(void) {
+
+    std::cout << this->name_ << ":\tBraiiiiiiinnnzzzZ...\n";
+}

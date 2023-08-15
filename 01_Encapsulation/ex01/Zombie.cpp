@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.h                                              :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/08 11:27:14 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/18 14:34:24 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_H
-# define DOG_H
+#include "Zombie.h"
 
-#include <iostream>
-#include <string.h>
-#include "Animal.h"
+Zombie::Zombie(void)  {
 
-class Dog: public Animal {
+     std::cout << "Object Constructor \tZOMBIE\n";
+     this->name_ = "Citizen";
+}
 
-    public:
-        Dog();
-        ~Dog();
-        Dog(Dog & src);
-        Dog & operator=(Dog const & rhs);
-        
-        virtual void      makeSound(void) const;
-        void              setBrain(void) ;
-    
-    protected:
+Zombie::~Zombie(void) {
 
-    private:
-        Brain              *brain_;
-};
+     std::cout << "Object Destructor  \tZOMBIE\n";
+    return ;
+}
 
-#endif/* ************************************************** DOG_H */
+void Zombie::announce(void) {
+
+    std::cout << this->name_ << ":\tBraiiiiiiinnnzzzZ...\n";
+}
+
+const std::string Zombie::getCorrupt(std::string str)    {
+
+    this->name_ = str;
+    return (this->name_);
+}

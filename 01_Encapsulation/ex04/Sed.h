@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.h                                           :+:      :+:    :+:   */
+/*   sed.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/04 10:56:06 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/07/20 14:22:34 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#ifndef SED_H
+# define SED_H
 
 #include <iostream>
-#include <string.h>
-#include "Brain.h"
+#include <fstream>
+#include <string>
 
-class Animal {
+class Sed {
 
     public:
-        Animal();
-        Animal(std::string type);
-        virtual ~Animal();
-        Animal(Animal & src);
-        Animal& operator=(Animal const & rhs);
+        
+        Sed(std::string av1, std::string av2, std::string av3);
+        ~Sed(void);
 
-        virtual void       makeSound(void) const;
-        std::string        getType(void) const;
-        void               setType(std::string type);
-
-    protected:
-        std::string         type_;
+        void    doTheThing();
 
     private:
-
+        std::string     str_;
+        std::ofstream   output_;
+        std::ifstream   input_;
+        std::string     newFile_;// = av[1];
+        std::string     wordIn_;// = av[2];
+        std::string     wordOut_;// = av[3];
 };
 
-#endif/* ************************************************** ANIMAL_H */
+#endif/* ************************************************** SED_H*/

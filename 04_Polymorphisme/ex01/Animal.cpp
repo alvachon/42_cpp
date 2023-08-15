@@ -59,3 +59,8 @@ std::string Animal::getType(void) const {
     this->type_ = type;
     return ;
  }
+
+ Brain* Animal::getBrain(void) const {
+
+    return (this->brain_);
+}

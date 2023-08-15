@@ -1,51 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/04 12:32:38 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/14 08:44:15 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.h"
-#include "Cat.h"
+#include "Dog.h"
 
-Cat::Cat() : Animal("Cat") {
-    
+Dog::Dog() : Animal("Dog") {
+
     setBrain();
     return ;
 }
 
-Cat::~Cat() {
-    
+Dog::~Dog() {
+
     delete brain_;
-    std::cout << " Brain for " << type_ << " deleted \n";  
+    std::cout << " Brain for " << type_ << " deleted \n";
     return ;
 }
 
-Cat::Cat(Cat & ref) : Animal(ref) {
-    *this = ref;
+Dog::Dog(Dog & src) : Animal(src) {
+
+    this->type_ = src.type_;
     setBrain();
     return ;
 }
 
-Cat & Cat::operator=(Cat const & rhs) {
+Dog & Dog::operator=(Dog const & rhs) {
+
     this->type_ = rhs.type_ ;
-    this->brain_ = rhs.brain_;
+    *this->brain_ = *rhs.brain_;
     return (*this);
 }
 
-void    Cat::makeSound(void) const {
+void    Dog::makeSound(void) const {
 
-    std::cout << "Meow !\n";
+    std::cout << "Woof Woof !\n";
 }
 
-void   Cat::setBrain(void) {
+void   Dog::setBrain(void) {
 
     this->brain_ = new Brain();
-    std::cout << " Brain Made for " << type_ << " \n";
+    std::cout << " Brain " << brain_ << " Made for " << type_ << " \n";
     return ;
 }
