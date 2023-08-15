@@ -51,9 +51,37 @@ const std::string Bureaucrat::getName(void){
     return (this->name_);
 }
 
+int Bureaucrat::getGrade(void) {
+
+    return (this->grade_);
+}
+
+void Bureaucrat::promoteGrade(int lvl) {
+
+    if (lvl < 0)
+        throw Bureaucrat::GradeTooHighException();
+    else if ((grade - lvl) < 0)
+        throw Bureaucrat::GradeTooHighException();
+    else
+        this->grade -= lvl;
+   return ;
+}
+
+void Bureaucrat::demoteGrade(int lvl) {
+
+    if (lvl > 150)
+        throw Bureaucrat::GradeTooLowException();
+    else if ((grade + lvl) > 150)
+        throw Bureaucrat::GradeTooLowException();
+    else
+        this->grade += lvl;
+}
+
 //private
 Bureaucrat::Bureaucrat() : name_("Bureaucrat") {
 
     std::cout << "Constructor from " << name_ << " \n";
     return ;
 }
+
+

@@ -24,7 +24,10 @@ class Bureaucrat {
         Bureaucrat(Bureaucrat & src);
         Bureaucrat& operator=(const Bureaucrat & rhs);
 
-        const std::string     getName(void);
+        const std::string     getName(void);//const ?
+        int                   getGrade(void);//const ? 
+        void                   promoteGrade(int lvl);
+        void                   demoteGrade(int lvl);
         
 
         class GradeTooHighException : public std::exception {
@@ -40,7 +43,7 @@ class Bureaucrat {
 
     private:
         const         std::string   name_;
-        int           grade_;//1 > 150
+        int           grade_;
         Bureaucrat();
 
 };
