@@ -15,6 +15,9 @@
 
 #include <iostream>
 #include <string.h>
+#include "Form.h"
+
+class AForm;
 
 class Bureaucrat {
 
@@ -26,8 +29,9 @@ class Bureaucrat {
 
         const std::string     getName(void) const;
         int                   getGrade(void) const; 
-        void                   promoteGrade(int lvl);
-        void                   demoteGrade(int lvl);
+        void                  promoteGrade(int lvl);
+        void                  demoteGrade(int lvl);
+        void                  signForm(AForm &form) const;
         
 
         class GradeTooHighException : public std::exception {

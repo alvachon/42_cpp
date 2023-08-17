@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.h                                           :+:      :+:    :+:   */
+/*   Form.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,26 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_H
-# define BUREAUCRAT_H
+#ifndef FORM_H
+# define FORM_H
 
 #include <iostream>
 #include <string.h>
+#include "Bureaucrat.h"
 
-class Bureaucrat {
+class Bureaucrat;
+
+class Form {
 
     public:
-        Bureaucrat(const std::string name, int grade);
-        ~Bureaucrat();
-        Bureaucrat(Bureaucrat & src, const std::string name);
-        Bureaucrat& operator=(const Bureaucrat & rhs);
+        Form(const std::string name, int signedGrade, int exectGrade);
+        ~Form();
+        Form(Form & src, const std::string name);
+        Form& operator=(const Form & rhs);
 
         const std::string     getName(void) const;
-        int                   getGrade(void) const; 
-        void                   promoteGrade(int lvl);
-        void                   demoteGrade(int lvl);
+        const int             getSignedGrade(void) const;
+        const int             getExectGrade(void) const;
+        const bool            getInfo(void) const;
+        void                  beSigned(const Bureaucrat& rhs);
         
-
         class GradeTooHighException : public std::exception {
             public:
                 virtual const char *what() const throw(){ return "Grade too high";}
@@ -42,13 +45,15 @@ class Bureaucrat {
     protected:
 
     private:
-        const         std::string   name_;
-        int           grade_;
-        Bureaucrat();
+        const std::string   name_;
+        const int           signedGrade_;
+        const int           exectGrade_;
+        bool                signed_;
+        Form();
 
 };
 
-std::ostream& operator<<(std::ostream& o, const Bureaucrat& rhs);
+std::ostream& operator<<(std::ostream& o, const Form& rhs);
 
 
-#endif/* ************************************************** BUREAUCRAT_H */
+#endif/* ************************************************** FORM_H */

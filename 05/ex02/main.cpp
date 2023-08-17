@@ -6,59 +6,86 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/17 11:30:23 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/17 15:21:34 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.h"
+#include "Form.h"
 
 int main(void)
 {
-    {
-       try {//simple
-          Bureaucrat bureaucrat("Smith", 1);
-          std::cout << bureaucrat << std::endl;
-       }   catch (std::exception &e) {
-               std::cout << e.what() << std::endl;
-       }
-    }
    //  {
-   //     try {//throw exception too high
-   //        Bureaucrat bureaucrat("Smith", -1);
+   //     try {//simple
+   //        Bureaucrat bureaucrat("Smith", 1);
+   //        Form form("1", 1, 1);
    //        std::cout << bureaucrat << std::endl;
    //     }   catch (std::exception &e) {
    //             std::cout << e.what() << std::endl;
    //     }
    //  }
    //  {
+   //     try {//throw exception too high
+   //        Form form("1", -1, 1);
+   //     }   catch (std::exception &e) {
+   //             std::cout << e.what() << std::endl;
+   //     }
+   //  }
+   // {
+   //     try {//throw exception too high
+   //        Form form("1", 1, -1);
+   //     }   catch (std::exception &e) {
+   //             std::cout << e.what() << std::endl;
+   //     }
+   //  }
+   // {
    //     try {//throw exception too low
-   //        Bureaucrat bureaucrat("Smith", 151);
-   //        std::cout << bureaucrat << std::endl;
+   //        Form form("1", 151, 1);
+   //     }   catch (std::exception &e) {
+   //             std::cout << e.what() << std::endl;
+   //     }
+   //  }
+   // {
+   //     try {//throw exception too low
+   //        Form form("1", 1, 151);
    //     }   catch (std::exception &e) {
    //             std::cout << e.what() << std::endl;
    //     }
    //  }
    //  {
    //     try {//copy
-   //        Bureaucrat bureaucrat("Smith", 1);
-   //        Bureaucrat coworker(bureaucrat, "Gagnon");
-   //        std::cout << bureaucrat << std::endl;
-   //        std::cout << coworker << std::endl;
+   //        Form form1("001", 1, 2);
+   //        Form form2(form1, "002");
    //     }   catch (std::exception &e) {
    //             std::cout << e.what() << std::endl;
    //     }
    //  }
-   //  {
-   //     try {//simple promotion
-   //        Bureaucrat bureaucrat("Smith", 5);
-   //        std::cout << bureaucrat << std::endl;
-   //        bureaucrat.promoteGrade(2);
-   //        std::cout << bureaucrat << std::endl;
+    {
+       try {//simple validation
+          Bureaucrat bureaucrat("Smith", 3);
+          AForm form1("001", 5, 2);
+          std::cout << bureaucrat << std::endl;
+          std::cout << form1 << std::endl;
+          form1.beSigned(bureaucrat);
+          std::cout << form1 << std::endl;
 
-   //     }   catch (std::exception &e) {
-   //             std::cout << e.what() << std::endl;
-   //     }
-   // }
+       }   catch (std::exception &e) {
+               std::cout << e.what() << std::endl;
+       }
+   }
+   {
+       try {//simple invalidation
+          Bureaucrat bureaucrat("Smith", 6);
+          AForm form1("001", 5, 2);
+          std::cout << bureaucrat << std::endl;
+          std::cout << form1 << std::endl;
+          form1.beSigned(bureaucrat);
+          std::cout << form1 << std::endl;
+
+       }   catch (std::exception &e) {
+               std::cout << e.what() << std::endl;
+       }
+   }
    // {
    //     try {//simple demotion
    //        Bureaucrat bureaucrat("Smith", 5);

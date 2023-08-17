@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.h"
+#include "Form.h"
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : name_(name), grade_(grade) {
 
@@ -77,6 +78,15 @@ void Bureaucrat::demoteGrade(int lvl) {
         this->grade_ += lvl;
 }
 
+void Bureaucrat::signForm(AForm &form) const {
+
+    if (form.getInfo() == true)
+        std::cout << this->getName() << " signed " << form.getName() << "\n";
+    else
+        std::cout << this->getName() << " couldn't sign " << form.getName() << " because his grade is too Low\n";
+    std::cout << "- - - - -\n";
+}
+
 //private
 Bureaucrat::Bureaucrat() : name_("Bureaucrat") {
 
@@ -87,7 +97,7 @@ Bureaucrat::Bureaucrat() : name_("Bureaucrat") {
 //print var info to stream
 std::ostream & operator<<(std::ostream & ost, Bureaucrat const & rhs) {
 
-    ost << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << ".";
+    ost << "- - - - -\n " << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << ".\n- - - - -";
     return (ost);
 }
 
