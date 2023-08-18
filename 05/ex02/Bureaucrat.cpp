@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.h"
-#include "Form.h"
+#include "AForm.h"
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : name_(name), grade_(grade) {
 

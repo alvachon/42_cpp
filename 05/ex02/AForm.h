@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.h                                           :+:      :+:    :+:   */
+/*   Form.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,30 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_H
-# define BUREAUCRAT_H
+#ifndef AFORM_H
+# define AFORM_H
 
 #include <iostream>
 #include <string.h>
-#include "AForm.h"
+#include "Bureaucrat.h"
 
-class AForm;
+class Bureaucrat;
 
-class Bureaucrat {
+class AForm {
 
     public:
-        Bureaucrat(const std::string name, int grade);
-        ~Bureaucrat();
-        Bureaucrat(Bureaucrat & src, const std::string name);
-        Bureaucrat& operator=(const Bureaucrat & rhs);
+        AForm();
+        AForm(const std::string name, int signedGrade, int exectGrade);
+        virtual ~AForm();
+        AForm(AForm & src, const std::string name);
+        AForm& operator=(const AForm & rhs);
 
         const std::string     getName(void) const;
-        int                   getGrade(void) const; 
-        void                  promoteGrade(int lvl);
-        void                  demoteGrade(int lvl);
-        void                  signForm(AForm &form) const;
+        const int             getSignedGrade(void) const;
+        const int             getExectGrade(void) const;
+        const bool            getInfo(void) const;
+        virtual void          beSigned(const Bureaucrat& rhs);
         
-
         class GradeTooHighException : public std::exception {
             public:
                 virtual const char *what() const throw(){ return "Grade too high";}
@@ -46,13 +46,14 @@ class Bureaucrat {
     protected:
 
     private:
-        const         std::string   name_;
-        int           grade_;
-        Bureaucrat();
+        const std::string   name_;
+        const int           signedGrade_;
+        const int           exectGrade_;
+        bool                signed_;
 
 };
 
-std::ostream& operator<<(std::ostream& o, const Bureaucrat& rhs);
+std::ostream& operator<<(std::ostream& o, const AForm& rhs);
 
 
-#endif/* ************************************************** BUREAUCRAT_H */
+#endif/* ************************************************** AFORM_H */

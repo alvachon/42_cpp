@@ -6,12 +6,12 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/17 15:21:34 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/18 11:16:57 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.h"
-#include "Form.h"
+#include "AForm.h"
 
 int main(void)
 {

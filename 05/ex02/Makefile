@@ -1,8 +1,11 @@
-NAME =		ex01
+NAME =		ex02
 
 SRC =		main.cpp \
 			Bureaucrat.cpp \
-			Form.cpp
+			AForm.cpp \
+			ShrubberyCreationForm.cpp \
+			RobotomyRequestForm.cpp \
+			PresidentialPardonForm.cpp
 
 OBJ =		$(SRC:.cpp=.o)
 
@@ -28,6 +31,6 @@ fclean:clean
 re:fclean all
 
 leaks:
-	leaks --atExit -- ./ex01
+	leaks --atExit -- ./ex02
 
 .PHONY: all clean re
