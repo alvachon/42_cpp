@@ -19,22 +19,13 @@ Fait des bruits de perceuse. Ensuite, informe que la <target> a été robotomis�
 avec succès 50% du temps. Dans le cas contraire, informe que l’opération a échoué.
 */
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string name, int signedGrade, int exectGrade) :
-    AForm("RobotomyRequestForm", 72, 45) { return ; }
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45) { return ; }
 
-RobotomyRequestForm::~RobotomyRequestForm() { std::cout << " Destructor from " << AForm::getName() << " \n";
-    return ; }
+RobotomyRequestForm::~RobotomyRequestForm() { return ; }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm & src, const std::string name) :
-    AForm(src, name) { return ; }
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm & src) : AForm(src, "RobotomyRequestForm") { return ; }
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm & rhs) {
     std::cout << " Operator = called \n";
     return (*this);
-}
-
-//private
-RobotomyRequestForm::RobotomyRequestForm() : AForm() {
-    std::cout << "Constructor from " << AForm::getName() << " \n";
-    return ;
 }

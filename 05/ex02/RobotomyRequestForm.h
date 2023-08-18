@@ -22,22 +22,15 @@ avec succès 50% du temps. Dans le cas contraire, informe que l’opération a �
 
 #include <iostream>
 #include <string.h>
-//#include "Bureaucrat.h"
 #include "AForm.h"
-
-//class Bureaucrat;
 
 class RobotomyRequestForm : public virtual AForm {
 
     public:
-        RobotomyRequestForm(const std::string name, int signedGrade, int exectGrade);
-        ~RobotomyRequestForm();
-        RobotomyRequestForm(RobotomyRequestForm & src, const std::string name);
-        RobotomyRequestForm& operator=(const RobotomyRequestForm & rhs);
-
-    private:
         RobotomyRequestForm();
-
+        ~RobotomyRequestForm();
+        RobotomyRequestForm(RobotomyRequestForm & src);
+        RobotomyRequestForm& operator=(const RobotomyRequestForm & rhs);
 };
 
 #endif/* ************************************************** ROBOTOMYREQUESTFORM_H */

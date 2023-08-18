@@ -19,22 +19,14 @@ Créé un fichier <target>_shrubbery dans le répertoire courant, et écrit des 
 ASCII à l’intérieur.
 */
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string name, int signedGrade, int exectGrade) :
-    AForm("ShrubberyCreationForm", 145, 137) { return ; }
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137) { return ; }
 
-ShrubberyCreationForm::~ShrubberyCreationForm() { std::cout << " Destructor from " << AForm::getName() << " \n";
-    return ; }
+ShrubberyCreationForm::~ShrubberyCreationForm() { return ; }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm & src, const std::string name) :
-    AForm(src, name) { return ; }
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm & src) :
+    AForm(src, "ShrubberyCreationForm") { return ; }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm & rhs) {
     std::cout << " Operator = called \n";
     return (*this);
-}
-
-//private
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm() {
-    std::cout << "Constructor from " << AForm::getName() << " \n";
-    return ;
 }

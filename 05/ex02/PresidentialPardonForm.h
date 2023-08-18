@@ -21,21 +21,15 @@ Informe que la <target> a été pardonnée par Zaphod Beeblebrox.
 
 #include <iostream>
 #include <string.h>
-//#include "Bureaucrat.h"
 #include "AForm.h"
-
-//class Bureaucrat;
 
 class PresidentialPardonForm : public virtual AForm {
 
     public:
-        PresidentialPardonForm(const std::string name, int signedGrade, int exectGrade);
-        ~PresidentialPardonForm();
-        PresidentialPardonForm(PresidentialPardonForm & src, const std::string name);
-        PresidentialPardonForm& operator=(const PresidentialPardonForm & rhs);
-
-    private:
         PresidentialPardonForm();
+        ~PresidentialPardonForm();
+        PresidentialPardonForm(PresidentialPardonForm & src);
+        PresidentialPardonForm& operator=(const PresidentialPardonForm & rhs);
 };
 
 #endif/* ************************************************** PRESIDENTIALPARDONFORM_H */

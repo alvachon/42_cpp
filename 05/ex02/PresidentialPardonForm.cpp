@@ -19,22 +19,14 @@
 Informe que la <target> a été pardonnée par Zaphod Beeblebrox.
 */
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string name, int signedGrade, int exectGrade) :
-    AForm("PresidentialPardonForm", 25, 5) { return ; }
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5) { return ; }
 
-PresidentialPardonForm::~PresidentialPardonForm() { std::cout << " Destructor from " << AForm::getName() << " \n";
-    return ; }
+PresidentialPardonForm::~PresidentialPardonForm() { return ; }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm & src, const std::string name) :
-    AForm(src, name) { return ; }
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm & src) :
+    AForm(src, "PresidentialPardonForm") { return ; }
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm & rhs) {
     std::cout << " Operator = called \n";
     return (*this);
-}
-
-//private
-PresidentialPardonForm::PresidentialPardonForm() : AForm() {
-    std::cout << "Constructor from " << AForm::getName() << " \n";
-    return ;
 }

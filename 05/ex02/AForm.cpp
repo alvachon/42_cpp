@@ -6,11 +6,57 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/18 11:07:04 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/18 12:49:47 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.h"
+
+// void AForm::execute(const Bureaucrat& executor const) {
+
+//     if (this->signed_ == true && executor.getGrade() > this->getSignedGrade())
+//     {
+//         std::cout << "Enter here ";
+//     }
+//     else
+//     {
+//         throw AForm::GradeTooLowException();//to change
+//     }
+//    return ;
+// }
+
+void AForm::beSigned(const Bureaucrat& rhs) {
+
+    if (rhs.getGrade() > this->getSignedGrade())
+    {
+        rhs.signForm(*this);
+        throw AForm::GradeTooLowException();
+    }
+    else
+    {
+        this->signed_ = 1;
+        rhs.signForm(*this);
+    }
+   return ;
+}
+
+const std::string AForm::getName(void) const { return (this->name_); }
+
+const int AForm::getSignedGrade(void) const { return (this->signedGrade_); }
+
+const int AForm::getExectGrade(void) const { return (this->exectGrade_); }
+
+const bool AForm::getInfo(void) const { return (this->signed_);}
+
+//print var info to stream
+std::ostream & operator<<(std::ostream & ost, AForm const & rhs) {
+
+    ost << " AForm name :\t" << rhs.getName() << "\n" 
+    << " Signed :\t" << rhs.getInfo() << "\n"
+    << " Signed Grade :\t" << rhs.getSignedGrade() << "\n"
+    << " Exec Grade :\t"<< rhs.getExectGrade() << "\n- - - - -";
+    return (ost);
+}
 
 AForm::AForm(const std::string name, int signedGrade, int exectGrade) :
     name_(name), signedGrade_(signedGrade), exectGrade_(exectGrade), signed_(0) {
@@ -38,45 +84,8 @@ AForm::AForm(AForm & src, const std::string name) :
     return ;
 }
 
-AForm& AForm::operator=(const AForm & rhs) {
-
-    std::cout << " Operator = called \n";
+AForm& AForm::operator=(const AForm & rhs) {  std::cout << " Operator = called \n";
     return (*this);
-}
-
-const std::string AForm::getName(void) const {
-
-    return (this->name_);
-}
-
-const int AForm::getSignedGrade(void) const {
-
-    return (this->signedGrade_);
-}
-
-const int AForm::getExectGrade(void) const {
-
-    return (this->exectGrade_);
-}
-
-const bool AForm::getInfo(void) const {
-
-    return (this->signed_);
-}
-
-void AForm::beSigned(const Bureaucrat& rhs) {
-
-    if (rhs.getGrade() > this->getSignedGrade())
-    {
-        rhs.signForm(*this);
-        throw AForm::GradeTooLowException();
-    }
-    else
-    {
-        this->signed_ = 1;
-        rhs.signForm(*this);
-    }
-   return ;
 }
 
 //private
@@ -85,15 +94,3 @@ AForm::AForm() : name_("AForm"), signedGrade_(150), exectGrade_(150), signed_(0)
     std::cout << "Constructor from " << name_ << " \n";
     return ;
 }
-
-//print var info to stream
-std::ostream & operator<<(std::ostream & ost, AForm const & rhs) {
-
-    ost << " AForm name :\t" << rhs.getName() << "\n" 
-    << " Signed :\t" << rhs.getInfo() << "\n"
-    << " Signed Grade :\t" << rhs.getSignedGrade() << "\n"
-    << " Exec Grade :\t"<< rhs.getExectGrade() << "\n- - - - -";
-    return (ost);
-}
-
-

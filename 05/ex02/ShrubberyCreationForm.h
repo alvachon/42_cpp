@@ -21,22 +21,15 @@ ASCII à l’intérieur.
 
 #include <iostream>
 #include <string.h>
-//#include "Bureaucrat.h"
 #include "AForm.h"
-
-//class Bureaucrat;
 
 class ShrubberyCreationForm : public virtual AForm {
 
     public:
-        ShrubberyCreationForm(const std::string name, int signedGrade, int exectGrade);
-        ~ShrubberyCreationForm();
-        ShrubberyCreationForm(ShrubberyCreationForm & src, const std::string name);
-        ShrubberyCreationForm& operator=(const ShrubberyCreationForm & rhs);
-
-    private:
         ShrubberyCreationForm();
-
+        ~ShrubberyCreationForm();
+        ShrubberyCreationForm(ShrubberyCreationForm & src);
+        ShrubberyCreationForm& operator=(const ShrubberyCreationForm & rhs);
 };
 
 #endif/* ************************************************** SHRUBBERYCREATIONFORM_H */

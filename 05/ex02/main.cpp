@@ -6,15 +6,30 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/18 11:16:57 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/18 12:31:38 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.h"
 #include "AForm.h"
+#include "PresidentialPardonForm.h"
+#include "RobotomyRequestForm.h"
+#include "ShrubberyCreationForm.h"
 
 int main(void)
 {
+    {
+       try {//simple Form
+          PresidentialPardonForm p;
+          std::cout << p << std::endl;
+          RobotomyRequestForm r;
+          std::cout << r << std::endl;
+          ShrubberyCreationForm s;
+          std::cout << s << std::endl;
+       }   catch (std::exception &e) {
+               std::cout << e.what() << std::endl;
+       }
+    }
    //  {
    //     try {//simple
    //        Bureaucrat bureaucrat("Smith", 1);
@@ -60,32 +75,32 @@ int main(void)
    //             std::cout << e.what() << std::endl;
    //     }
    //  }
-    {
-       try {//simple validation
-          Bureaucrat bureaucrat("Smith", 3);
-          AForm form1("001", 5, 2);
-          std::cout << bureaucrat << std::endl;
-          std::cout << form1 << std::endl;
-          form1.beSigned(bureaucrat);
-          std::cout << form1 << std::endl;
+   //  {
+   //     try {//simple validation
+   //        Bureaucrat bureaucrat("Smith", 3);
+   //        AForm form1("001", 5, 2);
+   //        std::cout << bureaucrat << std::endl;
+   //        std::cout << form1 << std::endl;
+   //        form1.beSigned(bureaucrat);
+   //        std::cout << form1 << std::endl;
 
-       }   catch (std::exception &e) {
-               std::cout << e.what() << std::endl;
-       }
-   }
-   {
-       try {//simple invalidation
-          Bureaucrat bureaucrat("Smith", 6);
-          AForm form1("001", 5, 2);
-          std::cout << bureaucrat << std::endl;
-          std::cout << form1 << std::endl;
-          form1.beSigned(bureaucrat);
-          std::cout << form1 << std::endl;
+   //     }   catch (std::exception &e) {
+   //             std::cout << e.what() << std::endl;
+   //     }
+   // }
+   // {
+   //     try {//simple invalidation
+   //        Bureaucrat bureaucrat("Smith", 6);
+   //        AForm form1("001", 5, 2);
+   //        std::cout << bureaucrat << std::endl;
+   //        std::cout << form1 << std::endl;
+   //        form1.beSigned(bureaucrat);
+   //        std::cout << form1 << std::endl;
 
-       }   catch (std::exception &e) {
-               std::cout << e.what() << std::endl;
-       }
-   }
+   //     }   catch (std::exception &e) {
+   //             std::cout << e.what() << std::endl;
+   //     }
+   // }
    // {
    //     try {//simple demotion
    //        Bureaucrat bureaucrat("Smith", 5);
