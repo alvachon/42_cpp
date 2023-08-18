@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/18 12:31:38 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/18 13:38:30 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,66 @@
 
 int main(void)
 {
-    {
-       try {//simple Form
+   //     {
+   //     try {//working workflow
+   //        Bureaucrat executor("Smith", 5);
+   //        Bureaucrat secretary("Roberge", 25);
+   //        std::cout << executor << std::endl;
+   //        std::cout << secretary << std::endl;
+
+   //        PresidentialPardonForm p;
+   //        std::cout << p << std::endl;
+
+   //        p.beSigned(secretary);
+   //        p.execute(executor);
+   //     }   catch (std::exception &e) {
+   //             std::cout << e.what() << std::endl;
+   //     }
+   //  }
+   // {
+   //     try {//secretary can't sign the presidential
+   //        Bureaucrat executor("Smith", 5);
+   //        Bureaucrat secretary("Roberge", 26);
+   //        std::cout << executor << std::endl;
+   //        std::cout << secretary << std::endl;
+
+   //        PresidentialPardonForm p;
+   //        std::cout << p << std::endl;
+
+   //        p.beSigned(secretary);
+   //        p.execute(executor);
+   //     }   catch (std::exception &e) {
+   //             std::cout << e.what() << std::endl;
+   //     }
+   //  }
+   {
+       try {//executor can't execute the presidential
+          Bureaucrat executor("Smith", 6);
+          Bureaucrat secretary("Roberge", 25);
+          std::cout << executor << std::endl;
+          std::cout << secretary << std::endl;
+
           PresidentialPardonForm p;
           std::cout << p << std::endl;
-          RobotomyRequestForm r;
-          std::cout << r << std::endl;
-          ShrubberyCreationForm s;
-          std::cout << s << std::endl;
+
+          p.beSigned(secretary);
+          p.execute(executor);
        }   catch (std::exception &e) {
                std::cout << e.what() << std::endl;
        }
     }
+   //  {
+   //     try {//simple Form
+   //        PresidentialPardonForm p;
+   //        std::cout << p << std::endl;
+   //        RobotomyRequestForm r;
+   //        std::cout << r << std::endl;
+   //        ShrubberyCreationForm s;
+   //        std::cout << s << std::endl;
+   //     }   catch (std::exception &e) {
+   //             std::cout << e.what() << std::endl;
+   //     }
+   //  }
    //  {
    //     try {//simple
    //        Bureaucrat bureaucrat("Smith", 1);

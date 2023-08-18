@@ -13,12 +13,6 @@
 #ifndef SHRUBBERYCREATIONFORM_H
 # define SHRUBBERYCREATIONFORM_H
 
-/*
-Échelons requis : signature 145, exécution 137
-Créé un fichier <target>_shrubbery dans le répertoire courant, et écrit des arbres
-ASCII à l’intérieur.
-*/
-
 #include <iostream>
 #include <string.h>
 #include "AForm.h"

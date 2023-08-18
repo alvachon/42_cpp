@@ -6,24 +6,17 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/18 12:49:47 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/18 14:01:19 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.h"
 
-// void AForm::execute(const Bureaucrat& executor const) {
+void AForm::execute(const Bureaucrat& executor) const {
 
-//     if (this->signed_ == true && executor.getGrade() > this->getSignedGrade())
-//     {
-//         std::cout << "Enter here ";
-//     }
-//     else
-//     {
-//         throw AForm::GradeTooLowException();//to change
-//     }
-//    return ;
-// }
+    executor.executeForm(*this);
+   return ;
+}
 
 void AForm::beSigned(const Bureaucrat& rhs) {
 

@@ -13,12 +13,6 @@
 #ifndef PRESIDENTIALPARDONFORM_H
 # define PRESIDENTIALPARDONFORM_H
 
-//formulaire de pardon présidentiel)
-/*
-Échelons requis : signature 25, exécution 5
-Informe que la <target> a été pardonnée par Zaphod Beeblebrox.
-*/
-
 #include <iostream>
 #include <string.h>
 #include "AForm.h"

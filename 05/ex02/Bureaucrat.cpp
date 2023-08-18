@@ -81,10 +81,22 @@ void Bureaucrat::demoteGrade(int lvl) {
 void Bureaucrat::signForm(AForm &form) const {
 
     if (form.getInfo() == true)
-        std::cout << this->getName() << " signed " << form.getName() << "\n";
+        std::cout << this->getName() << " signed " << form.getName() << std::endl;
     else
-        std::cout << this->getName() << " couldn't sign " << form.getName() << " because his grade is too Low\n";
+        std::cout << this->getName() << " couldn't sign " << form.getName() << std::endl;
     std::cout << "- - - - -\n";
+}
+
+void Bureaucrat::executeForm(AForm const &form) const {
+
+    if (form.getInfo() == true && this->getGrade() == form.getExectGrade())
+        std::cout << this->getName() << " executed " << form.getName() << std::endl;
+    else
+    {
+        std::cout << this->getName() << " couldn't execute " << form.getName() << std::endl;
+        throw AForm::GradeTooLowException();
+    }
+    std::cout << "- - - - -" << std::endl;        
 }
 
 //private

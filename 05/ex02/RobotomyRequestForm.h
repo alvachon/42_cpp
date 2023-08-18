@@ -13,13 +13,6 @@
 #ifndef ROBOTOMYREQUESTFORM_H
 # define ROBOTOMYREQUESTFORM_H
 
-//formulaire de demande de robotomie
-/*
-Échelons requis : signature 72, exécution 45
-Fait des bruits de perceuse. Ensuite, informe que la <target> a été robotomisée
-avec succès 50% du temps. Dans le cas contraire, informe que l’opération a échoué.
-*/
-
 #include <iostream>
 #include <string.h>
 #include "AForm.h"

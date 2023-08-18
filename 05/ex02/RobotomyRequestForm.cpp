@@ -12,12 +12,6 @@
 
 #include "RobotomyRequestForm.h"
 #include "AForm.h"
-//formulaire de demande de robotomie
-/*
-Échelons requis : signature 72, exécution 45
-Fait des bruits de perceuse. Ensuite, informe que la <target> a été robotomisée
-avec succès 50% du temps. Dans le cas contraire, informe que l’opération a échoué.
-*/
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45) { return ; }
 

@@ -12,12 +12,6 @@
 
 #include "ShrubberyCreationForm.h"
 #include "AForm.h"
-//formulaire de création d’arbustes
-/*
-Échelons requis : signature 145, exécution 137
-Créé un fichier <target>_shrubbery dans le répertoire courant, et écrit des arbres
-ASCII à l’intérieur.
-*/
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137) { return ; }
 

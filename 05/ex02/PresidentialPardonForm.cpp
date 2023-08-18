@@ -13,12 +13,6 @@
 #include "PresidentialPardonForm.h"
 #include "AForm.h"
 
-//formulaire de pardon présidentiel)
-/*
-Échelons requis : signature 25, exécution 5
-Informe que la <target> a été pardonnée par Zaphod Beeblebrox.
-*/
-
 PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5) { return ; }
 
 PresidentialPardonForm::~PresidentialPardonForm() { return ; }
