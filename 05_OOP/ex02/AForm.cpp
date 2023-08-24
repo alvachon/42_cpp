@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/18 14:01:19 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/24 11:41:46 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ void AForm::beSigned(const Bureaucrat& rhs) {
    return ;
 }
 
-const std::string AForm::getName(void) const { return (this->name_); }
+const std::string & AForm::getName(void) const { return (this->name_); }
 
-const int AForm::getSignedGrade(void) const { return (this->signedGrade_); }
+const int & AForm::getSignedGrade(void) const { return (this->signedGrade_); }
 
-const int AForm::getExectGrade(void) const { return (this->exectGrade_); }
+const int & AForm::getExectGrade(void) const { return (this->exectGrade_); }
 
-const bool AForm::getInfo(void) const { return (this->signed_);}
+const bool & AForm::getInfo(void) const { return (this->signed_);}
 
 //print var info to stream
 std::ostream & operator<<(std::ostream & ost, AForm const & rhs) {

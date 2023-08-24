@@ -15,9 +15,9 @@
 
 #include <iostream>
 #include <string.h>
-#include "Form.h"
+#include "AForm.h"
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 
@@ -27,11 +27,12 @@ class Bureaucrat {
         Bureaucrat(Bureaucrat & src, const std::string name);
         Bureaucrat& operator=(const Bureaucrat & rhs);
 
-        const std::string     getName(void) const;
-        int                   getGrade(void) const; 
+        const std::string &   getName(void) const;
+        const int &           getGrade(void) const; 
         void                  promoteGrade(int lvl);
         void                  demoteGrade(int lvl);
-        void                  signForm(Form &form) const;
+        void                  signForm(AForm &form) const;
+        void                  executeForm(AForm const &form) const;
         
 
         class GradeTooHighException : public std::exception {

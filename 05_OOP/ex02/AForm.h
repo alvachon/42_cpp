@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_H
-# define FORM_H
+#ifndef AFORM_H
+# define AFORM_H
 
 #include <iostream>
 #include <string.h>
@@ -19,19 +19,20 @@
 
 class Bureaucrat;
 
-class Form {
+class AForm {
 
     public:
-        Form(const std::string name, int signedGrade, int exectGrade);
-        ~Form();
-        Form(Form & src, const std::string name);
-        Form& operator=(const Form & rhs);
+        AForm(const std::string name, int signedGrade, int exectGrade);
+        virtual ~AForm();
+        AForm(AForm & src, const std::string name);
+        AForm& operator=(const AForm & rhs);
 
-        const std::string     getName(void) const;
-        const int             getSignedGrade(void) const;
-        const int             getExectGrade(void) const;
-        const bool            getInfo(void) const;
-        void                  beSigned(const Bureaucrat& rhs);
+        const std::string &    getName(void) const;
+        const int &            getSignedGrade(void) const;
+        const int &            getExectGrade(void) const;
+        const bool &           getInfo(void) const;
+        virtual void          beSigned(const Bureaucrat& rhs);
+        virtual void          execute(const Bureaucrat& executor) const = 0;
         
         class GradeTooHighException : public std::exception {
             public:
@@ -45,15 +46,15 @@ class Form {
     protected:
 
     private:
+        AForm();
         const std::string   name_;
         const int           signedGrade_;
         const int           exectGrade_;
         bool                signed_;
-        Form();
 
 };
 
-std::ostream& operator<<(std::ostream& o, const Form& rhs);
+std::ostream& operator<<(std::ostream& o, const AForm& rhs);
 
 
-#endif/* ************************************************** FORM_H */
+#endif/* ************************************************** AFORM_H */

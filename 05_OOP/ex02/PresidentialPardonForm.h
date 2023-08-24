@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.h                                           :+:      :+:    :+:   */
+/*   PresidentialPardonForm.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,22 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_H
-# define ROBOTOMYREQUESTFORM_H
+#ifndef PRESIDENTIALPARDONFORM_H
+# define PRESIDENTIALPARDONFORM_H
 
 #include <iostream>
 #include <string.h>
 #include "AForm.h"
 
-class RobotomyRequestForm : public virtual AForm {
+class PresidentialPardonForm : public AForm {
 
     public:
-        RobotomyRequestForm(const std::string target);
-        ~RobotomyRequestForm();
-        RobotomyRequestForm(RobotomyRequestForm & src);
-        RobotomyRequestForm& operator=(const RobotomyRequestForm & rhs);
-    private:
-        RobotomyRequestForm();
+        PresidentialPardonForm();
+        ~PresidentialPardonForm();
+        PresidentialPardonForm(PresidentialPardonForm & src);
+        PresidentialPardonForm& operator=(const PresidentialPardonForm & rhs);
+
+        virtual void    execute(const Bureaucrat& executor) const;
 };
 
-#endif/* ************************************************** ROBOTOMYREQUESTFORM_H */
+#endif/* ************************************************** PRESIDENTIALPARDONFORM_H */

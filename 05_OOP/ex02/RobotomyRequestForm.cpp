@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                                           :+:      :+:    :+:   */
+/*   RobotomyRequestForm.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,20 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.h"
+#include "RobotomyRequestForm.h"
 #include "AForm.h"
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) : AForm(target, 145, 137) { return ; }
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45) { return ; }
 
-ShrubberyCreationForm::~ShrubberyCreationForm() { return ; }
+RobotomyRequestForm::~RobotomyRequestForm() { return ; }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm & src) :
-    AForm(src, "ShrubberyCreationForm") { return ; }
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm & src) : AForm(src, "RobotomyRequestForm") { return ; }
 
-ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm & rhs) {
+RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm & rhs) {
     std::cout << " Operator = called \n";
     return (*this);
 }
 
-//private
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137) { return ; }
+void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
+
+    std::cout << "Fait des bruits de perceuse. Ensuite, informe que la <target> a été robotomisée avec succès 50% du temps.
+     Dans le cas contraire, informe que l’opération a échoué." << std::endl;
+/*
+    system.electricdrill
+*/
+
+   executor.executeForm(*this);
+   return ;
+}

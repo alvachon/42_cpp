@@ -12,6 +12,10 @@
 
 #include "Convert.h"
 
+/*
+std::string type
+*/
+
 Convert::Convert(const std::string litteral) : litteral_(litteral) {
 
     // if (grade < 1)

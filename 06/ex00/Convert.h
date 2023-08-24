@@ -25,18 +25,14 @@ class Convert {
         Convert& operator=(const Convert & rhs);
 
         // const std::string     getName(void) const;
-        // int                   getGrade(void) const; 
+        // int                   getGrade(void) const;
         // void                  promoteGrade(int lvl);
         // void                  demoteGrade(int lvl);
-        
+
         class GradeTooHighException : public std::exception {
             public:
                 virtual const char *what() const throw(){ return "Grade too high";}
         };
-        // class GradeTooLowException : public std::exception {
-        //     public:
-        //         virtual const char *what() const throw(){ return "Grade too low";}
-        // };
 
     protected:
 

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.h"
+#include "AForm.h"
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : name_(name), grade_(grade) {
 
@@ -46,12 +47,12 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat & rhs) {
     return (*this);
 }
 
-const std::string Bureaucrat::getName(void) const {
+const std::string & Bureaucrat::getName(void) const {
 
     return (this->name_);
 }
 
-int Bureaucrat::getGrade(void) const {
+const int & Bureaucrat::getGrade(void) const {
 
     return (this->grade_);
 }
@@ -77,6 +78,27 @@ void Bureaucrat::demoteGrade(int lvl) {
         this->grade_ += lvl;
 }
 
+void Bureaucrat::signForm(AForm &form) const {
+
+    if (form.getInfo() == true)
+        std::cout << this->getName() << " signed " << form.getName() << std::endl;
+    else
+        std::cout << this->getName() << " couldn't sign " << form.getName() << std::endl;
+    std::cout << "- - - - -\n";
+}
+
+void Bureaucrat::executeForm(AForm const &form) const {
+
+    if (form.getInfo() == true && this->getGrade() == form.getExectGrade())
+        std::cout << this->getName() << " executed " << form.getName() << std::endl;
+    else
+    {
+        std::cout << this->getName() << " couldn't execute " << form.getName() << std::endl;
+        throw AForm::GradeTooLowException();
+    }
+    std::cout << "- - - - -" << std::endl;        
+}
+
 //private
 Bureaucrat::Bureaucrat() : name_("Bureaucrat") {
 
@@ -87,7 +109,7 @@ Bureaucrat::Bureaucrat() : name_("Bureaucrat") {
 //print var info to stream
 std::ostream & operator<<(std::ostream & ost, Bureaucrat const & rhs) {
 
-    ost << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << ".";
+    ost << "- - - - -\n " << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << ".\n- - - - -";
     return (ost);
 }
 

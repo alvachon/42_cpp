@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                                           :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/17 15:21:00 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/04 10:56:06 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.h"
+#ifndef SHRUBBERYCREATIONFORM_H
+# define SHRUBBERYCREATIONFORM_H
+
+#include <iostream>
+#include <string.h>
 #include "AForm.h"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137) { return ; }
+class ShrubberyCreationForm : public virtual AForm {
 
-ShrubberyCreationForm::~ShrubberyCreationForm() { return ; }
+    public:
+        ShrubberyCreationForm();
+        ~ShrubberyCreationForm();
+        ShrubberyCreationForm(ShrubberyCreationForm & src);
+        ShrubberyCreationForm& operator=(const ShrubberyCreationForm & rhs);
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm & src) :
-    AForm(src, "ShrubberyCreationForm") { return ; }
+        virtual void    execute(const Bureaucrat& executor) const;
+};
 
-ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm & rhs) {
-    std::cout << " Operator = called \n";
-    return (*this);
-}
+#endif/* ************************************************** SHRUBBERYCREATIONFORM_H */

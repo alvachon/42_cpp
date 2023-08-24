@@ -13,7 +13,7 @@
 #include "PresidentialPardonForm.h"
 #include "AForm.h"
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string target) : AForm(target, 25, 5) { return ; }
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5) { return ; }
 
 PresidentialPardonForm::~PresidentialPardonForm() { return ; }
 
@@ -24,5 +24,10 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
     std::cout << " Operator = called \n";
     return (*this);
 }
-//private
-PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5) { return ; }
+
+void PresidentialPardonForm::execute(const Bureaucrat& executor) const {
+
+    std::cout << "Informe que la <target> a été pardonnée par Zaphod Beeblebrox." << std::endl;
+   executor.executeForm(*this);
+   return ;
+}
