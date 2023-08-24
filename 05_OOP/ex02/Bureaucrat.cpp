@@ -87,14 +87,18 @@ void Bureaucrat::signForm(AForm &form) const {
     std::cout << "- - - - -\n";
 }
 
-void Bureaucrat::executeForm(AForm const &form) const {
+const int Bureaucrat::executeForm(AForm const &form) const {
 
     if (form.getInfo() == true && this->getGrade() == form.getExectGrade())
+    {
         std::cout << this->getName() << " executed " << form.getName() << std::endl;
+        return (0);
+    }
     else
     {
         std::cout << this->getName() << " couldn't execute " << form.getName() << std::endl;
         throw AForm::GradeTooLowException();
+        return (1);
     }
     std::cout << "- - - - -" << std::endl;        
 }

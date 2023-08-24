@@ -32,7 +32,7 @@ class Bureaucrat {
         void                  promoteGrade(int lvl);
         void                  demoteGrade(int lvl);
         void                  signForm(AForm &form) const;
-        void                  executeForm(AForm const &form) const;
+        const int             executeForm(AForm const &form) const;
         
 
         class GradeTooHighException : public std::exception {

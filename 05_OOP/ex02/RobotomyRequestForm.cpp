@@ -26,12 +26,10 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm & 
 
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
 
-    std::cout << "Fait des bruits de perceuse. Ensuite, informe que la <target> a été robotomisée avec succès 50% du temps.
-     Dans le cas contraire, informe que l’opération a échoué." << std::endl;
-/*
-    system.electricdrill
-*/
-
-   executor.executeForm(*this);
+   srand(time(0));
+   if (executor.executeForm(*this) == 0 && ((rand() % 2) + 1 == 2))
+      system("open Electric-Drill.mp3");
+   else
+    throw std::range_error("Failed");
    return ;
 }
