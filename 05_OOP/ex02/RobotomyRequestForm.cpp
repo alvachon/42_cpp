@@ -30,6 +30,6 @@ void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
    if (executor.executeForm(*this) == 0 && ((rand() % 2) + 1 == 2))
       system("open Electric-Drill.mp3");
    else
-    throw std::range_error("Failed");
+      std::cout << "Failed." << std::endl;
    return ;
 }
