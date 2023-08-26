@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string.h>
+#include <locale.h>
 
 /*
 https://cplusplus.com/reference/string/
@@ -28,8 +29,12 @@ class Convert {
         Convert(const Convert & src);
         Convert& operator=(const Convert & rhs);
 
-        const std::string     getLitteral(void) const;
-        const std::string     getLitType(void) const;
+        const std::string &    getLitteral(void) const;
+        const std::string &    getLitType(void) const;
+        const char &           getChar(void) const;
+        const int &            getInt(void) const;
+        const float &          getFloat(void) const;
+        const double &         getDouble(void) const;
 
         const bool  charLitteral() const;
         const bool  floatLitteral() const;
@@ -38,6 +43,12 @@ class Convert {
         const bool  doubleLitteral() const;
 
         const bool findMultiple(const char c) const;
+
+        void       convertChar();
+        void       convertFloat();
+        void       convertPseudo();
+        void       convertInt();
+        void       convertDouble();
 
         //wrong, overflow, invalid
         class InvalidLitteral : public std::exception {
@@ -52,10 +63,10 @@ class Convert {
         const std::string   litteral_;
         std::string         litType_;
 
-        char          charVal;
-        int           intVal;
-        float         floatVal;
-        double        doubleVal;
+        char          charVal_;
+        int           intVal_;
+        float         floatVal_;
+        double        doubleVal_;
 };
 
 std::ostream& operator<<(std::ostream& o, const Convert& rhs);
