@@ -20,15 +20,24 @@ class Convert {
 
     public:
         Convert(const std::string litteral);
+        /* Dans Convert, va determiner le type du litteral*/
         ~Convert();
-        Convert(Convert & src);
+        Convert(const Convert & src);
         Convert& operator=(const Convert & rhs);
 
-        // const std::string     getName(void) const;
+        //emptyLitteral();
+        const bool  charLitteral() const;
+        // const bool  floatLitteral();
+        // const bool  pseudoLitteral();
+        // const bool  intLitteral();
+        // const bool  doubleLitteral();
+
+        const std::string     getLitteral(void) const;
         // int                   getGrade(void) const;
         // void                  promoteGrade(int lvl);
         // void                  demoteGrade(int lvl);
 
+        //wrong, overflow, invalid
         class GradeTooHighException : public std::exception {
             public:
                 virtual const char *what() const throw(){ return "Grade too high";}
@@ -38,7 +47,10 @@ class Convert {
 
     private:
         Convert();
-        const         std::string   litteral_;
+        const         std::string   litteral_;//take pseudo
+        const         std::string   litType_;
+        bool          lock;
+        char          charVal;
         int           intVal;
         float         floatVal;
         double        doubleVal;
