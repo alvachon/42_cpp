@@ -12,44 +12,51 @@
 
 #include "Convert.h"
 
-/* Dans Convert, va determiner le type du litteral
+Convert::Convert(const std::string litteral) : litteral_(litteral) {
 
-char = correspond charte ascci et 1 unite
-pseudo = correspond charte asccii, ref directe.
-
-int =  entre 0-9, pas de point
-double = entre 0-9, avec point
-
-float = entte 0-9, dernier char == f et contient un point.
-
-*/
-/*
-    stf::string pseudo[3] = "-inf, +inf, nan"
-    this->lock = 0;
-    if (litteral.str() > 1)
+    if (getLitteral().size() != 0)
     {
-        if (litteral.allnum() == 0)
-        {
-            if (litteral.dot() == 0)
-                this->type = double;
-        }
-        else if (litteral.find("abcd...") == 0)
-        {
-          for (int i = 0;, i < 3; i++)
-          {
-              if (this->lock = 1 && litteral.compare(pseudo[i]) == 0)
-                  throw Convert::invalid("Too many calls");
-              else if (litteral.compare(pseudo[i]) == 0 && this->lock == 0)
-              {
-                  this->lock = 1;
-                  this->type = pseudo[i];
-              }
-          }
-        }
+        if (charLitteral() == true)
+            this->litType_ = "char";
+        else if (floatLitteral() == true)
+            this->litType_ = "float";
+        else if (pseudoLitteral() == true)
+            this->litType_ = "pseudo";
+        else if (intLitteral() == true)
+            this->litType_ = "int";
+        else if (doubleLitteral() == true)
+            this->litType_ = "double";
         else
-            throw Convert::invalid("Not a litteral");
+            throw Convert::InvalidLitteral();
+        std::cout << " Constructor from " << litteral_ << " \n";
+        return ;
     }
-*/
+    throw Convert::InvalidLitteral();
+}
+
+Convert::~Convert() {
+    std::cout << " Destructor from " << litteral_ << " \n";
+    return ;
+}
+
+Convert::Convert(const Convert & src){
+    std::cout << " Constructor copy from " << litteral_ << " \n";
+    *this = src;
+    return ;
+}
+
+Convert& Convert::operator=(const Convert & rhs) {
+    std::cout << " Operator = called \n";
+    return (*this);
+}
+
+const std::string Convert::getLitteral(void) const {
+    return (this->litteral_);
+}
+
+const std::string Convert::getLitType(void) const {
+    return (this->litType_);
+}
 
 const bool Convert::charLitteral(void) const {
 
@@ -58,100 +65,64 @@ const bool Convert::charLitteral(void) const {
     return (false);
 }
 
-// const bool Convert::floatLitteral(void) const {
+const bool Convert::floatLitteral(void) const {
 
-//     if ()
-//         return (true);
-//     return (false);
-// }
-
-// const bool Convert::pseudoLitteral(void) const {
-
-//     if ()
-//         return (true);
-//     return (false);
-// }
-
-// const bool Convert::intLitteral(void) const {
-
-//     if ()
-//         return (true);
-//     return (false);
-// }
-
-// const bool Convert::doubleLitteral(void) const {
-
-//     if ()
-//         return (true);
-//     return (false);
-// }
-
-
-Convert::Convert(const std::string litteral) : litteral_(litteral) {
-
-
-    // if (grade < 1)
-    //     throw Convert::GradeTooHighException();
-    if (charLitteral() == false)
-        std::cout << " Not a char" << std::endl;
-    else
-        std::cout << " Constructor from " << litteral_ << " \n";
-   return ;
+    std::string floatContent = "0123456789.f";
+    if (getLitteral().find_last_not_of(floatContent) != 0)
+    {
+        if (getLitteral().back() == 'f' && findMultiple('f') == false)
+        {
+            if (findMultiple('.') == false)
+                return (true);
+        }
+    }
+    return (false);
 }
 
-Convert::~Convert() {
+const bool Convert::findMultiple(const char c) const {
 
-    std::cout << " Destructor from " << litteral_ << " \n";
-    return ;
+    std::size_t pos = getLitteral().find(c, 0);
+    if (pos != std::string::npos)
+    {
+        pos = getLitteral().find(c, pos + 1);
+        if (pos != std::string::npos)
+            return (true);
+    }
+    return (false);
 }
 
-Convert::Convert(const Convert & src){
+const bool Convert::pseudoLitteral(void) const {
 
-    std::cout << " Constructor copy from " << litteral_ << " \n";
-    *this = src;
-    return ;
+  const std::string pseudo[3] = { "-inf", "+inf", "nan"};
+  for (int i = 0; i < 3; i++)
+  {
+    if (getLitteral().compare(pseudo[i]) == 0)
+        return (true);
+  }
+    return (false);
 }
 
-Convert& Convert::operator=(const Convert & rhs) {
+const bool Convert::intLitteral(void) const {
 
-    // if (this != &rhs)
-    // {
-    //     this->grade_ = getGrade();
-    // }
-    std::cout << " Operator = called \n";
-    return (*this);
+    std::string intContent = "0123456789";
+    if (getLitteral().find_last_not_of(intContent) == 0)
+    {
+        std::cout << "Have not find something else than 0123456789" << std::endl;
+        return (true);
+    }
+    return (false);
 }
 
-const std::string Convert::getLitteral(void) const {
+const bool Convert::doubleLitteral(void) const {
 
-    return (this->litteral_);
+    std::string doubleContent = "0123456789.";
+    if (getLitteral().find_last_not_of(doubleContent) == 0)
+    {
+        if (findMultiple('.') == false)
+            return (true);
+    }
+    return (false);
 }
-
-// int Convert::getGrade(void) const {
-
-//     return (this->grade_);
-// }
-
-// void Convert::promoteGrade(int lvl) {
-
-//     if (lvl < 1)
-//         throw Convert::GradeTooHighException();
-//     else if ((grade_ - lvl) < 1)
-//         throw Convert::GradeTooHighException();
-//     else
-//         this->grade_ -= lvl;
-//    return ;
-// }
-
-// void Convert::demoteGrade(int lvl) {
-
-//     if (lvl > 150)
-//         throw Convert::GradeTooLowException();
-//     else if ((grade_ + lvl) > 150)
-//         throw Convert::GradeTooLowException();
-//     else
-//         this->grade_ += lvl;
-// }
 
 //private
 Convert::Convert() : litteral_("Convert") {
@@ -163,7 +134,7 @@ Convert::Convert() : litteral_("Convert") {
 //print var info to stream
 std::ostream & operator<<(std::ostream & ost, Convert const & rhs) {
 
-    // ost << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << ".";
+     ost << rhs.getLitteral() << " " << rhs.getLitType();
     return (ost);
 }
 

@@ -16,45 +16,46 @@
 #include <iostream>
 #include <string.h>
 
+/*
+https://cplusplus.com/reference/string/
+*/
+
 class Convert {
 
     public:
         Convert(const std::string litteral);
-        /* Dans Convert, va determiner le type du litteral*/
         ~Convert();
         Convert(const Convert & src);
         Convert& operator=(const Convert & rhs);
 
-        //emptyLitteral();
-        const bool  charLitteral() const;
-        // const bool  floatLitteral();
-        // const bool  pseudoLitteral();
-        // const bool  intLitteral();
-        // const bool  doubleLitteral();
-
         const std::string     getLitteral(void) const;
-        // int                   getGrade(void) const;
-        // void                  promoteGrade(int lvl);
-        // void                  demoteGrade(int lvl);
+        const std::string     getLitType(void) const;
+
+        const bool  charLitteral() const;
+        const bool  floatLitteral() const;
+        const bool  pseudoLitteral() const;
+        const bool  intLitteral() const;
+        const bool  doubleLitteral() const;
+
+        const bool findMultiple(const char c) const;
 
         //wrong, overflow, invalid
-        class GradeTooHighException : public std::exception {
+        class InvalidLitteral : public std::exception {
             public:
-                virtual const char *what() const throw(){ return "Grade too high";}
+                virtual const char *what() const throw(){ return "Invalid Litteral";}
         };
 
     protected:
 
     private:
         Convert();
-        const         std::string   litteral_;//take pseudo
-        const         std::string   litType_;
-        bool          lock;
+        const std::string   litteral_;
+        std::string         litType_;
+
         char          charVal;
         int           intVal;
         float         floatVal;
         double        doubleVal;
-        std::string   error;
 };
 
 std::ostream& operator<<(std::ostream& o, const Convert& rhs);
