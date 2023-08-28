@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Convert.h"
+#include <iomanip>
 
 /*
 If no conversion could be performed, an invalid_argument exception is thrown.
@@ -19,16 +20,27 @@ If the value read is out of the range of representable values by a double
 an out_of_range exception is thrown.
 */
 
+
 Convert::Convert(const std::string litteral) : litteral_(litteral) {
 
     if (getLitteral().size() != 0)
     {
         if (charLitteral() == true)
+        {
             this->litType_ = "char";
+            this->charVal_ = litteral[0];
+            this->intVal_ = static_cast<int>(litteral[0]);
+            this->floatVal_ = static_cast<float>(getInt());
+            this->doubleVal_ = static_cast<double>(getInt());
+        }
         else if (floatLitteral() == true)
         {
             this->litType_ = "float";
             this->floatVal_ = std::stof(litteral, nullptr);
+            this->doubleVal_ = static_cast<double>(getFloat());
+            //
+            this->charVal_ = static_cast<char>(getFloat());
+            this->intVal_ = static_cast<int>(getFloat());
         }
         else if (pseudoLitteral() == true)
             this->litType_ = "pseudo";
@@ -36,11 +48,19 @@ Convert::Convert(const std::string litteral) : litteral_(litteral) {
         {
             this->litType_ = "int";
             this->intVal_ = std::stoi(litteral, nullptr, 10);
+            this->floatVal_ = static_cast<float>(getInt());
+            this->doubleVal_ = static_cast<double>(getInt());
+            //
+            this->charVal_ = static_cast<char>(getInt());
         }
         else if (doubleLitteral() == true)
         {
             this->litType_ = "double";
             this->doubleVal_ = std::stod(litteral, nullptr);
+            //
+            this->floatVal_ = static_cast<float>(getDouble());
+
+
         }
         else
             throw Convert::InvalidLitteral();
@@ -140,10 +160,6 @@ const bool Convert::findMultiple(const char c) const {
 }
 
 void Convert::convertChar(){//prom all the way
-
-    this->intVal_ = getChar();
-    this->floatVal_ = getChar();
-    this->doubleVal_ = getChar();
     return ;
 }
 
@@ -155,8 +171,6 @@ void Convert::convertInt(){
 }
 
 void Convert::convertFloat(){
-    this->doubleVal_ = getFloat();
-    this->intVal_ = static_cast<int>(getFloat());
     return ;
 }
 
@@ -186,7 +200,7 @@ std::ostream & operator<<(std::ostream & ost, Convert const & rhs) {
     ost << rhs.getLitteral() << " " << rhs.getLitType() << "\n" <<
     " Type : char\t" << rhs.getChar() << "\n" <<
     " Type : int\t" << rhs.getInt() << "\n" <<
-    " Type : float\t" << rhs.getFloat() << "\n" <<
+    " Type : float\t" << std::setprecision(1) << std::fixed << rhs.getFloat() << "f\n" <<
     " Type : double\t" << rhs.getDouble() << "\n" <<
     " Type : pseudo\t";
     return (ost);

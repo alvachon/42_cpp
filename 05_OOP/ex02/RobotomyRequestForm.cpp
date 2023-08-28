@@ -27,9 +27,14 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm & 
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
 
    srand(time(0));
+   /*will throw an error bf for execution if signataire and exec not good enought,
+   then AFTER if rand fail, return an error for 1/2 chance*/
    if (executor.executeForm(*this) == 0 && ((rand() % 2) + 1 == 2))
       system("open Electric-Drill.mp3");
    else
-      std::cout << "Failed." << std::endl;
+   {
+      std::cerr << "1/2 chance failed." << std::endl;
+      throw std::exception();// a revoir
+   }
    return ;
 }

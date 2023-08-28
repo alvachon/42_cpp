@@ -35,8 +35,15 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
      std::string buffer = executor.getName() + "_shrubbery.txt";
      std::ofstream fileTree(buffer, std::ios::app);
      if (fileTree.is_open())
+     {
         fileTree << "       _-_\\\n    /~~   ~~\\\n /~~         ~~\\\n{               }\n \\  _-     -_  /\n   ~  \\ //  ~\n_- -  | | _- _ \n";
-     fileTree.close();
+        fileTree.close();
+     }
+     else
+     {
+      std::cerr << "Can't access " << std::endl;
+      throw std::exception();// a revoir
+     }
    }
    return ;
 }

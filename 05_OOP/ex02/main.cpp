@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/25 15:09:41 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/08/28 13:48:52 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,37 +35,37 @@ int main(void)
 
    //       p = new ShrubberyCreationForm();
    //       std::cout << *p << std::endl;
-  
+
    //       p->beSigned(secretary);
    //       p->execute(executor);
-   //    } 
+   //    }
    //    catch (std::exception &e)
    //    {
    //       std::cout << e.what() << std::endl;
    //    }
    //    delete p;
    // }
-   // {
-   //    AForm *p = 0;
-   //    try
-   //    {//working workflow -- RobotomyRequestForm
-   //       Bureaucrat executor("Smith", 45);
-   //       Bureaucrat secretary("Roberge", 72);
-   //       std::cout << executor << std::endl;
-   //       std::cout << secretary << std::endl;
+   {
+      AForm *p = 0;
+      try
+      {//working workflow -- RobotomyRequestForm
+         Bureaucrat executor("Smith", 45);
+         Bureaucrat secretary("Roberge", 72);
+         std::cout << executor << std::endl;
+         std::cout << secretary << std::endl;
 
-   //       p = new RobotomyRequestForm();
-   //       std::cout << *p << std::endl;
-  
-   //       p->beSigned(secretary);
-   //       p->execute(executor);
-   //    } 
-   //    catch (std::exception &e)
-   //    {
-   //       std::cout << e.what() << std::endl;
-   //    }
-   //    delete p;
-   //  }
+         p = new RobotomyRequestForm();
+         std::cout << *p << std::endl;
+
+         p->beSigned(secretary);
+         p->execute(executor);
+      }
+      catch (std::exception &e)
+      {
+         std::cout << e.what() << std::endl;
+      }
+      delete p;
+    }
    // {
    //    AForm *p = 0;
    //    try
@@ -77,10 +77,10 @@ int main(void)
 
    //       p = new PresidentialPardonForm();
    //       std::cout << *p << std::endl;
-  
+
    //       p->beSigned(secretary);
    //       p->execute(executor);
-   //    } 
+   //    }
    //    catch (std::exception &e)
    //    {
    //       std::cout << e.what() << std::endl;
@@ -98,36 +98,36 @@ int main(void)
 
    //       p = new PresidentialPardonForm();
    //       std::cout << *p << std::endl;
-  
+
    //       p->beSigned(secretary);
    //       p->execute(executor);
-   //    } 
+   //    }
    //    catch (std::exception &e)
    //    {
    //       std::cout << e.what() << std::endl;
    //    }
    //    delete p;
    // }
-   {
-      AForm *p = 0;
-      try
-      {  //executor can't
-         Bureaucrat executor("Smith", 6);
-         Bureaucrat secretary("Roberge", 25);
-         std::cout << executor << std::endl;
-         std::cout << secretary << std::endl;
+   // {
+   //    AForm *p = 0;
+   //    try
+   //    {  //executor can't
+   //       Bureaucrat executor("Smith", 6);
+   //       Bureaucrat secretary("Roberge", 25);
+   //       std::cout << executor << std::endl;
+   //       std::cout << secretary << std::endl;
 
-         p = new PresidentialPardonForm();
-         std::cout << *p << std::endl;
-  
-         p->beSigned(secretary);
-         p->execute(executor);
-      } 
-      catch (std::exception &e)
-      {
-         std::cout << e.what() << std::endl;
-      }
-      delete p;
-   }
+   //       p = new PresidentialPardonForm();
+   //       std::cout << *p << std::endl;
+
+   //       p->beSigned(secretary);
+   //       p->execute(executor);
+   //    }
+   //    catch (std::exception &e)
+   //    {
+   //       std::cout << e.what() << std::endl;
+   //    }
+   //    delete p;
+   // }
     return (0);
 }
