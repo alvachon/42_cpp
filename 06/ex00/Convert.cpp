@@ -28,7 +28,7 @@ Convert::Convert(const std::string litteral) : litteral_(litteral) {
         if (charLitteral() == true)
         {
             this->litType_ = "char";
-            this->charVal_ = litteral[0];
+            this->charVal_ = static_cast<int>(litteral[0]);
             this->intVal_ = static_cast<int>(litteral[0]);
             this->floatVal_ = static_cast<float>(getInt());
             this->doubleVal_ = static_cast<double>(getInt());
@@ -95,8 +95,17 @@ const double & Convert::getDouble(void) const { return (this->doubleVal_); }
 
 const bool Convert::charLitteral(void) const {
 
-    if ((getLitteral().size()) == 1/* && std::isprint(getLitteral())*/)
-        return (true);
+    if (getLitteral().size() == 1)
+    {
+            const char *str = getLitteral().c_str();
+            if (str[0] > 31 && str[0] < 127)
+            {
+                if (str[0] >= 48 && str[0] <= 57)
+                    return (false);
+                return (true);
+            }
+            std::cout << (str[0]  - '0') << std::endl;
+    }
     return (false);
 }
 
