@@ -20,19 +20,19 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : name_(name), grade_(
     if (grade > 150)
         throw Bureaucrat::GradeTooLowException();
     else
-        std::cout << " Constructor from " << name_ << " for " << grade_ << " \n";
+         std::cout << " Constructor Bureaucrat " << name_ << ": " << grade_ << " \n";
    return ;
 }
 
 Bureaucrat::~Bureaucrat() {
 
-    std::cout << " Destructor from " << name_ << " \n";
+     std::cout << " Destructor from Bureaucrat " << name_ << " \n";
     return ;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat & src, const std::string name) : name_(name), grade_(src.grade_) {
 
-    std::cout << " Constructor copy from " << name_ << " for " << grade_ << " \n";
+    std::cout << " Constructor copy Bureaucrat " << name_ << ": " << grade_ << " \n";
     *this = src;
     return ;
 }
@@ -80,27 +80,24 @@ void Bureaucrat::demoteGrade(int lvl) {
 
 void Bureaucrat::signForm(AForm &form) const {
 
+    form.setSign(true);
     if (form.getInfo() == true)
         std::cout << this->getName() << " signed " << form.getName() << std::endl;
     else
-        std::cout << this->getName() << " couldn't sign " << form.getName() << std::endl;
-    std::cout << "- - - - -\n";
+        throw std::invalid_argument(" > Error at signform() ");
 }
 
-const int Bureaucrat::executeForm(AForm const &form) const {
+void Bureaucrat::executeForm(AForm const &form) const {
 
     if (form.getInfo() == true && this->getGrade() == form.getExectGrade())
     {
         std::cout << this->getName() << " executed " << form.getName() << std::endl;
-        return (0);
     }
     else
     {
-        std::cout << this->getName() << " couldn't execute " << form.getName() << std::endl;
+        std::cerr << "At executeForm(): Can't execute." << std::endl;
         throw AForm::GradeTooLowException();
-        return (1);
     }
-    std::cout << "- - - - -" << std::endl;        
 }
 
 //private
@@ -113,7 +110,7 @@ Bureaucrat::Bureaucrat() : name_("Bureaucrat") {
 //print var info to stream
 std::ostream & operator<<(std::ostream & ost, Bureaucrat const & rhs) {
 
-    ost << "- - - - -\n " << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << ".\n- - - - -";
+    ost << "\tPrint: " << rhs.getName() << " Bureaucrate :" << rhs.getGrade();
     return (ost);
 }
 

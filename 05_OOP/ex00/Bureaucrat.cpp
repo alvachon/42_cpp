@@ -19,19 +19,19 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : name_(name), grade_(
     if (grade > 150)
         throw Bureaucrat::GradeTooLowException();
     else
-        std::cout << " Constructor from " << name_ << " for " << grade_ << " \n";
+        std::cout << "Constructor from " << name_ << ": " << grade_ << std::endl;
    return ;
 }
 
 Bureaucrat::~Bureaucrat() {
 
-    std::cout << " Destructor from " << name_ << " \n";
+    std::cout << "Destructor from " << name_  << std::endl;
     return ;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat & src, const std::string name) : name_(name), grade_(src.grade_) {
 
-    std::cout << " Constructor copy from " << name_ << " for " << grade_ << " \n";
+    std::cout << "Constructor copy from " << name_ << ": " << grade_ << std::endl;
     *this = src;
     return ;
 }
@@ -42,7 +42,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat & rhs) {
     {
         this->grade_ = getGrade();
     }
-    std::cout << " Operator = called \n";
+    std::cout << "Operator = called" << std::endl;
     return (*this);
 }
 
@@ -87,7 +87,7 @@ Bureaucrat::Bureaucrat() : name_("Bureaucrat") {
 //print var info to stream
 std::ostream & operator<<(std::ostream & ost, Bureaucrat const & rhs) {
 
-    ost << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << ".";
+    ost << "\t" << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "." << std::endl;
     return (ost);
 }
 

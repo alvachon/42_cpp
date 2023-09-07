@@ -17,12 +17,12 @@
 #include <string.h>
 #include "AForm.h"
 
-class PresidentialPardonForm : public AForm {
+class PresidentialPardonForm : public virtual AForm {
 
     public:
-        PresidentialPardonForm();
+        PresidentialPardonForm(const std::string target);
         ~PresidentialPardonForm();
-        PresidentialPardonForm(PresidentialPardonForm & src);
+        PresidentialPardonForm(PresidentialPardonForm & src, const std::string target);
         PresidentialPardonForm& operator=(const PresidentialPardonForm & rhs);
 
         virtual void    execute(const Bureaucrat& executor) const;

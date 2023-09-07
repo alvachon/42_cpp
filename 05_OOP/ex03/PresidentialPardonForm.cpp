@@ -27,8 +27,8 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 
 void PresidentialPardonForm::execute(const Bureaucrat& executor) const {
 
-   if (executor.executeForm(*this) == 0)
-        std::cout << "Informe que la <target> a été pardonnée par Zaphod Beeblebrox." << std::endl;
+   executor.executeForm(*this);
+   std::cout << "Informe que la <target> a été pardonnée par Zaphod Beeblebrox." << std::endl;
    return ;
 }
 

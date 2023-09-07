@@ -16,12 +16,12 @@
 #include <iostream>
 #include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137) { return ; }
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) : AForm(target, 145, 137) { return ; }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() { return ; }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm & src) :
-    AForm(src, "ShrubberyCreationForm") { return ; }
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm & src, const std::string target) :
+    AForm(src, target) { return ; }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm & rhs) {
     std::cout << " Operator = called \n";
@@ -30,20 +30,21 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
 
-   if (executor.executeForm(*this) == 0)
-   {
-     std::string buffer = executor.getName() + "_shrubbery.txt";
+    executor.executeForm(*this);
+     std::string buffer = this->getName() + "_shrubbery.txt";
      std::ofstream fileTree(buffer, std::ios::app);
-     if (fileTree.is_open())
+     if (fileTree)
      {
-        fileTree << "       _-_\\\n    /~~   ~~\\\n /~~         ~~\\\n{               }\n \\  _-     -_  /\n   ~  \\ //  ~\n_- -  | | _- _ \n";
-        fileTree.close();
+        if (fileTree.is_open())
+        {
+            fileTree << "       _-_\\\n    /~~   ~~\\\n /~~         ~~\\\n{               }\n \\  _-     -_  /\n   ~  \\ //  ~\n_- -  | | _- _ \n";
+            fileTree.close();
+        }
      }
      else
      {
-      std::cerr << "Can't access " << std::endl;
-      throw std::exception();// a revoir
+        std::cerr << "FAILED: Can't access the file." << std::endl;
+        throw std::invalid_argument(" > Error at ShrubberyCreationForm::execute(); ");
      }
-   }
-   return ;
+     return;
 }

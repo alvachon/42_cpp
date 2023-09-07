@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.h                                           :+:      :+:    :+:   */
+/*   Form.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/04 10:56:06 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/09/07 08:05:52 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ class Form {
         const int &            getSignedGrade(void) const;
         const int &            getExectGrade(void) const;
         const bool &           getInfo(void) const;
+        void                   setSign(bool sign);
         void                   beSigned(const Bureaucrat& rhs);
-        
+
         class GradeTooHighException : public std::exception {
             public:
                 virtual const char *what() const throw(){ return "Grade too high";}

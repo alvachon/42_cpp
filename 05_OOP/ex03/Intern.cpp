@@ -18,19 +18,19 @@
 
 Intern::Intern() {
 
-    std::cout << "Constructor from  Intern\n";
+    std::cout << " Constructor Intern\n";
     return ;
 }
 
 Intern::~Intern() {
 
-    std::cout << " Destructor from Intern \n";
+    std::cout << " Destructor Intern \n";
     return ;
 }
 
 Intern::Intern(Intern & src) {
 
-    std::cout << " Constructor copy from Intern for Intern \n";
+    std::cout << " Constructor copy Intern\n";
     *this = src;
     return ;
 }
@@ -68,6 +68,6 @@ AForm* Intern::makeForm(std::string formName, std::string formElem) {
             }
         }
     }
-    throw AForm::WrongForm();
+    throw std::invalid_argument(" > Error at makeform()");
     return (NULL);
 }

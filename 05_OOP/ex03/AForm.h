@@ -31,9 +31,11 @@ class AForm {
         const int &            getSignedGrade(void) const;
         const int &            getExectGrade(void) const;
         const bool &           getInfo(void) const;
+        void                   setSign(bool sign);
+
         virtual void          beSigned(const Bureaucrat& rhs);
         virtual void          execute(const Bureaucrat& executor) const = 0;
-        
+
         class GradeTooHighException : public std::exception {
             public:
                 virtual const char *what() const throw(){ return "Grade too high";}

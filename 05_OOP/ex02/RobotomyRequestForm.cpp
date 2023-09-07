@@ -12,12 +12,15 @@
 
 #include "RobotomyRequestForm.h"
 #include "AForm.h"
+#include <string>
+#include <iostream>
+#include <fstream>
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45) { return ; }
+RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm(target, 72, 45) { return ; }
 
 RobotomyRequestForm::~RobotomyRequestForm() { return ; }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm & src) : AForm(src, "RobotomyRequestForm") { return ; }
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm & src, const std::string target) : AForm(src, target) { return ; }
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm & rhs) {
     std::cout << " Operator = called \n";
@@ -27,14 +30,29 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm & 
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
 
    srand(time(0));
-   /*will throw an error bf for execution if signataire and exec not good enought,
-   then AFTER if rand fail, return an error for 1/2 chance*/
-   if (executor.executeForm(*this) == 0 && ((rand() % 2) + 1 == 2))
-      system("open Electric-Drill.mp3");
+   executor.executeForm(*this);
+   if ((rand() % 2) + 1 == 2)
+   {
+      std::string file = "Electric-Drill.mp3";
+      std::ifstream musicFile(file);
+      if (musicFile)
+      {
+         if (musicFile.is_open())
+         {
+            system("afplay Electric-Drill.mp3");
+            std::cout << this->getName() << " succeed robotomisation at 1/2 chance rate." << std::endl;
+         }
+      }
+      else
+      {
+         std::cerr <<  "Failed: Can't access the file" << std::endl;
+         throw std::invalid_argument(" > Error at RobotomyRequestForm::execute();");
+      }
+   }
    else
    {
-      std::cerr << "1/2 chance failed." << std::endl;
-      throw std::exception();// a revoir
+      std::cerr <<  "Failed: entered 1/2 rate failed system. " << std::endl;
+      throw std::invalid_argument(" > Error at RobotomyRequestForm::execute();");
    }
    return ;
 }

@@ -20,9 +20,9 @@
 class ShrubberyCreationForm : public virtual AForm {
 
     public:
-        ShrubberyCreationForm();
+        ShrubberyCreationForm(const std::string target);
         ~ShrubberyCreationForm();
-        ShrubberyCreationForm(ShrubberyCreationForm & src);
+        ShrubberyCreationForm(ShrubberyCreationForm & src, const std::string target);
         ShrubberyCreationForm& operator=(const ShrubberyCreationForm & rhs);
 
         virtual void    execute(const Bureaucrat& executor) const;

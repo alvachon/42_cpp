@@ -30,15 +30,22 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
 
-   if (executor.executeForm(*this) == 0)
-   {
+    executor.executeForm(*this);
      std::string buffer = executor.getName() + "_shrubbery.txt";
      std::ofstream fileTree(buffer, std::ios::app);
-     if (fileTree.is_open())
-        fileTree << "       _-_\\\n    /~~   ~~\\\n /~~         ~~\\\n{               }\n \\  _-     -_  /\n   ~  \\ //  ~\n_- -  | | _- _ \n";
-     fileTree.close();
-   }
-   return ;
+     if (fileTree)
+     {
+        if (fileTree.is_open())
+        {
+            fileTree << "       _-_\\\n    /~~   ~~\\\n /~~         ~~\\\n{               }\n \\  _-     -_  /\n   ~  \\ //  ~\n_- -  | | _- _ \n";
+            fileTree.close();
+        }
+     }
+     else
+     {
+        throw std::invalid_argument(" > Error at ShrubberyCreationForm::execute: Can't access the file.");
+     }
+     return;
 }
 
 //private

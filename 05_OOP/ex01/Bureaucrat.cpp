@@ -19,20 +19,16 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : name_(name), grade_(
         throw Bureaucrat::GradeTooHighException();
     if (grade > 150)
         throw Bureaucrat::GradeTooLowException();
-    else
-        std::cout << " Constructor from " << name_ << " for " << grade_ << " \n";
-   return ;
-}
 
-Bureaucrat::~Bureaucrat() {
-
-    std::cout << " Destructor from " << name_ << " \n";
+    std::cout << "CONSTRUCT " << name_ << ": " << grade_ << std::endl;
     return ;
 }
 
+Bureaucrat::~Bureaucrat() { std::cout << "DESTRUCT " << name_ << std::endl; return ;}
+
 Bureaucrat::Bureaucrat(Bureaucrat & src, const std::string name) : name_(name), grade_(src.grade_) {
 
-    std::cout << " Constructor copy from " << name_ << " for " << grade_ << " \n";
+    std::cout << "COPY " << name_ << ": " << grade_ << std::endl;
     *this = src;
     return ;
 }
@@ -47,15 +43,9 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat & rhs) {
     return (*this);
 }
 
-const std::string & Bureaucrat::getName(void) const {
+const std::string & Bureaucrat::getName(void) const { return (this->name_); }
 
-    return (this->name_);
-}
-
-const int & Bureaucrat::getGrade(void) const {
-
-    return (this->grade_);
-}
+const int & Bureaucrat::getGrade(void) const { return (this->grade_);}
 
 void Bureaucrat::promoteGrade(int lvl) {
 
@@ -76,15 +66,16 @@ void Bureaucrat::demoteGrade(int lvl) {
         throw Bureaucrat::GradeTooLowException();
     else
         this->grade_ += lvl;
+    return ;
 }
 
 void Bureaucrat::signForm(Form &form) const {
 
+    form.setSign(true);
     if (form.getInfo() == true)
-        std::cout << this->getName() << " signed " << form.getName() << "\n";
+        std::cout << this->getName() << " signed " << form.getName() << std::endl;
     else
-        std::cout << this->getName() << " couldn't sign " << form.getName() << " because his grade is too Low\n";
-    std::cout << "- - - - -\n";
+        throw std::invalid_argument(" > Error at signform() ");
 }
 
 //private
@@ -97,7 +88,7 @@ Bureaucrat::Bureaucrat() : name_("Bureaucrat") {
 //print var info to stream
 std::ostream & operator<<(std::ostream & ost, Bureaucrat const & rhs) {
 
-    ost << "- - - - -\n " << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << ".\n- - - - -";
+    ost << "\n" << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
     return (ost);
 }
 

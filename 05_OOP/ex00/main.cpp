@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/24 09:42:55 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/09/07 08:43:54 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 int main(void)
 {
     {
-       try {//simple
+      std::cout << std::endl << "\033[1;33mSIMPLE BUR\033[1;0m" << std::endl;
+       try {
           Bureaucrat bureaucrat("Smith", 1);
           std::cout << bureaucrat << std::endl;
        }   catch (std::exception &e) {
@@ -23,7 +24,8 @@ int main(void)
        }
     }
     {
-       try {//throw exception too high
+       std::cout << std::endl<< "\033[1;33mTHROW TOO HIGH\033[1;0m" << std::endl;
+       try {
           Bureaucrat bureaucrat("Smith", -1);
           std::cout << bureaucrat << std::endl;
        }   catch (std::exception &e) {
@@ -31,7 +33,8 @@ int main(void)
        }
     }
     {
-       try {//throw exception too low
+      std::cout << std::endl<< "\033[1;33mTHROW TOO LOW\033[1;0m" << std::endl;
+       try {
           Bureaucrat bureaucrat("Smith", 151);
           std::cout << bureaucrat << std::endl;
        }   catch (std::exception &e) {
@@ -39,7 +42,8 @@ int main(void)
        }
     }
     {
-       try {//copy
+      std::cout << std::endl<< "\033[1;33mCOPY BUR\033[1;0m" << std::endl;
+       try {
           Bureaucrat bureaucrat("Smith", 1);
           Bureaucrat coworker(bureaucrat, "Gagnon");
           std::cout << bureaucrat << std::endl;
@@ -49,7 +53,8 @@ int main(void)
        }
     }
     {
-       try {//simple promotion
+      std::cout << std::endl << "\033[1;33mSIMPLE PROMOTION\033[1;0m" << std::endl;
+       try {
           Bureaucrat bureaucrat("Smith", 5);
           std::cout << bureaucrat << std::endl;
           bureaucrat.promoteGrade(2);
@@ -60,7 +65,8 @@ int main(void)
        }
    }
    {
-       try {//simple demotion
+      std::cout << std::endl<< "\033[1;33mSIMPLE DEMOTION\033[1;0m" << std::endl;
+       try {
           Bureaucrat bureaucrat("Smith", 5);
           std::cout << bureaucrat << std::endl;
           bureaucrat.demoteGrade(2);
@@ -71,7 +77,8 @@ int main(void)
        }
    }
    {
-       try {//throw exception promotion lvl too high (1)
+      std::cout << std::endl << "\033[1;33mTHROW PROMO TOO HIGH (1)\033[1;0m" << std::endl;
+       try {
           Bureaucrat bureaucrat("Smith", 150);
           std::cout << bureaucrat << std::endl;
           bureaucrat.promoteGrade(151);
@@ -81,7 +88,8 @@ int main(void)
        }
    }
    {
-       try {//throw exception promotion grade + lvl too high (2)
+      std::cout << std::endl << "\033[1;33mTHROW PROMO TOO HIGH (2)\033[1;0m" << std::endl;
+       try {
           Bureaucrat bureaucrat("Smith", 1);
           std::cout << bureaucrat << std::endl;
           bureaucrat.promoteGrade(150);
@@ -91,7 +99,8 @@ int main(void)
        }
    }
    {
-       try {//negative number (demote instead of promote)
+      std::cout << std::endl << "\033[1;33mDEMOTE WITH NEGATIVE NUMBERS\033[1;0m" << std::endl;
+       try {
           Bureaucrat bureaucrat("Smith", 10);
           std::cout << bureaucrat << std::endl;
           bureaucrat.promoteGrade(-10);
@@ -101,7 +110,8 @@ int main(void)
        }
    }
       {
-       try {//throw exception demotionlvl too high (1)
+      std::cout << std::endl << "\033[1;33mTHROW DEMOTE LVL TOO LOW (1)\033[1;0m" << std::endl;
+       try {
           Bureaucrat bureaucrat("Smith", 1);
           std::cout << bureaucrat << std::endl;
           bureaucrat.demoteGrade(150);
@@ -111,7 +121,8 @@ int main(void)
        }
    }
    {
-       try {//throw exception promotion grade + lvl too high (2)
+      std::cout << std::endl << "\033[1;33mTHROW DEMOTE LVL TOO LOW (2)\033[1;0m" << std::endl;
+       try {
           Bureaucrat bureaucrat("Smith", 150);
           std::cout << bureaucrat << std::endl;
           bureaucrat.demoteGrade(1);
@@ -121,7 +132,8 @@ int main(void)
        }
    }
    {
-       try {//negative number (Promote instead of demote)
+      std::cout << std::endl << "\033[1;33mPROMOTE WITH NEGATIVE NUMBERS\033[1;0m" << std::endl;
+       try {
           Bureaucrat bureaucrat("Smith", 150);
           std::cout << bureaucrat << std::endl;
           bureaucrat.demoteGrade(-2);

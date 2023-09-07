@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/25 16:05:01 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/09/04 12:54:17 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main(void)
 {
     {
       AForm *p = 0;
+      std::cout << std::endl;
       try
       {//working workflow -- ShrubberyCreationForm
          Intern RandoIntern;
@@ -34,13 +35,13 @@ int main(void)
          Bureaucrat secretary("Roberge", 145);
          std::cout << executor << std::endl;
          std::cout << secretary << std::endl;
-
+         std::cout << std::endl;
          p = RandoIntern.makeForm("shrubbery creation", "Bender");
          std::cout << *p << std::endl;
-  
+
          p->beSigned(secretary);
          p->execute(executor);
-      } 
+      }
       catch (std::exception &e)
       {
          std::cout << e.what() << std::endl;
@@ -59,10 +60,10 @@ int main(void)
 
          p = RandoIntern.makeForm("robotomy request", "Bender");
          std::cout << *p << std::endl;
-  
+
          p->beSigned(secretary);
          p->execute(executor);
-      } 
+      }
       catch (std::exception &e)
       {
          std::cout << e.what() << std::endl;
@@ -81,10 +82,10 @@ int main(void)
 
          p = RandoIntern.makeForm("presidential pardon", "Bender");
          std::cout << *p << std::endl;
-  
+
          p->beSigned(secretary);
          p->execute(executor);
-      } 
+      }
       catch (std::exception &e)
       {
          std::cout << e.what() << std::endl;
@@ -103,10 +104,10 @@ int main(void)
 
          p = RandoIntern.makeForm("presidential pardon", "Bender");
          std::cout << *p << std::endl;
-  
+
          p->beSigned(secretary);
          p->execute(executor);
-      } 
+      }
       catch (std::exception &e)
       {
          std::cout << e.what() << std::endl;
@@ -125,10 +126,10 @@ int main(void)
 
          p = RandoIntern.makeForm("presidential pardon", "Bender");
          std::cout << *p << std::endl;
-  
+
          p->beSigned(secretary);
          p->execute(executor);
-      } 
+      }
       catch (std::exception &e)
       {
          std::cout << e.what() << std::endl;

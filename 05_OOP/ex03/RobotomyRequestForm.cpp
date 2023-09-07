@@ -27,10 +27,13 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm & 
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
 
    srand(time(0));
-   if (executor.executeForm(*this) == 0 && ((rand() % 2) + 1 == 2))
+   executor.executeForm(*this);
+   if ((rand() % 2) + 1 == 2)
       system("open Electric-Drill.mp3");
    else
-      std::cout << "Failed." << std::endl;
+   {
+      throw std::invalid_argument(" > Error ar RobotomyRequestForm::execute() : entered 1/2 failed system. ");
+   }
    return ;
 }
 

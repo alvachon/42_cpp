@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.h                                           :+:      :+:    :+:   */
+/*   Bureaucrat.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/08/04 10:56:06 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/09/07 07:59:24 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ class Bureaucrat {
         Bureaucrat& operator=(const Bureaucrat & rhs);
 
         const std::string &   getName(void) const;
-        const int &           getGrade(void) const; 
+        const int &           getGrade(void) const;
         void                  promoteGrade(int lvl);
         void                  demoteGrade(int lvl);
-        
+
 
         class GradeTooHighException : public std::exception {
             public:

@@ -20,9 +20,9 @@
 class RobotomyRequestForm : public virtual AForm {
 
     public:
-        RobotomyRequestForm();
+        RobotomyRequestForm(const std::string target);
         ~RobotomyRequestForm();
-        RobotomyRequestForm(RobotomyRequestForm & src);
+        RobotomyRequestForm(RobotomyRequestForm & src, const std::string target);
         RobotomyRequestForm& operator=(const RobotomyRequestForm & rhs);
 
         virtual void    execute(const Bureaucrat& executor) const;

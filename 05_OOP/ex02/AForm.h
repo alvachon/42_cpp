@@ -22,18 +22,20 @@ class Bureaucrat;
 class AForm {
 
     public:
-        AForm(const std::string name, int signedGrade, int exectGrade);
+        AForm(const std::string target, int signedGrade, int exectGrade);
         virtual ~AForm();
-        AForm(AForm & src, const std::string name);
+        AForm(AForm & src, const std::string target);
         AForm& operator=(const AForm & rhs);
 
         const std::string &    getName(void) const;
         const int &            getSignedGrade(void) const;
         const int &            getExectGrade(void) const;
         const bool &           getInfo(void) const;
+        void                   setSign(bool sign);
+
         virtual void          beSigned(const Bureaucrat& rhs);
         virtual void          execute(const Bureaucrat& executor) const = 0;
-        
+
         class GradeTooHighException : public std::exception {
             public:
                 virtual const char *what() const throw(){ return "Grade too high";}
