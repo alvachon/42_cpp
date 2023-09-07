@@ -22,9 +22,9 @@ class Bureaucrat;
 class AForm {
 
     public:
-        AForm(const std::string name, int signedGrade, int exectGrade);
+        AForm(const std::string target, int signedGrade, int exectGrade);
         virtual ~AForm();
-        AForm(AForm & src, const std::string name);
+        AForm(AForm & src, const std::string target);
         AForm& operator=(const AForm & rhs);
 
         const std::string &    getName(void) const;

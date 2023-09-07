@@ -25,6 +25,7 @@ $(NAME):	$(OBJ)
 
 clean:
 			$(RM) $(OBJ)
+			$(RM) *.txt
 
 fclean:clean
 			$(RM) $(NAME)

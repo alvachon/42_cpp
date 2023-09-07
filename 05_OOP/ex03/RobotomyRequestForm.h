@@ -22,13 +22,10 @@ class RobotomyRequestForm : public virtual AForm {
     public:
         RobotomyRequestForm(const std::string target);
         ~RobotomyRequestForm();
-        RobotomyRequestForm(RobotomyRequestForm & src);
+        RobotomyRequestForm(RobotomyRequestForm & src, const std::string target);
         RobotomyRequestForm& operator=(const RobotomyRequestForm & rhs);
 
         virtual void    execute(const Bureaucrat& executor) const;
-
-    private:
-        RobotomyRequestForm();
 };
 
 #endif/* ************************************************** ROBOTOMYREQUESTFORM_H */

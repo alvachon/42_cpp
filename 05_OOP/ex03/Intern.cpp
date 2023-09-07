@@ -18,29 +18,29 @@
 
 Intern::Intern() {
 
-    std::cout << " Constructor Intern\n";
+    std::cout << "CONSTRUCT Intern" << std::endl;
     return ;
 }
 
 Intern::~Intern() {
 
-    std::cout << " Destructor Intern \n";
+    std::cout << "DESTRUCT Intern" << std::endl;
     return ;
 }
 
 Intern::Intern(Intern & src) {
 
-    std::cout << " Constructor copy Intern\n";
+    std::cout << "COPY Intern\n";
     *this = src;
     return ;
 }
 
 Intern& Intern::operator=(const Intern & rhs) {
-    std::cout << " Operator = called \n";
+    std::cout << "Operator = called \n";
     return (*this);
 }
 
-AForm* Intern::makeForm(std::string formName, std::string formElem) {
+AForm* Intern::makeForm(std::string formName, std::string target) {
 
     std::string forms[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};
 
@@ -52,22 +52,23 @@ AForm* Intern::makeForm(std::string formName, std::string formElem) {
             {
                 case 0:
                 {
-                    AForm* form = new PresidentialPardonForm(formElem);
+                    AForm* form = new PresidentialPardonForm(target);
                     return (form);
                 }
                 case 1:
                 {
-                    AForm* form = new RobotomyRequestForm(formElem);
+                    AForm* form = new RobotomyRequestForm(target);
                     return (form);
                 }
                 case 2:
                 {
-                    AForm* form = new ShrubberyCreationForm(formElem);
+                    AForm* form = new ShrubberyCreationForm(target);
                     return (form);
                 }
             }
         }
     }
+    std::cerr << "Form Asked was not found" << std::endl;
     throw std::invalid_argument(" > Error at makeform()");
     return (NULL);
 }

@@ -20,8 +20,8 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) : AForm(t
 
 ShrubberyCreationForm::~ShrubberyCreationForm() { return ; }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm & src) :
-    AForm(src, "ShrubberyCreationForm") { return ; }
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm & src, const std::string target) :
+    AForm(src, target) { return ; }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm & rhs) {
     std::cout << " Operator = called \n";
@@ -31,7 +31,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
 
     executor.executeForm(*this);
-     std::string buffer = executor.getName() + "_shrubbery.txt";
+     std::string buffer = this->getName() + "_shrubbery.txt";
      std::ofstream fileTree(buffer, std::ios::app);
      if (fileTree)
      {
@@ -43,10 +43,8 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
      }
      else
      {
-        throw std::invalid_argument(" > Error at ShrubberyCreationForm::execute: Can't access the file.");
+        std::cerr << "FAILED: Can't access the file." << std::endl;
+        throw std::invalid_argument(" > Error at ShrubberyCreationForm::execute(); ");
      }
      return;
 }
-
-//private
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137) { return ; }

@@ -20,19 +20,19 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : name_(name), grade_(
     if (grade > 150)
         throw Bureaucrat::GradeTooLowException();
     else
-         std::cout << " Constructor Bureaucrat " << name_ << ": " << grade_ << " \n";
+        std::cout << "CONSTRUCT BUR " << name_ << ": " << grade_ << std::endl;
    return ;
 }
 
 Bureaucrat::~Bureaucrat() {
 
-     std::cout << " Destructor from Bureaucrat " << name_ << " \n";
+    std::cout << "DESTRUCT BUR " << name_ << std::endl;
     return ;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat & src, const std::string name) : name_(name), grade_(src.grade_) {
 
-    std::cout << " Constructor copy Bureaucrat " << name_ << ": " << grade_ << " \n";
+    std::cout << "COPY BUR " << name_ << ": " << grade_ << std::endl;
     *this = src;
     return ;
 }
@@ -47,15 +47,9 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat & rhs) {
     return (*this);
 }
 
-const std::string & Bureaucrat::getName(void) const {
+const std::string & Bureaucrat::getName(void) const { return (this->name_);}
 
-    return (this->name_);
-}
-
-const int & Bureaucrat::getGrade(void) const {
-
-    return (this->grade_);
-}
+const int & Bureaucrat::getGrade(void) const { return (this->grade_);}
 
 void Bureaucrat::promoteGrade(int lvl) {
 
@@ -110,7 +104,7 @@ Bureaucrat::Bureaucrat() : name_("Bureaucrat") {
 //print var info to stream
 std::ostream & operator<<(std::ostream & ost, Bureaucrat const & rhs) {
 
-    ost << "\tPrint: " << rhs.getName() << " Bureaucrate :" << rhs.getGrade();
+    ost << "\t" << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
     return (ost);
 }
 

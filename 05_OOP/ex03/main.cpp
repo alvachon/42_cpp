@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/09/04 12:54:17 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/09/07 13:02:34 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,16 @@ int main(void)
 {
     {
       AForm *p = 0;
-      std::cout << std::endl;
+       std::cout << std::endl << "\033[1;33mworking workflow -- ShrubberyCreationForm\033[1;0m" << std::endl;
       try
-      {//working workflow -- ShrubberyCreationForm
+      {
          Intern RandoIntern;
          Bureaucrat executor("Smith", 137);
          Bureaucrat secretary("Roberge", 145);
          std::cout << executor << std::endl;
          std::cout << secretary << std::endl;
          std::cout << std::endl;
-         p = RandoIntern.makeForm("shrubbery creation", "Bender");
+         p = RandoIntern.makeForm("shrubbery creation", "Jardin");
          std::cout << *p << std::endl;
 
          p->beSigned(secretary);
@@ -50,15 +50,16 @@ int main(void)
    }
    {
       AForm *p = 0;
+      std::cout << std::endl << "\033[1;33mworking workflow -- RobotomyRequestForm\033[1;0m" << std::endl;
       try
-      {//working workflow -- RobotomyRequestForm
+      {
          Intern RandoIntern;
          Bureaucrat executor("Smith", 45);
          Bureaucrat secretary("Roberge", 72);
          std::cout << executor << std::endl;
          std::cout << secretary << std::endl;
 
-         p = RandoIntern.makeForm("robotomy request", "Bender");
+         p = RandoIntern.makeForm("robotomy request", "Jardin");
          std::cout << *p << std::endl;
 
          p->beSigned(secretary);
@@ -72,15 +73,16 @@ int main(void)
     }
    {
       AForm *p = 0;
+      std::cout << std::endl << "\033[1;33mworking workflow -- PresidentialPardonForm\033[1;0m" << std::endl;
       try
-      {//working workflow -- PresidentialPardonForm
+      {
          Intern RandoIntern;
          Bureaucrat executor("Smith", 5);
          Bureaucrat secretary("Roberge", 25);
          std::cout << executor << std::endl;
          std::cout << secretary << std::endl;
 
-         p = RandoIntern.makeForm("presidential pardon", "Bender");
+         p = RandoIntern.makeForm("presidential pardon", "Jardin");
          std::cout << *p << std::endl;
 
          p->beSigned(secretary);
@@ -94,15 +96,16 @@ int main(void)
     }
    {
       AForm *p = 0;
+      std::cout << std::endl << "\033[1;33msecretary can't sign the presidential\033[1;0m" << std::endl;
       try
-      {  //secretary can't sign the presidential
+      {
          Intern RandoIntern;
          Bureaucrat executor("Smith", 5);
          Bureaucrat secretary("Roberge", 26);
          std::cout << executor << std::endl;
          std::cout << secretary << std::endl;
 
-         p = RandoIntern.makeForm("presidential pardon", "Bender");
+         p = RandoIntern.makeForm("presidential pardon", "Jardin");
          std::cout << *p << std::endl;
 
          p->beSigned(secretary);
@@ -116,15 +119,16 @@ int main(void)
    }
    {
       AForm *p = 0;
+      std::cout << std::endl << "\033[1;33mexecutor can't do the presidential\033[1;0m" << std::endl;
       try
-      {  //executor can't
+      {
          Intern RandoIntern;
          Bureaucrat executor("Smith", 6);
          Bureaucrat secretary("Roberge", 25);
          std::cout << executor << std::endl;
          std::cout << secretary << std::endl;
 
-         p = RandoIntern.makeForm("presidential pardon", "Bender");
+         p = RandoIntern.makeForm("presidential pardon", "Jardin");
          std::cout << *p << std::endl;
 
          p->beSigned(secretary);

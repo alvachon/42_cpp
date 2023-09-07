@@ -12,12 +12,15 @@
 
 #include "RobotomyRequestForm.h"
 #include "AForm.h"
+#include <string>
+#include <iostream>
+#include <fstream>
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm(target, 72, 45) { return ; }
 
 RobotomyRequestForm::~RobotomyRequestForm() { return ; }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm & src) : AForm(src, "RobotomyRequestForm") { return ; }
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm & src, const std::string target) : AForm(src, target) { return ; }
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm & rhs) {
     std::cout << " Operator = called \n";
@@ -29,13 +32,27 @@ void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
    srand(time(0));
    executor.executeForm(*this);
    if ((rand() % 2) + 1 == 2)
-      system("open Electric-Drill.mp3");
+   {
+      std::string file = "Electric-Drill.mp3";
+      std::ifstream musicFile(file);
+      if (musicFile)
+      {
+         if (musicFile.is_open())
+         {
+            system("afplay Electric-Drill.mp3");
+            std::cout << this->getName() << " succeed robotomisation at 1/2 chance rate." << std::endl;
+         }
+      }
+      else
+      {
+         std::cerr <<  "Failed: Can't access the file" << std::endl;
+         throw std::invalid_argument(" > Error at RobotomyRequestForm::execute();");
+      }
+   }
    else
    {
-      throw std::invalid_argument(" > Error ar RobotomyRequestForm::execute() : entered 1/2 failed system. ");
+      std::cerr <<  "Failed: entered 1/2 rate failed system. " << std::endl;
+      throw std::invalid_argument(" > Error at RobotomyRequestForm::execute();");
    }
    return ;
 }
-
-//private
-RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45) { return ; }

@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/09/07 09:32:57 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/09/07 13:02:17 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main(void)
          Bureaucrat secretary("Roberge", 145);
          std::cout << executor << std::endl;
          std::cout << secretary << std::endl;
-
+         std::cout << std::endl;
          p = new ShrubberyCreationForm("Jardin");
          std::cout << *p << std::endl;
 
