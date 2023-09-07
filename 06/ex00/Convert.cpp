@@ -88,7 +88,20 @@ Convert& Convert::operator=(const Convert & rhs) {
 
 const std::string & Convert::getLitteral(void) const { return (this->litteral_); }
 const std::string & Convert::getLitType(void) const { return (this->litType_); }
-const char & Convert::getChar(void) const { return (this->charVal_); }
+
+const char & Convert::getChar(void) const
+{
+    if (this->charVal_ > 31 && this->charVal_ < 127)
+        return (this->charVal_);
+    else if (this->charVal_ >= 0 && this->charVal_ <= 31 || this->charVal_ == 127)
+    {
+        std::cout << "Non displayable";
+        return (this->charVal_);
+    }
+    std::cout << "impossible";
+    return (this->charVal_);
+}
+
 const int & Convert::getInt(void) const { return (this->intVal_); }
 const float & Convert::getFloat(void) const { return (this->floatVal_); }
 const double & Convert::getDouble(void) const { return (this->doubleVal_); }
@@ -210,8 +223,7 @@ std::ostream & operator<<(std::ostream & ost, Convert const & rhs) {
     " Type : char\t" << rhs.getChar() << "\n" <<
     " Type : int\t" << rhs.getInt() << "\n" <<
     " Type : float\t" << std::setprecision(1) << std::fixed << rhs.getFloat() << "f\n" <<
-    " Type : double\t" << rhs.getDouble() << "\n" <<
-    " Type : pseudo\t";
+    " Type : double\t" << rhs.getDouble();
     return (ost);
 }
 
