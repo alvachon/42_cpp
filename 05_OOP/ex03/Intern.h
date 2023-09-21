@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/09/07 12:56:08 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/09/21 11:46:52 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ class Intern {
         Intern& operator=(const Intern & rhs);
 
         AForm* makeForm(std::string target, std::string formElem);
+        AForm*                makePresidential(std::string target);
+        AForm*                makeRobotomy(std::string target);
+        AForm*                makeShrubbery(std::string target);
 
 };
 

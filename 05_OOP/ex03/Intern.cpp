@@ -40,33 +40,22 @@ Intern& Intern::operator=(const Intern & rhs) {
     return (*this);
 }
 
-AForm* Intern::makeForm(std::string formName, std::string target) {
+AForm*   Intern::makePresidential(std::string target) { return (new PresidentialPardonForm(target)); }
+AForm*   Intern::makeRobotomy(std::string target){ return (new RobotomyRequestForm(target)); }
+AForm*   Intern::makeShrubbery(std::string target){ return (new ShrubberyCreationForm(target)); }
 
-    std::string forms[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};
+
+AForm* Intern::makeForm(/*const*/std::string formName, /*const*/std::string target) /*const*/{
+
+    std::string forms[3] =
+        {"presidential pardon", "robotomy request", "shrubbery creation"};
+    AForm* (Intern::*f[3])(std::string) =
+        {&Intern::makePresidential, &Intern::makeRobotomy, &Intern::makeShrubbery};
 
     for (int i = 0; i < 3; i++)
     {
         if (forms[i] == formName)
-        {
-            switch (i)
-            {
-                case 0:
-                {
-                    AForm* form = new PresidentialPardonForm(target);
-                    return (form);
-                }
-                case 1:
-                {
-                    AForm* form = new RobotomyRequestForm(target);
-                    return (form);
-                }
-                case 2:
-                {
-                    AForm* form = new ShrubberyCreationForm(target);
-                    return (form);
-                }
-            }
-        }
+            return((this->*f[i])(target));
     }
     std::cerr << "Form Asked was not found" << std::endl;
     throw std::invalid_argument(" > Error at makeform()");
