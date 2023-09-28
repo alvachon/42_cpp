@@ -38,7 +38,7 @@ Convert::Convert(const std::string litteral) : litteral_(litteral) {
         else if (pseudoLitteral() == true)
         {
             this->litType_ = "pseudo";
-            //throw error
+            throw Convert::InvalidLitteral(getLitteral());
         }
         else if (intLitteral() == true)
         {
@@ -89,12 +89,7 @@ const char & Convert::getChar(void) const
         return (this->charVal_);
     else if (this->charVal_ >= 0 && this->charVal_ <= 31 || this->charVal_ == 127)
     {
-        if (this->litType_ == "pseudo")
-        {
-            std::cout << "impossible";
-        }
-        else
-            std::cout << "Non displayable";
+        std::cout << "Non displayable";
     }
     return (this->charVal_);
 
@@ -102,10 +97,6 @@ const char & Convert::getChar(void) const
 
 const int & Convert::getInt(void) const
 {
-    if (this->litType_ == "pseudo")
-    {
-        std::cout << "impossible";
-    }
     return (this->intVal_);
 }
 const float & Convert::getFloat(void) const { return (this->floatVal_); }
@@ -194,33 +185,6 @@ const bool Convert::findMultiple(const char c) const {
             return (true);
     }
     return (false);
-}
-
-void Convert::convertChar(){//prom all the way
-    return ;
-}
-
-void Convert::convertInt(){
-
-    this->floatVal_ = static_cast<float>(getInt());
-    this->doubleVal_ = static_cast<double>(getInt());
-    return ;
-}
-
-void Convert::convertFloat(){
-    return ;
-}
-
-void Convert::convertDouble(){
-
-    this->intVal_ = static_cast<int>(getDouble());
-    this->floatVal_ = static_cast<float>(getDouble());
-    return ;
-}
-
-void Convert::convertPseudo(){
-
-    return ;
 }
 
 
