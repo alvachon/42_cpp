@@ -12,13 +12,13 @@
 
 #include "Convert.h"
 #include <iomanip>
+#include <cerrno>
 
 Convert::Convert(const std::string litteral) : litteral_(litteral) {
 
 //  if litteral have content
     if (getLitteral().size() != 0)
     {
-//
         if (charLitteral() == true)
         {
             this->litType_ = "char";
@@ -34,11 +34,12 @@ Convert::Convert(const std::string litteral) : litteral_(litteral) {
             this->doubleVal_ = static_cast<double>(getFloat());
             this->charVal_ = static_cast<char>(getFloat());
             this->intVal_ = static_cast<int>(getFloat());
+           //Comment je fais pour pogner stof ??
         }
         else if (pseudoLitteral() == true)
         {
             this->litType_ = "pseudo";
-            throw Convert::InvalidLitteral(getLitteral());
+            throw std::invalid_argument(litteral);
         }
         else if (intLitteral() == true)
         {
@@ -58,70 +59,44 @@ Convert::Convert(const std::string litteral) : litteral_(litteral) {
         }
         else
             throw Convert::InvalidLitteral();
-        std::cout << " Constructor from " << litteral_ << " \n";
         return ;
     }
     throw Convert::InvalidLitteral();
 }
 
-Convert::~Convert() {
-    std::cout << " Destructor from " << litteral_ << " \n";
-    return ;
-}
-
-Convert::Convert(const Convert & src){
-    std::cout << " Constructor copy from " << litteral_ << " \n";
-    *this = src;
-    return ;
-}
-
-Convert& Convert::operator=(const Convert & rhs) {
-    std::cout << " Operator = called \n";
-    return (*this);
-}
+Convert::~Convert() {return ; }
+Convert::Convert(const Convert & src) { *this = src; return ; }
+Convert& Convert::operator=(const Convert & rhs) { return (*this); }
 
 const std::string & Convert::getLitteral(void) const { return (this->litteral_); }
 const std::string & Convert::getLitType(void) const { return (this->litType_); }
+const int & Convert::getInt(void) const { return (this->intVal_); }
+const float & Convert::getFloat(void) const { return (this->floatVal_); }
+const double & Convert::getDouble(void) const { return (this->doubleVal_); }
 
 const char & Convert::getChar(void) const
 {
     if (this->charVal_ > 31 && this->charVal_ < 127)
         return (this->charVal_);
     else if (this->charVal_ >= 0 && this->charVal_ <= 31 || this->charVal_ == 127)
-    {
         std::cout << "Non displayable";
-    }
     return (this->charVal_);
-
 }
-
-const int & Convert::getInt(void) const
-{
-    return (this->intVal_);
-}
-const float & Convert::getFloat(void) const { return (this->floatVal_); }
-const double & Convert::getDouble(void) const { return (this->doubleVal_); }
 
 //Conditions to consider input string as a char
-const bool Convert::charLitteral(void) const {
-
+const bool Convert::charLitteral(void) const
+{
 //  if size of string is 1
     if (getLitteral().size() == 1)
     {
 //          char conversion
-            const char *str = getLitteral().c_str();
-            if (str[0] > 31 && str[0] < 127)
-            {
-                if (str[0] >= 48 && str[0] <= 57)
-                {
-                    std::cout << "But char is a number" << std::endl;
-                    return (false);
-                }
-                std::cout << "Char is printable" << std::endl;
-                return (true);
-            }
-
-            std::cout << "did no enter loop charLitteral " << (str[0]  - '0') << std::endl;
+        const char *str = getLitteral().c_str();
+        if (str[0] > 31 && str[0] < 127)
+        {
+            if (str[0] >= 48 && str[0] <= 57)
+                return (false);
+            return (true);
+        }
     }
     return (false);
 }
@@ -129,7 +104,7 @@ const bool Convert::charLitteral(void) const {
 const bool Convert::floatLitteral(void) const {
 
     std::string floatContent = "-0123456789.f";
-    if (getLitteral().find_last_not_of(floatContent) != 0)
+    if (getLitteral().find_last_not_of(floatContent) == std::string::npos)
     {
         if (getLitteral().back() == 'f' && findMultiple('f') == false)
         {
@@ -146,9 +121,7 @@ const bool Convert::pseudoLitteral(void) const {
   for (int i = 0; i < 3; i++)
   {
     if (getLitteral().compare(pseudo[i]) == 0)
-    {
         return (true);
-    }
   }
     return (false);
 }
@@ -157,10 +130,7 @@ const bool Convert::intLitteral(void) const {
 
     std::string intContent = "-0123456789";
     if (getLitteral().find_last_not_of(intContent) == -1)
-    {
-        std::cout << "Have not find something else than 0123456789" << std::endl;
         return (true);
-    }
     return (false);
 }
 
@@ -187,18 +157,13 @@ const bool Convert::findMultiple(const char c) const {
     return (false);
 }
 
-
 //private
-Convert::Convert() : litteral_("Convert") {
-
-    std::cout << "Constructor from " << litteral_ << " \n";
-    return ;
-}
+Convert::Convert() : litteral_("Convert") { return ; }
 
 //print var info to stream
 std::ostream & operator<<(std::ostream & ost, Convert const & rhs) {
 
-    ost << rhs.getLitteral() << " " << rhs.getLitType() << "\n" <<
+    ost <<
     " Type : char\t" << rhs.getChar() << "\n" <<
     " Type : int\t" << rhs.getInt() << "\n" <<
     " Type : float\t" << std::setprecision(1) << std::fixed << rhs.getFloat() << "f\n" <<

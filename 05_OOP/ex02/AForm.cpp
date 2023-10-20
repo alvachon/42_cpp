@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/09/07 12:50:42 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/10/20 10:23:55 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,9 @@ void AForm::setSign(bool sign) { this->signed_ = sign; return ; }
 //print var info to stream
 std::ostream & operator<<(std::ostream & ost, AForm const & rhs) {
 
-    ost << " AForm target :\t" << rhs.getName() << "\n"
+    ost << "AForm target :\t" << rhs.getName() << "\n"
     << " Signed :\t" << rhs.getInfo() << "\n"
     << " Signed Grade :\t" << rhs.getSignedGrade() << "\n"
-    << " Exec Grade :\t"<< rhs.getExectGrade() << "\n- - - - -";
+    << " Exec Grade :\t"<< rhs.getExectGrade() << "\n";
     return (ost);
 }

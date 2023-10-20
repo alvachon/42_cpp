@@ -16,10 +16,7 @@
 #include <iostream>
 #include <string.h>
 #include <locale.h>
-
-/*
-https://cplusplus.com/reference/string/
-*/
+#include <cerrno>
 
 class Convert {
 
@@ -44,18 +41,12 @@ class Convert {
 
         const bool findMultiple(const char c) const;
 
-        //utiliser throw string de base pour faire mes shenanigans
-        // class InvalidLitteral : public std::exception {
-        //     public:
-        //         virtual const char *what(std::string pseudo) const throw()
-        //         {
-        //             std::string print = "\
-        //              Type : char\t impossible\n\
-        //              Type : int\t impossible\n\
-        //              Type : float\t" + pseudo + "f\n\
-        //              Type : double\t" + pseudo + "\n";
-        //              return (print.c_str());
-        //         }
+        class InvalidLitteral : public std::exception {
+            public:
+                virtual const char *what() const throw()
+                {
+                    return ("Invalid Litteral");
+                }
         };
 
     protected:

@@ -104,7 +104,7 @@ Bureaucrat::Bureaucrat() : name_("Bureaucrat") {
 //print var info to stream
 std::ostream & operator<<(std::ostream & ost, Bureaucrat const & rhs) {
 
-    ost << "\t" << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
+    ost << "\n- " << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
     return (ost);
 }
 

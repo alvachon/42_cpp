@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/09/07 08:39:33 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/10/20 10:18:37 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,10 @@ Form::Form() : name_("Form"), signedGrade_(150), exectGrade_(150), signed_(0) {
 //print var info to stream
 std::ostream & operator<<(std::ostream & ost, Form const & rhs) {
 
-    ost << "\n Form name :\t" << rhs.getName() << "\n"
+    ost << "Form name :\t" << rhs.getName() << "\n"
     << " Signed :\t" << rhs.getInfo() << "\n"
     << " Signed Grade :\t" << rhs.getSignedGrade() << "\n"
-    << " Exec Grade :\t"<< rhs.getExectGrade() << "\n- - - - -";
+    << " Exec Grade :\t"<< rhs.getExectGrade() << "\n";
     return (ost);
 }
 

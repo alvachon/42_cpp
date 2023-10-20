@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/09/07 13:02:17 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/10/20 10:28:24 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,12 @@ int main(void)
          std::cout << executor << std::endl;
          std::cout << secretary << std::endl;
          std::cout << std::endl;
+
          p = new ShrubberyCreationForm("Jardin");
+
+         std::cout << std::endl;
          std::cout << *p << std::endl;
+         std::cout << std::endl;
 
          p->beSigned(secretary);
          p->execute(executor);
@@ -55,9 +59,12 @@ int main(void)
          Bureaucrat secretary("Roberge", 72);
          std::cout << executor << std::endl;
          std::cout << secretary << std::endl;
+         std::cout << std::endl;
 
          p = new RobotomyRequestForm("Jardin");
+         std::cout << std::endl;
          std::cout << *p << std::endl;
+         std::cout << std::endl;
 
          p->beSigned(secretary);
          p->execute(executor);
@@ -77,9 +84,11 @@ int main(void)
          Bureaucrat secretary("Roberge", 25);
          std::cout << executor << std::endl;
          std::cout << secretary << std::endl;
+         std::cout << std::endl;
 
          p = new PresidentialPardonForm("Jardin");
          std::cout << *p << std::endl;
+         std::cout << std::endl;
 
          p->beSigned(secretary);
          p->execute(executor);
@@ -99,9 +108,11 @@ int main(void)
          Bureaucrat secretary("Roberge", 26);
          std::cout << executor << std::endl;
          std::cout << secretary << std::endl;
+         std::cout << std::endl;
 
          p = new PresidentialPardonForm("Jardin");
          std::cout << *p << std::endl;
+         std::cout << std::endl;
 
          p->beSigned(secretary);
          p->execute(executor);
@@ -121,9 +132,11 @@ int main(void)
          Bureaucrat secretary("Roberge", 25);
          std::cout << executor << std::endl;
          std::cout << secretary << std::endl;
+         std::cout << std::endl;
 
          p = new PresidentialPardonForm("Jardin");
          std::cout << *p << std::endl;
+         std::cout << std::endl;
 
          p->beSigned(secretary);
          p->execute(executor);

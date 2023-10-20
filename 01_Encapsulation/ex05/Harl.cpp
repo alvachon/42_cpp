@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/07/20 14:16:51 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/09/21 14:07:30 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void    Harl::complain(std::string level)   {
 
     const   std::string alert[4] =
         { "DEBUG", "INFO", "WARNING", "ERROR"};
-    void   (Harl::*f[4])(void) = 
+    void   (Harl::*f[4])(void) =
         {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
     int niv = find(alert, alert + 4, level) - alert;

@@ -73,7 +73,7 @@ void Bureaucrat::signForm(Form &form) const {
 
     form.setSign(true);
     if (form.getInfo() == true)
-        std::cout << this->getName() << " signed " << form.getName() << std::endl;
+        std::cout << this->getName() << " signed " << form.getName() << "\n" << std::endl;
     else
         throw std::invalid_argument(" > Error at signform() ");
 }
@@ -88,7 +88,7 @@ Bureaucrat::Bureaucrat() : name_("Bureaucrat") {
 //print var info to stream
 std::ostream & operator<<(std::ostream & ost, Bureaucrat const & rhs) {
 
-    ost << "\n" << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
+    ost << "\n- " << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "." << std::endl;
     return (ost);
 }
 

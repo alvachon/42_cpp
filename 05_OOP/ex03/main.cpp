@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/09/07 13:02:34 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/10/20 10:36:01 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int main(void)
 
          p->beSigned(secretary);
          p->execute(executor);
+         std::cout << std::endl;
       }
       catch (std::exception &e)
       {
@@ -58,12 +59,15 @@ int main(void)
          Bureaucrat secretary("Roberge", 72);
          std::cout << executor << std::endl;
          std::cout << secretary << std::endl;
+         std::cout << std::endl;
 
          p = RandoIntern.makeForm("robotomy request", "Jardin");
          std::cout << *p << std::endl;
+         std::cout << std::endl;
 
          p->beSigned(secretary);
          p->execute(executor);
+         std::cout << std::endl;
       }
       catch (std::exception &e)
       {
@@ -81,12 +85,15 @@ int main(void)
          Bureaucrat secretary("Roberge", 25);
          std::cout << executor << std::endl;
          std::cout << secretary << std::endl;
+         std::cout << std::endl;
 
          p = RandoIntern.makeForm("presidential pardon", "Jardin");
          std::cout << *p << std::endl;
+         std::cout << std::endl;
 
          p->beSigned(secretary);
          p->execute(executor);
+         std::cout << std::endl;
       }
       catch (std::exception &e)
       {
@@ -104,12 +111,15 @@ int main(void)
          Bureaucrat secretary("Roberge", 26);
          std::cout << executor << std::endl;
          std::cout << secretary << std::endl;
+         std::cout << std::endl;
 
          p = RandoIntern.makeForm("presidential pardon", "Jardin");
          std::cout << *p << std::endl;
+         std::cout << std::endl;
 
          p->beSigned(secretary);
          p->execute(executor);
+         std::cout << std::endl;
       }
       catch (std::exception &e)
       {
@@ -127,12 +137,15 @@ int main(void)
          Bureaucrat secretary("Roberge", 25);
          std::cout << executor << std::endl;
          std::cout << secretary << std::endl;
+         std::cout << std::endl;
 
          p = RandoIntern.makeForm("presidential pardon", "Jardin");
          std::cout << *p << std::endl;
+         std::cout << std::endl;
 
          p->beSigned(secretary);
          p->execute(executor);
+         std::cout << std::endl;
       }
       catch (std::exception &e)
       {

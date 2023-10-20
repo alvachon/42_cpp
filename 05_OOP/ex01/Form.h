@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:50:00 by alvachon          #+#    #+#             */
-/*   Updated: 2023/09/07 08:05:52 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/10/20 10:22:42 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ class Form {
 
         class GradeTooHighException : public std::exception {
             public:
-                virtual const char *what() const throw(){ return "Grade too high";}
+                virtual const char *what() const throw(){ return "Catch reason : Grade too high";}
         };
         class GradeTooLowException : public std::exception {
             public:
-                virtual const char *what() const throw(){ return "Grade too low";}
+                virtual const char *what() const throw(){ return "Catch reason : Grade too low";}
         };
 
     protected:

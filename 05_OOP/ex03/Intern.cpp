@@ -45,7 +45,7 @@ AForm*   Intern::makeRobotomy(std::string target){ return (new RobotomyRequestFo
 AForm*   Intern::makeShrubbery(std::string target){ return (new ShrubberyCreationForm(target)); }
 
 
-AForm* Intern::makeForm(/*const*/std::string formName, /*const*/std::string target) /*const*/{
+AForm* Intern::makeForm(const std::string formName, const std::string target) {
 
     std::string forms[3] =
         {"presidential pardon", "robotomy request", "shrubbery creation"};
