@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serial.h                                           :+:      :+:    :+:   */
+/*   Data.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -21,13 +21,21 @@
 //     //var membre 2
 // }
 
-class Serial {
+class Data {
+
+    struct	holder
+    {
+	    int x;
+	    int y;
+	    char c;
+	    bool b;
+    };
 
     public:
-        Serial(const std::string litteral);
-        ~Serial();
-        Serial(Serial & src);
-        Serial& operator=(const Serial & rhs);
+        Data(holder s);
+        ~Data();
+        Data(Data & src);
+        Data& operator=(const Data & rhs);
 
         class GradeTooHighException : public std::exception {
             public:
@@ -42,15 +50,15 @@ class Serial {
     protected:
 
     private:
-        Serial();
-        const         std::string   litteral_;
+        Data();
+        const           struct holder   s_;
         //int           intVal;
         //float         floatVal;
         //double        doubleVal;
         //std::string   error;
 };
 
-std::ostream& operator<<(std::ostream& o, const Serial& rhs);
+std::ostream& operator<<(std::ostream& o, const Data& rhs);
 
 
 #endif/* ************************************************** SERIAL_H */

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serial.cpp                                          :+:      :+:    :+:   */
+/*   Data.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,33 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serial.h"
+#include "Data.h"
 
-Serial::Serial(const std::string litteral) : litteral_(litteral) {
+Data::Data(struct holder s) : s_(s) {
 
     // if (grade < 1)
-    //     throw Serial::GradeTooHighException();
+    //     throw Data::GradeTooHighException();
     // if (grade > 150)
-    //     throw Serial::GradeTooLowException();
+    //     throw Data::GradeTooLowException();
     // else
-        std::cout << " Constructor from " << litteral_ << " \n";
+        std::cout << " Constructor from " << s_ << " \n";
    return ;
 }
 
-Serial::~Serial() {
+Data::~Data() {
 
     std::cout << " Destructor from " << litteral_ << " \n";
     return ;
 }
 
-Serial::Serial(Serial & src){
+Data::Data(Data & src){
 
     std::cout << " Constructor copy from " << litteral_ << " \n";
     *this = src;
     return ;
 }
 
-Serial& Serial::operator=(const Serial & rhs) {
+Data& Data::operator=(const Data & rhs) {
 
     // if (this != &rhs)
     // {
@@ -46,46 +46,23 @@ Serial& Serial::operator=(const Serial & rhs) {
     return (*this);
 }
 
-// const std::string Serial::getName(void) const {
 
-//     return (this->litteral_);
-// }
-
-// int Serial::getGrade(void) const {
-
-//     return (this->grade_);
-// }
-
-// void Serial::promoteGrade(int lvl) {
-
-//     if (lvl < 1)
-//         throw Serial::GradeTooHighException();
-//     else if ((grade_ - lvl) < 1)
-//         throw Serial::GradeTooHighException();
-//     else
-//         this->grade_ -= lvl;
-//    return ;
-// }
-
-// void Serial::demoteGrade(int lvl) {
-
-//     if (lvl > 150)
-//         throw Serial::GradeTooLowException();
-//     else if ((grade_ + lvl) > 150)
-//         throw Serial::GradeTooLowException();
-//     else
-//         this->grade_ += lvl;
-// }
+uintptr_t   Data::serialize(Data* ptr)
+{
+    std::cout << "Hello" << std::endl;
+//  reinterpret pointeur sur objet data, mais pas la data dedans ...
+    return (reinterpret_cast<std::uintptr_t>(&ptr));
+}
 
 //private
-Serial::Serial() : litteral_("Serial") {
+Data::Data() : litteral_("Data") {
 
     std::cout << "Constructor from " << litteral_ << " \n";
     return ;
 }
 
 //print var info to stream
-std::ostream & operator<<(std::ostream & ost, Serial const & rhs) {
+std::ostream & operator<<(std::ostream & ost, Data const & rhs) {
 
     // ost << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << ".";
     return (ost);
