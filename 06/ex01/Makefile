@@ -1,7 +1,7 @@
 NAME =		ex01
 
 SRC =		main.cpp \
-			Data.cpp
+			Serial.cpp
 
 OBJ =		$(SRC:.cpp=.o)
 

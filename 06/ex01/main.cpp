@@ -6,47 +6,33 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:07:53 by alvachon          #+#    #+#             */
-/*   Updated: 2023/10/21 15:40:32 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/10/29 14:54:24 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Data.h"
-
-//reinterpret cast. test facile.
-
-//uintptr_t
-//void * can be converted to this type and be converted back to uintptr_t
-
-    // struct	holder
-    // {
-	//     int x;
-	//     int y;
-	//     char c;
-	//     bool b;
-    // };
-
-
-
-//https://www.geeksforgeeks.org/reinterpret_cast-in-c-type-casting-operators/
-
+#include "Serial.h"
 
 int main(void)
 {
-    {
-		struct holder s;
+	Serial	s;
+	Data *ptr = new Data;
+	ptr->x = 1;
+	ptr->y = 2;
+	ptr->c = 'a';
+	ptr->b = true;
+	std::cout << ptr << std::endl;
 
-		s.x = 5;
-		s.y = 10;
-		s.c = 'a';
-		s.b = true;
+	std::uintptr_t raw = s.serialize(ptr);
+	std::cout << raw << std::endl;
 
-		try
-	   {
-		  Data holdmystruct(s);
+	ptr = s.deserialize(raw);
+	std::cout << ptr << std::endl;
 
-       }   catch (std::exception &e) {
-               std::cout << e.what() << std::endl;
-       }
-    }
+	std::cout << ptr->x << std::endl;
+	std::cout << ptr->y << std::endl;
+	std::cout << ptr->c << std::endl;
+	std::cout << ptr->b << std::endl;
+
+	delete ptr;
     return (0);
 }

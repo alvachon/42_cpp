@@ -10,55 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIAL_H
-# define SERIAL_H
+#ifndef DATA_H
+# define DATA_H
 
 #include <iostream>
-#include <string.h>
 
-// struct Data {
-//     //var membre 1
-//     //var membre 2
-// }
+typedef struct	Data
+{
+	int x;
+	int y;
+	char c;
+	bool b;
+}           Data;
 
-class Data {
-
-    struct	holder
-    {
-	    int x;
-	    int y;
-	    char c;
-	    bool b;
-    };
-
-    public:
-        Data(holder s);
-        ~Data();
-        Data(Data & src);
-        Data& operator=(const Data & rhs);
-
-        class GradeTooHighException : public std::exception {
-            public:
-                virtual const char *what() const throw(){ return "- - - - - ";}
-        };
-
-        //Take in to convert
-        uintptr_t   serialize(Data* ptr);
-        Data*       deserialize(uintptr_t raw);
-;
-
-    protected:
-
-    private:
-        Data();
-        const           struct holder   s_;
-        //int           intVal;
-        //float         floatVal;
-        //double        doubleVal;
-        //std::string   error;
-};
-
-std::ostream& operator<<(std::ostream& o, const Data& rhs);
-
-
-#endif/* ************************************************** SERIAL_H */
+#endif/* ************************************************** DATA_H */
