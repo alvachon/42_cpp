@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   base.h                                             :+:      :+:    :+:   */
+/*   Base.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 15:00:01 by alvachon          #+#    #+#             */
-/*   Updated: 2023/10/29 15:21:39 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/11/02 15:56:41 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,9 @@
 
 class Base {
     public:
-        virtual ~Base();
-
-        Base*   generate(void);
-        void    identify(Base* p);
-        void    identify(Base& p);
-
-    private:
-
+        virtual int func () = 0;
+        virtual ~Base() {};
+    
 };
 
 class A : public Base {};
