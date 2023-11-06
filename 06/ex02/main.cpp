@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 15:15:06 by alvachon          #+#    #+#             */
-/*   Updated: 2023/11/06 14:22:09 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/11/06 14:56:47 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,44 +14,50 @@
 #include "A.h"
 #include "B.h"
 #include "C.h"
-#include <cstdlib>
+//#include <cstdlib>
 #include <iostream>
-#include <string.h>
+//#include <string.h>
 #include <locale.h>
 
 Base*   generate(void)
 {
     srand(time(NULL));
     int i = rand() % 3;
-    std:: cout << i << std::endl;
     if (i == 1)
-    {
-        std:: cout << " new A()" << std::endl;
         return (new A());
-    }
     else if (i == 2)
-    {
-        std:: cout << " new B()" << std::endl;
         return (new B());
-    }
     else
-    {
-        std:: cout << " new C()" << std::endl;
         return (new C());
-    }
 };
 
 void    identify(Base* p){
-
+if (dynamic_cast<A *>(p))
+    std:: cout << " is A" << std::endl;
+else if (dynamic_cast<B *>(p))
+    std:: cout << " is B" << std::endl;
+else if (dynamic_cast<C *>(p))
+    std:: cout << " is C" << std::endl;
+else
+    std:: cout << "ERROR" << std::endl;
 };
 
 void    identify(Base& p){
-
+if (dynamic_cast<A *>(&p))
+    std:: cout << " is A" << std::endl;
+else if (dynamic_cast<B *>(&p))
+    std:: cout << " is B" << std::endl;
+else if (dynamic_cast<C *>(&p))
+    std:: cout << " is C" << std::endl;
+else
+    std:: cout << "ERROR" << std::endl;
 };
 
 int main (void)
 {
     Base *b = generate();
+    identify(b);
+    identify(* b);
+    
     delete b;
-    std:: cout << "Base * b() deleted" << std::endl;    
 };
