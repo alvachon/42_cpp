@@ -14,6 +14,15 @@
 #include <iomanip>
 #include <cerrno>
 
+/*
+space et autre charactere non imprimable -> non displayable
+-42 -> print du caca
+bound table ascii -> changer le code pour impossible, parce qu'inbound
+nan(f) -> a handle
+nan(ff) -> ok
+
+*/
+
 Convert::Convert(const std::string litteral) : litteral_(litteral) {
 
 //  if litteral have content
@@ -27,15 +36,15 @@ Convert::Convert(const std::string litteral) : litteral_(litteral) {
             this->floatVal_ = static_cast<float>(getInt());
             this->doubleVal_ = static_cast<double>(getInt());
         }
-        else if (floatLitteral() == true)
+        else if (floatLitteral() == true)//-> ajouter stoi pour avoir le rapport de out of range
         {
             this->litType_ = "float";
             this->intVal_ = std::stoi(litteral, nullptr, 10);
             this->floatVal_ = std::stof(litteral, nullptr);
+            //this->intVal_ = static_cast<int>(getFloat());
             this->intVal_ = static_cast<int>(getFloat());
             this->doubleVal_ = static_cast<double>(getFloat());
             this->charVal_ = static_cast<char>(getInt());
-           //TODO  A VERIFIER SI STOI ET CHARVAL OK ICI
         }
         else if (intLitteral() == true)
         {
@@ -91,7 +100,7 @@ const bool Convert::charLitteral(void) const
 //  if size of string is 1
     if (getLitteral().size() == 1)
     {
-//          char conversion
+//      char conversion
         const char *str = getLitteral().c_str();
         if (str[0] > 31 && str[0] < 127)
         {

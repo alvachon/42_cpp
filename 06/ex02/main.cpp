@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 15:15:06 by alvachon          #+#    #+#             */
-/*   Updated: 2023/11/06 14:56:47 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/11/06 15:26:22 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 #include "A.h"
 #include "B.h"
 #include "C.h"
-//#include <cstdlib>
 #include <iostream>
-//#include <string.h>
 #include <locale.h>
 
 Base*   generate(void)
