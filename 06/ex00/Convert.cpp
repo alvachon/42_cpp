@@ -14,18 +14,9 @@
 #include <iomanip>
 #include <cerrno>
 
-/*
-space et autre charactere non imprimable -> non displayable
--42 -> print du caca
-bound table ascii -> changer le code pour impossible, parce qu'inbound
-nan(f) -> a handle
-nan(ff) -> ok
-
-*/
-
 Convert::Convert(const std::string litteral) : litteral_(litteral) {
 
-//  if litteral have content
+//  If litteral have content
     if (getLitteral().size() != 0)
     {
         if (charLitteral() == true)
@@ -36,12 +27,10 @@ Convert::Convert(const std::string litteral) : litteral_(litteral) {
             this->floatVal_ = static_cast<float>(getInt());
             this->doubleVal_ = static_cast<double>(getInt());
         }
-        else if (floatLitteral() == true)//-> ajouter stoi pour avoir le rapport de out of range
+        else if (floatLitteral() == true && std::stoi(litteral, nullptr, 10))
         {
             this->litType_ = "float";
-            this->intVal_ = std::stoi(litteral, nullptr, 10);
             this->floatVal_ = std::stof(litteral, nullptr);
-            //this->intVal_ = static_cast<int>(getFloat());
             this->intVal_ = static_cast<int>(getFloat());
             this->doubleVal_ = static_cast<double>(getFloat());
             this->charVal_ = static_cast<char>(getInt());
@@ -50,9 +39,13 @@ Convert::Convert(const std::string litteral) : litteral_(litteral) {
         {
             this->litType_ = "int";
             this->intVal_ = std::stoi(litteral, nullptr, 10);
+            if (static_cast<int>(litteral[0]) == 45 || this->intVal_ < 33 || this->intVal_ > 126)
+               this->charVal_ = 0;
+            else
+                this->charVal_ = static_cast<char>(getInt());
             this->floatVal_ = static_cast<float>(getInt());
             this->doubleVal_ = static_cast<double>(getInt());
-            this->charVal_ = static_cast<char>(getInt());
+
         }
         else if (doubleLitteral() == true)
         {
@@ -87,7 +80,7 @@ const double & Convert::getDouble(void) const { return (this->doubleVal_); }
 
 const char & Convert::getChar(void) const
 {
-    if (this->charVal_ > 31 && this->charVal_ < 127)
+    if (this->charVal_ > 32 && this->charVal_ < 127)
         return (this->charVal_);
     else
         std::cout << "Non displayable";
@@ -100,7 +93,7 @@ const bool Convert::charLitteral(void) const
 //  if size of string is 1
     if (getLitteral().size() == 1)
     {
-//      char conversion
+//      char conversion for ascii comparaison
         const char *str = getLitteral().c_str();
         if (str[0] > 31 && str[0] < 127)
         {
@@ -128,8 +121,8 @@ const bool Convert::floatLitteral(void) const {
 
 const bool Convert::pseudoLitteral(void) const {
 
-  const std::string pseudo[3] = { "-inf", "+inf", "nan"};
-  for (int i = 0; i < 3; i++)
+  const std::string pseudo[6] = { "-inf", "-inff", "+inff", "+inf", "nan", "nanf"};
+  for (int i = 0; i < 6; i++)
   {
     if (getLitteral().compare(pseudo[i]) == 0)
         return (true);
