@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 15:15:06 by alvachon          #+#    #+#             */
-/*   Updated: 2023/11/06 15:26:22 by alvachon         ###   ########.fr       */
+/*   Updated: 2023/11/16 10:54:22 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,26 @@ else
 };
 
 void    identify(Base& p){
-if (dynamic_cast<A *>(&p))
-    std:: cout << " is A" << std::endl;
-else if (dynamic_cast<B *>(&p))
-    std:: cout << " is B" << std::endl;
-else if (dynamic_cast<C *>(&p))
-    std:: cout << " is C" << std::endl;
-else
-    std:: cout << "ERROR" << std::endl;
+
+try {
+Base & d = dynamic_cast<A &>(p);
+std::cout << " is A" << std::endl;
+}
+catch (std::exception& e) {
+    try {
+    Base & d = dynamic_cast<B &>(p);
+    std::cout << " is B" << std::endl;
+    }
+    catch (std::exception& e) {
+        try {
+        Base & d = dynamic_cast<C &>(p);
+        std::cout << " is C" << std::endl;
+        }
+        catch (std::exception& e) {
+            std::cout << e.what() << std::endl;
+            }
+        }
+    }
 };
 
 int main (void)
@@ -56,6 +68,5 @@ int main (void)
     Base *b = generate();
     identify(b);
     identify(* b);
-    
     delete b;
 };
