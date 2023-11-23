@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:40:44 by alvachon          #+#    #+#             */
-/*   Updated: 2023/11/23 14:26:34 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/23 14:51:01 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 
 int main( void )
 {
-	int tableau[]			= {1, 2, 3};
-	std::string arrStr[] 	= {"Hello", "World", "!"};
-
-	iter(tableau, sizeof(tableau)/sizeof(int), ident<int>);
-	iter(arrStr, sizeof(arrStr)/sizeof(std::string), ident<std::string>);
+	Array<std::string>	arrStr(3);
 
 	return 0;
 }

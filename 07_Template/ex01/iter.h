@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:41:20 by alvachon          #+#    #+#             */
-/*   Updated: 2023/11/23 14:15:51 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/23 14:43:49 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,18 @@
 
 #include <iostream>
 #include <string>
+
+class iter {
+
+    public:
+        iter(const std::string target);
+        virtual ~iter();
+        iter(iter & src, const std::string target);
+        iter& operator=(const iter & rhs);
+
+    private:
+        iter();
+};
 
 template<typename Function>
 void ident(Function target)

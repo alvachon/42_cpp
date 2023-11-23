@@ -6,12 +6,11 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:40:44 by alvachon          #+#    #+#             */
-/*   Updated: 2023/11/23 14:18:04 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/23 14:36:35 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "iter.h"
-
 
 int main( void )
 {
@@ -20,5 +19,6 @@ int main( void )
 
 	iter(tableau, sizeof(tableau)/sizeof(int), ident<int>);
 	iter(arrStr, sizeof(arrStr)/sizeof(std::string), ident<std::string>);
+
 	return 0;
 }
