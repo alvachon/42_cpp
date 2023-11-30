@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Array.h                                            :+:      :+:    :+:   */
+/*   MutantStack.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:41:20 by alvachon          #+#    #+#             */
-/*   Updated: 2023/11/23 14:50:56 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/30 19:45:40 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ARRAY_H
-# define ARRAY_H
+#ifndef MUTANTSTACK_H
+# define MUTANTSTACK_H
 
 #include <iostream>
 #include <string>
 
 template<typename Function>
-class Array {
+class MutantStack {
 
     public:
-        Array();
-        virtual ~Array();
-        Array(Array & src, const std::string target);
-        Array& operator=(const Array & rhs);
+        MutantStack();
+        virtual ~MutantStack();
+        MutantStack(MutantStack & src, const std::string target);
+        MutantStack& operator=(const MutantStack & rhs);
 
     private:
-        Array();
+        MutantStack();
 };
 
-#endif/* ************************************************** ARRAY_H */
+#endif/* ************************************************** MUTANTSTACK_H */

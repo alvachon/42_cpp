@@ -6,15 +6,13 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:40:44 by alvachon          #+#    #+#             */
-/*   Updated: 2023/11/23 14:51:01 by codespace        ###   ########.fr       */
+/*   Updated: 2023/11/30 19:45:59 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Array.h"
+#include "MutantStack.h"
 
 int main( void )
 {
-	Array<std::string>	arrStr(3);
-
 	return 0;
 }
