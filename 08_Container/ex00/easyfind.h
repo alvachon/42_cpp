@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:41:20 by alvachon          #+#    #+#             */
-/*   Updated: 2023/11/30 19:46:49 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/09 19:13:11 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 # define EASYFIND_H
 
 #include <iostream>
+#include <algorithm>
+#include <vector>
+#include <list>
+#include <deque>
 
-class easyfind {
+/*class easyfind {
 
     public:
         easyfind(const std::string target);
@@ -25,7 +29,19 @@ class easyfind {
 
     private:
         easyfind();
-};
+};*/
+
+template <typename T>
+int easyfind(T &container, int target)
+{
+    typename T::iterator it;
+
+    it = std::find(container.begin(), container.end(), target);
+    if (it != container.end())
+        return (*it);
+    else
+        throw std::exception();
+}
 
 
 #endif/* ************************************************** EASYFIND_H */

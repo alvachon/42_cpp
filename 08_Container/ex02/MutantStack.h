@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:41:20 by alvachon          #+#    #+#             */
-/*   Updated: 2023/11/30 19:45:40 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/09 20:32:12 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,26 @@
 
 #include <iostream>
 #include <string>
+#include <stack>
+#include <iterator>
+#include <algorithm>
+#include <deque>
 
-template<typename Function>
-class MutantStack {
+template<typename T>
+class MutantStack : public std::stack<T>{
 
     public:
-        MutantStack();
-        virtual ~MutantStack();
-        MutantStack(MutantStack & src, const std::string target);
-        MutantStack& operator=(const MutantStack & rhs);
+        MutantStack() : std::stack<T>() {}
+        ~MutantStack() {}
+        MutantStack(MutantStack const & src) : std::stack<T>(src) {}
+        MutantStack& operator=(const MutantStack & rhs) { std::stack<T>::operator=(rhs); return *this; }
 
-    private:
-        MutantStack();
+        typedef typename std::stack<T>::container_type::iterator iterator;
+        iterator begin() { return std::stack<T>::c.begin(); }
+        iterator end() { return std::stack<T>::c.end(); }
+
 };
+
+
 
 #endif/* ************************************************** MUTANTSTACK_H */

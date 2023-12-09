@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:41:20 by alvachon          #+#    #+#             */
-/*   Updated: 2023/11/30 19:43:54 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/09 19:45:47 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,26 @@
 # define SPAN_H
 
 #include <iostream>
+#include <algorithm>
 #include <string>
+#include <vector>
 
-class span {
+class Span {
 
     public:
-        span(const std::string target);
-        virtual ~span();
-        span(span & src, const std::string target);
-        span& operator=(const span & rhs);
+        Span(unsigned int N);
+        ~Span();
+        Span(Span & src, unsigned int N);
+        Span& operator=(const Span & rhs);
+
+        void addNumber(unsigned int N);
+        int shortestSpan(void);
+        int longestSpan(void);
 
     private:
-        span();
+        Span();
+        unsigned int     _N;
+        std::vector<int> _v;
 };
 
 #endif/* ************************************************** SPAN_H */
