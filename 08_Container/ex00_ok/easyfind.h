@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:41:20 by alvachon          #+#    #+#             */
-/*   Updated: 2023/12/09 19:13:11 by codespace        ###   ########.fr       */
+/*   Updated: 2024/03/26 19:04:43 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,6 @@
 #include <vector>
 #include <list>
 #include <deque>
-
-/*class easyfind {
-
-    public:
-        easyfind(const std::string target);
-        virtual ~easyfind();
-        easyfind(easyfind & src, const std::string target);
-        easyfind& operator=(const easyfind & rhs);
-
-    private:
-        easyfind();
-};*/
 
 template <typename T>
 int easyfind(T &container, int target)
